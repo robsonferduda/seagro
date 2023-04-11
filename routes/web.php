@@ -13,5 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','App\Http\Controllers\HomeController@index');
+Route::get('/','App\Http\Controllers\PaginaController@index');
+
+Route::get('conteudo/{nome}','PaginaController@buscar');
+
+Route::get('destaque/boletim','PaginaController@destaque');
+
 Route::post('email/contato','App\Http\Controllers\EmailController@contato');

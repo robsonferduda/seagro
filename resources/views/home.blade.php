@@ -144,7 +144,39 @@
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section>
+
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 text-center">
+            <a href="https://www.calameo.com/read/00248232127e9f78e70dd"> 
+              <h4>Revista 30 Anos SEAGRO</h4>
+              <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100" alt="Slide 1">
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <a href=" {{ url('destaque/boletim') }}">
+              <h4>Boletim SEAGRO-SC</h4>
+              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100" alt="Slide 1">
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <a href=" {{ url('destaque/revista') }}">
+              <h4>Linha do Tempo</h4>
+              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100" alt="Slide 1">
+            </a>
+          </div>
+          <div class="col-lg-3 col-md-6 text-center">
+            <a href=" {{ url('destaque/revista') }}">
+              <h4>Controbuição Sindical</h4>
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100" alt="Slide 1">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <section id="services" class="services">
       <div class="container">
@@ -212,6 +244,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-12 text-center">
+              <a href="{{ url('eventos/todos') }}">Veja agenda completa</a>
             </div>
             </div>
           </div>

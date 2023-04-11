@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\PaginaController@index');
 
-Route::get('conteudo/{nome}','PaginaController@buscar');
+Route::get('conteudo/{nome}','App\Http\Controllers\PaginaController@buscar');
 
-Route::get('destaque/boletim','PaginaController@destaque');
+Route::get('destaque/{nome}','App\Http\Controllers\PaginaController@destaque');
 
 Route::post('email/contato','App\Http\Controllers\EmailController@contato');

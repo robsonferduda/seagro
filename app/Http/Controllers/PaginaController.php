@@ -18,8 +18,13 @@ class PaginaController extends Controller
         return view('home');
     }
 
-    public function destaque()
+    public function destaque($pagina)
     {
+
+        if($pagina == 'boletim')
+            return view('destaque/boletim');
+
+
         return view('home');
     }
 }

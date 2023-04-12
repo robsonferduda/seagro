@@ -59,7 +59,7 @@
     </div>
   </section>
 
-  <div style="background: #255783">
+  <div style="background: #255783" class="d-none d-md-block d-lg-block">
   <div class="container">
   <section class="d-flex align-items-center" style="padding: 25px !important; background: #255783;">
     <div class="row" style=" position: relative;">
@@ -68,9 +68,11 @@
         <h2 style="margin-left: 195px; color: #fff; margin-top: 45px;" class="d-none d-lg-block">SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA</h2>
         <p style="margin-left: 195px; color: #fff;" class="d-none d-lg-block">Desde 29 de abril de 1983 defendendo, representando, fortalecendo e valorizando a categoria</p>
       </div>
+      <!--
       <div class="col-md-12 d-lg-none text-center" style="min-height: 160px;">
         <a href="{{ url('/') }}"><img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid"></a>
       </div>
+    -->
     </div>     
   </section>
   </div>
@@ -81,7 +83,7 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-      
+        <a href="{{ url('/') }}"><img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar">

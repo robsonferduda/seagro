@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pagina;
 use Illuminate\Http\Request;
 
 class PaginaController extends Controller
@@ -26,5 +27,12 @@ class PaginaController extends Controller
 
 
         return view('home');
+    }
+
+    public function buscar($pagina)
+    {
+        $pagina = Pagina::where('apelido', $pagina)->first();
+
+        dd($pagina);
     }
 }

@@ -44,7 +44,7 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center" style="border-bottom: none; background-color: #0f1f2c;">
+  <section id="topbar" class="d-flex align-items-center" style="border-bottom: none; background-color: #336693;">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">seagro@seagro-sc.org.br</a>

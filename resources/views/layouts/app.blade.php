@@ -24,6 +24,8 @@
   <link href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -57,18 +59,20 @@
     </div>
   </section>
 
-  <div style="background: #154166">
+  <div style="background: #154166" class="d-none d-md-block d-lg-block">
   <div class="container">
   <section class="d-flex align-items-center" style="padding: 25px !important; background: #154166;">
     <div class="row" style=" position: relative;">
       <div class="col-md-12 d-none d-lg-block" style="min-height: 160px;">
-        <img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid" style="width: 160px; position: absolute;">
+        <a href="{{ url('/') }}"><img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid" style="width: 160px; position: absolute;"></a>
         <h2 style="margin-left: 195px; color: #fff; margin-top: 45px;" class="d-none d-lg-block">SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA</h2>
         <p style="margin-left: 195px; color: #fff;" class="d-none d-lg-block">Desde 29 de abril de 1983 defendendo, representando, fortalecendo e valorizando a categoria</p>
       </div>
+      <!--
       <div class="col-md-12 d-lg-none text-center" style="min-height: 160px;">
-        <img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid">
+        <a href="{{ url('/') }}"><img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid"></a>
       </div>
+    -->
     </div>     
   </section>
   </div>
@@ -79,24 +83,50 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
-      
+        <a href="{{ url('/') }}"><img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">O Sindicato</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>O Sindicato</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Apresentação</a></li>
-              <li><a href="#">Estrutura Organizacional</a></li>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Apresentação</a></li>
+              <li><a href="{{ url('conteudo/estrutura-organizacional') }}">Estrutura Organizacional</a></li>
+              <li><a href="{{ url('conteudo/relatorios-financeiros') }}">Relatórios Financeiros</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#about">Serviços</a></li>
-          <li><a class="nav-link scrollto" href="#services">Campanha Salarial</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Acordos e Convenções</a></li>
-          <li><a class="nav-link scrollto" href="#team">Contribuições</a></li>
-          <li><a class="nav-link scrollto" href="#team">Publicações</a></li>
-          <li><a class="nav-link scrollto" href="#team">Legislação</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('conteudo/estatuto-social') }}">Estatuto Social</a></li>
+          <li class="dropdown"><a href="#"><span>Diretoria</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Executiva</a></li>
+              <li><a href="{{ url('conteudo/estrutura-organizacional') }}">Conselho Fiscal</a></li>
+              <li><a href="{{ url('conteudo/relatorios-financeiros') }}">Regional</a></li>
+              <li><a href="{{ url('conteudo/relatorios-financeiros') }}">Representante junto à Fisenge</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Atualização de Dados</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Sindical</a></li>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Social</a></li>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Assistencial</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Acordos e Convenções</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{{ url('conteudo/apresentacao') }}">O que é ACT e CCT</a></li>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Empresas Publicas</a></li>
+              <li><a href="{{ url('conteudo/apresentacao') }}">Empresas Privadas</a></li>
+              <li><a href="{{ url('conteudo/apresentacao') }}">CREA-SC</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="{{ url('conteudo/campanha-salarial') }}">Campanha Salarial</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('conteudo/legislacao') }}">Legislação</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('conteudo/publicacoes') }}">Publicações</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -118,51 +148,36 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3>Mamba</h3>
+            <h3>Seagro-SC</h3>
             <p>
-              A108 Adam Street <br>
-              NY 535022, USA<br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Rua Adolfo Melo, 35 - Centro Executivo Via Veneto - Sala 1002 - Centro<br>
+              Cep: 88.015-090 - Florianópolis/SC<br><br>
+              <strong>Telefone:</strong> (48) 3224-5681<br>
+              <strong>Email:</strong> seagro@seagro-sc.org.br<br>
             </p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>O Sindicato</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Apresentação</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Estrutura Organizacional</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Relatórios Finencairos</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Contribuições</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sindical</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Social</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Assistencial</a></li>
             </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
           </div>
 
         </div>
@@ -171,15 +186,9 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Mamba</span></strong>. All Rights Reserved
+        &copy; Todos os direitos reservados <strong><span>SEAGRO-SC</span></strong> 2013
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      
     </div>
   </footer><!-- End Footer -->
 

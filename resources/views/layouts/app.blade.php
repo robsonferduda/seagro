@@ -42,7 +42,7 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center" style="border-bottom: none; background-color: #154166;">
+  <section id="topbar" class="d-flex align-items-center" style="border-bottom: none; background-color: #0f1f2c;">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
         <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">seagro@seagro-sc.org.br</a>
@@ -57,9 +57,9 @@
     </div>
   </section>
 
-  <div style="background: #255783">
+  <div style="background: #154166">
   <div class="container">
-  <section class="d-flex align-items-center" style="padding: 25px !important; background: #255783;">
+  <section class="d-flex align-items-center" style="padding: 25px !important; background: #154166;">
     <div class="row" style=" position: relative;">
       <div class="col-md-12 d-none d-lg-block" style="min-height: 160px;">
         <img src="{{ asset('img/logo-seagro.png') }}" alt="" class="img-fluid" style="width: 160px; position: absolute;">

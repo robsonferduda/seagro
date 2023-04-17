@@ -214,7 +214,7 @@
     <section id="services" class="services">
       <div class="container">
         <div class="section-title">
-          <h2>Agenda de Cursos e Eventos</h2>
+          <h2 class="title" style="font-size: 28px;">Agenda de Cursos e Eventos</h2>
         </div>
         <div class="row">
           <div class="container">
@@ -230,7 +230,7 @@
                                     </div>
                                     <div class="widget-49-meeting-info mt-3">
                                         <span class="widget-49-pro-title"><a href="">Eleição Conselheiros junto ao CREA-SC</a></span>
-                                        <span class="widget-49-meeting-time">15/12/2022 - 17:00</span>
+                                        <span>15/12/2022 - 17:00</span>
                                         <p class="text-primary">ONLINE</p>
                                     </div>
                                 </div>
@@ -250,8 +250,8 @@
                                   </div>
                                   <div class="widget-49-meeting-info mt-3">
                                       <span class="widget-49-pro-title"><a href="">Assembléia Geral</a></span>
-                                      <span class="widget-49-meeting-time">28/10/2022 - 17:00</span>
-                                      <p class="text-success">PRESENCIAL</p>
+                                      <span class="">28/10/2022 - 17:00</span>
+                                      <p style="color: #17d1bd" >PRESENCIAL</p>
                                   </div>
                               </div>
                           </div>
@@ -270,7 +270,7 @@
                                 </div>
                                 <div class="widget-49-meeting-info mt-3">
                                     <span class="widget-49-pro-title"><a href="">Assembleia Geral Extraordinária Virtual - Negociações CONAB / FISENGE</a></span>
-                                    <span class="widget-49-meeting-time">06/08/2022 - 17:00</span>
+                                    <span class="">06/08/2022 - 17:00</span>
                                     <p class="text-primary">ONLINE</p>
                                 </div>
                             </div>

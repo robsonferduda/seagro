@@ -32,7 +32,6 @@ class PaginaController extends Controller
     public function buscar($pagina)
     {
         $pagina = Pagina::where('apelido', $pagina)->first();
-
-        dd($pagina);
+        return view('paginas/conteudo', compact('pagina'));
     }
 }

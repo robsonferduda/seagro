@@ -3,7 +3,7 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>Contato</h2>
+        <h2 class="title">Contato</h2>
       </div>
 
       <div class="row">

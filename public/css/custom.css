@@ -306,3 +306,20 @@
 .widget-49 .widget-49-meeting-action a {
   text-transform: uppercase;
 }
+
+.img-radius{
+  border-radius: 15px;
+}
+
+.carousel-caption{
+  background: #428bca !important;
+  opacity: 0.8 !important;
+  right: 0px !important;
+  left: 0px !important;
+  font-size: 14px;
+  bottom: 0px !important;
+}
+
+.carousel-item{
+  min-height: 283px;
+}

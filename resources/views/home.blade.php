@@ -20,26 +20,26 @@
               <!-- Wrapper for carousel items -->
               <div class="carousel-inner">
                   <div class="carousel-item">
-                      <img src="{{ asset('img/slides/foto-1.jpg') }}" class="d-block w-100" alt="Slide 1">
+                      <img src="{{ asset('img/slides/pequeno-bottom/evento_1.jpeg') }}" class="d-block w-100" alt="Slide 1">
                       <div class="carousel-caption d-none d-md-block">
-                          <h5>First slide label</h5>
-                          <p>Some demonstrative placeholder content for the first slide.</p>
+                          <h5></h5>
+                          <p>PRIMEIRA REUNIÃO DE NEGOCIAÇÃO DA CAMPANHA SALARIAL 2023/2024 COM SAR E EMPRESAS</p>
                       </div>
                   </div>
 
                   <div class="carousel-item">
-                    <img src="{{ asset('img/slides/foto-2.jpg') }}" class="d-block w-100" alt="Slide 1">
+                    <img src="{{ asset('img/slides/pequeno-bottom/evento_2.jpeg') }}" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some demonstrative placeholder content for the first slide.</p>
+                        <h5></h5>
+                        <p>SINDICATOS DOS TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PELO ATRASO DAS NEGOCIAÇÕES POR PARTE DO GOVERNO DE SC</p>
                     </div>
                 </div>
 
                 <div class="carousel-item active">
-                  <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 1">
+                  <img src="{{ asset('img/slides/pequeno-bottom/evento_3.jpeg') }}" class="d-block w-100" alt="Slide 1">
                   <div class="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some demonstrative placeholder content for the first slide.</p>
+                      <h5></h5>
+                      <p>TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PEDINDO RESPEITO À DATA-BASE - 1º DE MAIO</p>
                   </div>
               </div>
                   
@@ -167,7 +167,7 @@
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="fa fa-group"></i></div>
             <h4 class="title"><a href="">Imposto Sindical</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <p class="description">Acesse Aqui</p>
           </div>
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><i class="fa fa-check"></i></div>
@@ -185,25 +185,25 @@
           <div class="col-lg-3 col-md-6 text-center">
             <a href="https://www.calameo.com/read/00248232127e9f78e70dd"> 
               <h4>Revista 30 Anos SEAGRO</h4>
-              <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/boletim') }}">
               <h4>Boletim SEAGRO-SC</h4>
-              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
               <h4>Linha do Tempo</h4>
-              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
               <h4>Controbuição Sindical</h4>
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
         </div>

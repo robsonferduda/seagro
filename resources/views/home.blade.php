@@ -167,7 +167,7 @@
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="fa fa-group"></i></div>
             <h4 class="title"><a href="">Imposto Sindical</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <p class="description">Clique aqui para acessar</p>
           </div>
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><i class="fa fa-check"></i></div>
@@ -175,35 +175,36 @@
             <p class="description">Quando preencher sua ART, indique o Seagro: COD 21</p>
           </div>
         </div>
+        
 
       </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="services" class="services destaques">
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
             <a href="https://www.calameo.com/read/00248232127e9f78e70dd"> 
               <h4>Revista 30 Anos SEAGRO</h4>
-              <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100 border-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/boletim') }}">
               <h4>Boletim SEAGRO-SC</h4>
-              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 border-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
               <h4>Linha do Tempo</h4>
-              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 border-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
-              <h4>Controbuição Sindical</h4>
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100" alt="Slide 1">
+              <h4>Contribuição Sindical</h4>
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 border-radius" alt="Slide 1">
             </a>
           </div>
         </div>

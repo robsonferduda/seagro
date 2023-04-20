@@ -940,17 +940,6 @@ section {
   left: calc(50% - 25px);
 }
 
-.section-title .title::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 2px;
-  background: #428bca;
-  bottom: 0;
-  left: calc(50% - 25px);
-}
-
 .services .description {
   line-height: 24px;
   font-size: 14px;

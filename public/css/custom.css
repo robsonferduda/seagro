@@ -307,10 +307,6 @@
   text-transform: uppercase;
 }
 
-<<<<<<< HEAD
-.border-radius{
-  border-radius: 15px;
-=======
 .img-radius{
   border-radius: 15px;
 }
@@ -326,5 +322,4 @@
 
 .carousel-item{
   min-height: 283px;
->>>>>>> 1687ac93ce111393ba726af9ee41a3a29348de43
 }

@@ -9,7 +9,7 @@ class Pagina extends Model
 {
     use SoftDeletes;
 
-    protected $connection = 'mysql';
+    protected $connection = 'pgsql';
     protected $table = 'pagina';
 
     protected $fillable = ['id'];

@@ -307,6 +307,24 @@
   text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 .border-radius{
   border-radius: 15px;
+=======
+.img-radius{
+  border-radius: 15px;
+}
+
+.carousel-caption{
+  background: #428bca !important;
+  opacity: 0.8 !important;
+  right: 0px !important;
+  left: 0px !important;
+  font-size: 14px;
+  bottom: 0px !important;
+}
+
+.carousel-item{
+  min-height: 283px;
+>>>>>>> 1687ac93ce111393ba726af9ee41a3a29348de43
 }

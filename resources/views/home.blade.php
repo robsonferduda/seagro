@@ -19,13 +19,7 @@
               
               <!-- Wrapper for carousel items -->
               <div class="carousel-inner">
-                  <div class="carousel-item">
-                      <img src="{{ asset('img/slides/pequeno-bottom/evento_1.jpeg') }}" class="d-block w-100" alt="Slide 1">
-                      <div class="carousel-caption d-none d-md-block">
-                          <h5></h5>
-                          <p>PRIMEIRA REUNIÃO DE NEGOCIAÇÃO DA CAMPANHA SALARIAL 2023/2024 COM SAR E EMPRESAS</p>
-                      </div>
-                  </div>
+                  
 
                   <div class="carousel-item">
                     <img src="{{ asset('img/slides/pequeno-bottom/evento_2.jpeg') }}" class="d-block w-100" alt="Slide 1">
@@ -36,10 +30,10 @@
                 </div>
 
                 <div class="carousel-item active">
-                  <img src="{{ asset('img/slides/pequeno-bottom/evento_3.jpeg') }}" class="d-block w-100" alt="Slide 1">
+                  <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 1">
                   <div class="carousel-caption d-none d-md-block">
                       <h5></h5>
-                      <p>TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PEDINDO RESPEITO À DATA-BASE - 1º DE MAIO</p>
+                      <p></p>
                   </div>
               </div>
                   
@@ -67,26 +61,20 @@
                 <div class="carousel-item active">
                     <img src="{{ asset('img/slides/foto-1.jpg') }}" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some demonstrative placeholder content for the first slide.</p>
+                        <h5></h5>
+                        <p></p>
                     </div>
                 </div>
 
                 <div class="carousel-item">
                   <img src="{{ asset('img/slides/foto-2.jpg') }}" class="d-block w-100" alt="Slide 1">
                   <div class="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some demonstrative placeholder content for the first slide.</p>
+                      <h5></h5>
+                      <p></p>
                   </div>
               </div>
 
-              <div class="carousel-item">
-                <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some demonstrative placeholder content for the first slide.</p>
-                </div>
-            </div>
+           
                 
             </div>
     
@@ -114,25 +102,25 @@
               
               <!-- Wrapper for carousel items -->
               <div class="carousel-inner">
-                  <div class="carousel-item">
-                      <img src="{{ asset('img/slides/foto-1.jpg') }}" class="d-block w-100" alt="Slide 1">
+                  <div class="carousel-item carousel-principal">
+                      <img src="{{ asset('img/slides/foto-2.jpg') }}" class="d-block w-100" alt="Slide 1">
                       <div class="carousel-caption d-none d-md-block">
-                          <h5>Assembleia Geral Virtual</h5>
-                          <p>Dia 05/04/2023</p>
+                          <h5></h5>
+                          <p>SEAGRO 40 Anos</p>
                       </div>
                   </div>
-                  <div class="carousel-item active">
-                      <img src="{{ asset('img/slides/foto-2.jpg') }}" class="d-block w-100" alt="Slide 2">
+                  <div class="carousel-item carousel-principal active">
+                      <img src="{{ asset('img/slides/pequeno-bottom/evento_3.jpeg') }}" class="d-block w-100" alt="Slide 2">
                       <div class="carousel-caption d-none d-md-block">
-                          <h5>Primeira reunião de negociação da Campanha Salarial 2023/2024 com SAR e Empresas</h5>
-                          <p>Some demonstrative placeholder content for the second slide.</p>
+                          <h5></h5>
+                          <p>TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PEDINDO RESPEITO À DATA-BASE - 1º DE MAIO.</p>
                       </div>
                   </div>
-                  <div class="carousel-item">
-                      <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 3">
+                  <div class="carousel-item carousel-principal">
+                      <img src="{{ asset('img/slides/pequeno-bottom/evento_1.jpeg') }}" class="d-block w-100" alt="Slide 3">
                       <div class="carousel-caption d-none d-md-block">
-                          <h5>Nota de Repúdio</h5>
-                          <p>Nota de Repúdio do SEAGRO-SC ao Projeto de Lei 3.081/ 2022, que visa desregulamentar a engenharia, a agronomia e diversas profissões</p>
+                          <h5></h5>
+                          <p>PRIMEIRA REUNIÃO DE NEGOCIAÇÃO DA CAMPANHA SALARIAL 2023/2024 COM SAR E EMPRESAS</p>
                       </div>
                   </div>
               </div>

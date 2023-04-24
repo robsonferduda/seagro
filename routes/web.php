@@ -17,6 +17,8 @@ Route::get('/','App\Http\Controllers\PaginaController@index');
 
 Route::get('conteudo/{nome}','App\Http\Controllers\PaginaController@buscar');
 
+Route::get('eventos/pesencial/sessao-solene-alesc','App\Http\Controllers\PaginaController@evento');
+
 Route::get('destaque/{nome}','App\Http\Controllers\PaginaController@destaque');
 
 Route::post('email/contato','App\Http\Controllers\EmailController@contato');

@@ -2,7 +2,6 @@
 @section('content')
 
 <main id="main">
-
     <section style="padding: 10px 0;">
       <div class="container">
 
@@ -10,32 +9,38 @@
           <div class="col-lg-4" style="padding: 3px !important;">
 
             <div id="slide-tbottm-left" class="carousel slide mb-1" data-bs-ride="carousel">
-              <!-- Carousel indicators -->
+              
               <ol class="carousel-indicators">
                   <li data-bs-target="#slide-1" data-bs-slide-to="0" ></li>
                   <li data-bs-target="#slide-1" data-bs-slide-to="1"></li>
                   <li data-bs-target="#slide-1" data-bs-slide-to="2" class="active"></li>
-              </ol>
+              </ol>              
               
-              <!-- Wrapper for carousel items -->
               <div class="carousel-inner">
-                  
 
+                  <div class="carousel-item active">
+                    <img src="{{ asset('img/slides/pequeno-bottom/convite.jpeg') }}" class="d-block w-100" alt="Slide 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+                  </div>
+                  
                   <div class="carousel-item">
                     <img src="{{ asset('img/slides/pequeno-bottom/evento_2.jpeg') }}" class="d-block w-100" alt="Slide 1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5></h5>
                         <p>SINDICATOS DOS TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PELO ATRASO DAS NEGOCIAÇÕES POR PARTE DO GOVERNO DE SC</p>
                     </div>
-                </div>
-
-                <div class="carousel-item active">
-                  <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 1">
-                  <div class="carousel-caption d-none d-md-block">
-                      <h5></h5>
-                      <p></p>
                   </div>
-              </div>
+
+                  <div class="carousel-item active">
+                    <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5></h5>
+                        <p></p>
+                    </div>
+                  </div>
                   
               </div>
       
@@ -208,6 +213,27 @@
         <div class="row">
           <div class="container">
             <div class="row">
+
+                <div class="col-lg-12">
+                  <div class="">               
+                      <div class="pt-0">
+                          <div class="widget-49">
+                              <div class="widget-49-title-wrapper">
+                                  <div class="widget-49-date-success">
+                                      <span class="widget-49-date-day">27</span>
+                                      <span class="widget-49-date-month">ABR</span>
+                                  </div>
+                                  <div class="widget-49-meeting-info mt-3">
+                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/pesencial/sessao-solene-alesc') }}">Sessão solene na Alesc em homenagem aos 40 anos do SEAGRO-SC</a></span>
+                                      <span>27/04/2023 - 19:00</span>
+                                      <p style="color: #17d1bd" >PRESENCIAL</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
                 <div class="col-lg-12">
                     <div class="">               
                         <div class="pt-0">

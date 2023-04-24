@@ -29,6 +29,11 @@ class PaginaController extends Controller
         return view('home');
     }
 
+    public function evento()
+    {
+        return view('eventos');
+    }
+
     public function buscar($pagina)
     {
         $pagina = Pagina::where('apelido', $pagina)->first();

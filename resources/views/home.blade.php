@@ -178,25 +178,21 @@
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
             <a href="https://www.calameo.com/read/00248232127e9f78e70dd"> 
-              <h4>Revista 30 Anos SEAGRO</h4>
               <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/boletim') }}">
-              <h4>Boletim SEAGRO-SC</h4>
               <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
-              <h4>Linha do Tempo</h4>
               <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
-              <h4>Controbuição Sindical</h4>
               <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
@@ -302,24 +298,19 @@
       </div>
     </section>
 
-    <section>
+    <section class="services">
       <div class="container">
+        <div class="section-title">
+          <h2 class="title" style="font-size: 28px;">Filiações</h2>
+        </div>
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
             <a href="https://fisenge.org.br" target="blank"><img src="{{ asset('img/logos/fisenge.jpg') }}" class="img-fluid" alt=""></a>
           </div>
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+          <div class="col-lg-6 col-md-6" data-aos="fade-up">
             <a href="http://www.dieese.org.br" target="blank"><img src="{{ asset('img/logos/dieese.jpg') }}" class="img-fluid" alt=""></a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-            <a href="https://www.confea.org.br" target="blank"><img src="{{ asset('img/logos/confea.jpg') }}" class="img-fluid" alt=""></a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-            <a href="https://www.crea-sc.org.br" target="blank"><img src="{{ asset('img/logos/crea-sc.jpg') }}" class="img-fluid" alt=""></a>
           </div>
 
         </div>

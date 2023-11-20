@@ -36,9 +36,6 @@ class PaginaController extends Controller
 
     public function buscar($pagina)
     {
-
-        phpinfo();
-
         $pagina = Pagina::where('apelido', $pagina)->first();
         return view('paginas/conteudo', compact('pagina'));
     }

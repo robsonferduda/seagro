@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pagina;
 use Illuminate\Http\Request;
 
-class PaginaController extends Controller
+class NoticiaController extends Controller
 {
     public function __construct()
     {
@@ -22,20 +22,11 @@ class PaginaController extends Controller
     public function destaque($pagina)
     {
 
-        switch ($pagina) {
-            case 'boletim':
-                return view('destaque/boletim');
-                break;
+        if($pagina == 'boletim')
+            return view('destaque/boletim');
 
-            case 'contribuicao-sindical':
-                return view('destaque/contribuicao');
-                break;
-            
-            default:
-                return view('home');
-                break;
-        }
 
+        return view('home');
     }
 
     public function buscar($pagina)

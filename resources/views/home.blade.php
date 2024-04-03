@@ -1,153 +1,28 @@
 @extends('layouts.app')
 @section('content')
-
 <main id="main">
-
     <section style="padding: 10px 0;">
       <div class="container">
+          <div class="row no-gutters">
+                           
 
-        <div class="row no-gutters">
-          <div class="col-lg-4" style="padding: 3px !important;">
-
-            <div id="slide-tbottm-left" class="carousel slide mb-1" data-bs-ride="carousel">
-              <!-- Carousel indicators -->
-              <ol class="carousel-indicators">
-                  <li data-bs-target="#slide-1" data-bs-slide-to="0" ></li>
-                  <li data-bs-target="#slide-1" data-bs-slide-to="1"></li>
-                  <li data-bs-target="#slide-1" data-bs-slide-to="2" class="active"></li>
-              </ol>
-              
-              <!-- Wrapper for carousel items -->
-              <div class="carousel-inner">
-                  <div class="carousel-item">
-                      <img src="{{ asset('img/slides/pequeno-bottom/evento_1.jpeg') }}" class="d-block w-100" alt="Slide 1">
-                      <div class="carousel-caption d-none d-md-block">
-                          <h5></h5>
-                          <p>PRIMEIRA REUNIÃO DE NEGOCIAÇÃO DA CAMPANHA SALARIAL 2023/2024 COM SAR E EMPRESAS</p>
-                      </div>
-                  </div>
-
-                  <div class="carousel-item">
-                    <img src="{{ asset('img/slides/pequeno-bottom/evento_2.jpeg') }}" class="d-block w-100" alt="Slide 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5></h5>
-                        <p>SINDICATOS DOS TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PELO ATRASO DAS NEGOCIAÇÕES POR PARTE DO GOVERNO DE SC</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item active">
-                  <img src="{{ asset('img/slides/pequeno-bottom/evento_3.jpeg') }}" class="d-block w-100" alt="Slide 1">
-                  <div class="carousel-caption d-none d-md-block">
-                      <h5></h5>
-                      <p>TRABALHADORES DAS EMPRESAS PÚBLICAS AGRÍCOLAS PROTESTAM PEDINDO RESPEITO À DATA-BASE - 1º DE MAIO</p>
-                  </div>
-              </div>
-                  
-              </div>
+             
+                <div class="col-lg-4" style="padding: 3px !important;">
       
-              <!-- Carousel controls -->
-              <a class="carousel-control-prev" href="#slide-1" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a class="carousel-control-next" href="#slide-1" data-bs-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-              </a>
-          </div>
-
-          <div id="slide-top-left" class="carousel slide" data-bs-ride="carousel">
-            <!-- Carousel indicators -->
-            <ol class="carousel-indicators">
-                <li data-bs-target="#slide-1" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#slide-1" data-bs-slide-to="1"></li>
-                <li data-bs-target="#slide-1" data-bs-slide-to="2"></li>
-            </ol>
-            
-            <!-- Wrapper for carousel items -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/slides/foto-1.jpg') }}" class="d-block w-100" alt="Slide 1">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some demonstrative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                  <img src="{{ asset('img/slides/foto-2.jpg') }}" class="d-block w-100" alt="Slide 1">
-                  <div class="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some demonstrative placeholder content for the first slide.</p>
-                  </div>
-              </div>
-
-              <div class="carousel-item">
-                <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some demonstrative placeholder content for the first slide.</p>
-                </div>
-            </div>
+                  @include("carrossel/pequeno_superior")
+                  @include("carrossel/pequeno_inferior")
+      
                 
-            </div>
-    
-            <!-- Carousel controls -->
-            <a class="carousel-control-prev" href="#slide-1" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#slide-1" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-            
-          </div>
-
-
-
-          <div class="col-lg-8" style="padding: 3px !important;">
-            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-              <!-- Carousel indicators -->
-              <ol class="carousel-indicators">
-                  <li data-bs-target="#myCarousel" data-bs-slide-to="0"></li>
-                  <li data-bs-target="#myCarousel" data-bs-slide-to="1" class="active"></li>
-                  <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
-              </ol>
-              
-              <!-- Wrapper for carousel items -->
-              <div class="carousel-inner">
-                  <div class="carousel-item">
-                      <img src="{{ asset('img/slides/foto-1.jpg') }}" class="d-block w-100" alt="Slide 1">
-                      <div class="carousel-caption d-none d-md-block">
-                          <h5>Assembleia Geral Virtual</h5>
-                          <p>Dia 05/04/2023</p>
-                      </div>
-                  </div>
-                  <div class="carousel-item active">
-                      <img src="{{ asset('img/slides/foto-2.jpg') }}" class="d-block w-100" alt="Slide 2">
-                      <div class="carousel-caption d-none d-md-block">
-                          <h5>Primeira reunião de negociação da Campanha Salarial 2023/2024 com SAR e Empresas</h5>
-                          <p>Some demonstrative placeholder content for the second slide.</p>
-                      </div>
-                  </div>
-                  <div class="carousel-item">
-                      <img src="{{ asset('img/slides/foto-3.jpg') }}" class="d-block w-100" alt="Slide 3">
-                      <div class="carousel-caption d-none d-md-block">
-                          <h5>Nota de Repúdio</h5>
-                          <p>Nota de Repúdio do SEAGRO-SC ao Projeto de Lei 3.081/ 2022, que visa desregulamentar a engenharia, a agronomia e diversas profissões</p>
-                      </div>
-                  </div>
-              </div>
+                  
+                </div>
       
-              <!-- Carousel controls -->
-              <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-              </a>
+      
+      
+                <div class="col-lg-8" style="padding: 3px !important;">
+                  @include("carrossel/grande")              
+                </div>
+              
           </div>
-        
-          </div>
-        </div>
       </div>
     </section>
 
@@ -183,9 +58,9 @@
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
-            <a href="https://www.calameo.com/read/00248232127e9f78e70dd"> 
-              <h4>Revista 30 Anos SEAGRO</h4>
-              <img src="{{ asset('img/banner/revista_30_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
+            <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
+              <h4>Revista 40 Anos</h4>
+              <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
@@ -201,7 +76,7 @@
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <a href=" {{ url('destaque/revista') }}">
+            <a href=" {{ url('destaque/contribuicao-sindical') }}">
               <h4>Controbuição Sindical</h4>
               <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>

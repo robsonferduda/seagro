@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','App\Http\Controllers\PaginaController@index');
+Route::get('/','App\Http\Controllers\HomeController@index');
 
-Route::get('conteudo/{nome}','App\Http\Controllers\PaginaController@buscar');
+Route::get('pagina/{nome}','App\Http\Controllers\PaginaController@buscar');
 
 Route::get('destaque/{nome}','App\Http\Controllers\PaginaController@destaque');
 

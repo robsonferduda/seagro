@@ -78,8 +78,7 @@
   </div>
 </div>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
+ <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
@@ -90,43 +89,43 @@
         <ul>
           <li class="dropdown"><a href="#"><span>O Sindicato</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Apresentação</a></li>
-              <li><a href="{{ url('conteudo/estrutura-organizacional') }}">Estrutura Organizacional</a></li>
-              <li><a href="{{ url('conteudo/relatorios-financeiros') }}">Relatórios Financeiros</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Apresentação</a></li>
+              <li><a href="{{ url('pagina/estrutura-organizacional') }}">Estrutura Organizacional</a></li>
+              <li><a href="{{ url('pagina/relatorios-financeiros') }}">Relatórios Financeiros</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="{{ url('conteudo/estatuto-social') }}">Estatuto Social</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/estatuto-social') }}">Estatuto Social</a></li>
           <li class="dropdown"><a href="#"><span>Diretoria</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Executiva</a></li>
-              <li><a href="{{ url('conteudo/estrutura-organizacional') }}">Conselho Fiscal</a></li>
-              <li><a href="{{ url('conteudo/relatorios-financeiros') }}">Regional</a></li>
-              <li><a href="{{ url('conteudo/relatorios-financeiros') }}">Representante junto à Fisenge</a></li>
+              <li><a href="{{ url('pagina/diretoria-executiva') }}">Executiva</a></li>
+              <li><a href="{{ url('pagina/conselho-fiscal') }}">Conselho Fiscal</a></li>
+              <li><a href="{{ url('pagina/diretoria-regional') }}">Regional</a></li>
+              <li><a href="{{ url('pagina/representante-junto-fisenge') }}">Representante junto à Fisenge</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Atualização de Dados</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Atualização de Dados</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Sindical</a></li>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Social</a></li>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Assistencial</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Sindical</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Social</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Assistencial</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Acordos e Convenções</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('conteudo/apresentacao') }}">O que é ACT e CCT</a></li>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Empresas Publicas</a></li>
-              <li><a href="{{ url('conteudo/apresentacao') }}">Empresas Privadas</a></li>
-              <li><a href="{{ url('conteudo/apresentacao') }}">CREA-SC</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">O que é ACT e CCT</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Empresas Publicas</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">Empresas Privadas</a></li>
+              <li><a href="{{ url('pagina/apresentacao') }}">CREA-SC</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="{{ url('conteudo/campanha-salarial') }}">Campanha Salarial</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('conteudo/legislacao') }}">Legislação</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('conteudo/publicacoes') }}">Publicações</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/campanha-salarial') }}">Campanha Salarial</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/legislacao') }}">Legislação</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/publicacoes') }}">Publicações</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -134,6 +133,7 @@
 
     </div>
   </header><!-- End Header -->
+
 
   <main id="main">
   

@@ -940,7 +940,15 @@ section {
   left: calc(50% - 25px);
 }
 
-.section-title .title::after {
+.contact .title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 28px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.contact .title::after {
   content: "";
   position: absolute;
   display: block;

@@ -39,31 +39,37 @@
             <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
             <div class="row">
               <div class="col-lg-12 form-group">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Destino</option>
-                  <option value="adm">Setor Administrativo</option>
-                  <option value="financeiro">Setor Financeiro</option>
+                <label>Destino</label>
+                <select name="destino" class="form-select" required>
+                  <option value="" selected>Selecione um setor</option>
+                  <option value="secretaria">Secretaria</option>
                   <option value="cadastro">Setor de Cadastro</option>
-                  <option value="comunicacao">Setor de Comunicação</option>
                 </select>
               </div>
               <div class="col-lg-6 form-group">
+                <label>Nome</label>
                 <input type="text" name="nome" class="form-control" id="nome" value="{{ old("nome") }}" placeholder="Nome" required>
               </div>
               <div class="col-lg-6 form-group">
+                <label>Email</label>
                 <input type="email" class="form-control" name="email" id="email" value="{{ old("email") }}" placeholder="Email" required>
               </div>
             </div>
-            <div class="row">
+            <div class="row my-0">
               <div class="col-lg-6 form-group">
-                <input type="text" class="form-control" name="celular" id="celular" value="{{ old("celular") }}" placeholder="Celular" required>
+                <label>Telefone Celular <span class="text-primary">Digite somente números</span></label>
+                <input type="text" class="form-control" name="celular" id="celular" value="{{ old("celular") }}" placeholder="(99) 99999-9999" required>
               </div>
               <div class="col-lg-6 form-group">
-                <input type="text" class="form-control" name="fixo" id="fixo" value="{{ old("fixo") }}" placeholder="Telefone Fixo">
+                <label>Telefone Fixo <span class="text-primary">Digite somente números</span></label>
+                <input type="text" class="form-control" name="fixo" id="fixo" value="{{ old("fixo") }}" placeholder="(99) 9999-9999">
               </div>
             </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" value="{{ old("message") }}" required></textarea>
+            <div class="row mt-1">
+              <div class="form-group">
+                <label>Mensagem</label>
+                <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" value="{{ old("message") }}" required></textarea>
+              </div>
             </div>
             <div class="my-3">
               <div class="loading">Carregando</div>

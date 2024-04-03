@@ -50,11 +50,12 @@
             <p class="description">Quando preencher sua ART, indique o Seagro: COD 21</p>
           </div>
         </div>
+        
 
       </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="services" class="services destaques">
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
@@ -65,13 +66,11 @@
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/boletim') }}">
-              <h4>Boletim SEAGRO-SC</h4>
               <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/revista') }}">
-              <h4>Linha do Tempo</h4>
               <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
@@ -94,6 +93,27 @@
         <div class="row">
           <div class="container">
             <div class="row">
+
+                <div class="col-lg-12">
+                  <div class="">               
+                      <div class="pt-0">
+                          <div class="widget-49">
+                              <div class="widget-49-title-wrapper">
+                                  <div class="widget-49-date-success">
+                                      <span class="widget-49-date-day">27</span>
+                                      <span class="widget-49-date-month">ABR</span>
+                                  </div>
+                                  <div class="widget-49-meeting-info mt-3">
+                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/pesencial/sessao-solene-alesc') }}">Sessão solene na Alesc em homenagem aos 40 anos do SEAGRO-SC</a></span>
+                                      <span>27/04/2023 - 19:00</span>
+                                      <p style="color: #17d1bd" >PRESENCIAL</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
                 <div class="col-lg-12">
                     <div class="">               
                         <div class="pt-0">
@@ -162,24 +182,19 @@
       </div>
     </section>
 
-    <section>
+    <section class="services">
       <div class="container">
+        <div class="section-title">
+          <h2 class="title" style="font-size: 28px;">Filiações</h2>
+        </div>
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
             <a href="https://fisenge.org.br" target="blank"><img src="{{ asset('img/logos/fisenge.jpg') }}" class="img-fluid" alt=""></a>
           </div>
 
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
+          <div class="col-lg-6 col-md-6" data-aos="fade-up">
             <a href="http://www.dieese.org.br" target="blank"><img src="{{ asset('img/logos/dieese.jpg') }}" class="img-fluid" alt=""></a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-            <a href="https://www.confea.org.br" target="blank"><img src="{{ asset('img/logos/confea.jpg') }}" class="img-fluid" alt=""></a>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
-            <a href="https://www.crea-sc.org.br" target="blank"><img src="{{ asset('img/logos/crea-sc.jpg') }}" class="img-fluid" alt=""></a>
           </div>
 
         </div>

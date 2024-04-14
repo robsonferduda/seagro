@@ -60,7 +60,6 @@
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
             <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
-              <h4>Revista 40 Anos</h4>
               <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>
@@ -76,7 +75,6 @@
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <a href=" {{ url('destaque/contribuicao-sindical') }}">
-              <h4>Controbuição Sindical</h4>
               <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>

@@ -92,27 +92,27 @@
           </li>
           <li class="dropdown"><a href="#"><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('pagina/apresentacao') }}">Atualização de Dados</a></li>
+              <li><a href="{{ url('pagina/atualizacao_de_dados') }}">Atualização de Dados</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('pagina/apresentacao') }}">Sindical</a></li>
-              <li><a href="{{ url('pagina/apresentacao') }}">Social</a></li>
-              <li><a href="{{ url('pagina/apresentacao') }}">Assistencial</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Sindical</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Social</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Assistencial</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Acordos e Convenções</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('pagina/apresentacao') }}">O que é ACT e CCT</a></li>
-              <li><a href="{{ url('pagina/apresentacao') }}">Empresas Publicas</a></li>
-              <li><a href="{{ url('pagina/apresentacao') }}">Empresas Privadas</a></li>
-              <li><a href="{{ url('pagina/apresentacao') }}">CREA-SC</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">O que é ACT e CCT</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Empresas Publicas</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Empresas Privadas</a></li>
+              <li><a href="{{ url('pagina/em-desenvolvimento') }}">CREA-SC</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="{{ url('pagina/campanha-salarial') }}">Campanha Salarial</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('pagina/legislacao') }}">Legislação</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('pagina/publicacoes') }}">Publicações</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Campanha Salarial</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Legislação</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Publicações</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

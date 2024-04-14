@@ -113,7 +113,7 @@
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Campanha Salarial</a></li>
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Legislação</a></li>
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Publicações</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+          <li><a class="nav-link scrollto" href="contato">Contato</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

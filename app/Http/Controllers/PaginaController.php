@@ -49,4 +49,9 @@ class PaginaController extends Controller
         
         return view('paginas/conteudo', compact('pagina'));
     }
+
+    public function contato()
+    {        
+        return view('formulario');
+    }    
 }

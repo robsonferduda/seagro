@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 
+Route::get('contato','App\Http\Controllers\PaginaController@contato');
+
 Route::get('pagina/{nome}','App\Http\Controllers\PaginaController@buscar');
 
 Route::get('eventos/pesencial/sessao-solene-alesc','App\Http\Controllers\PaginaController@evento');

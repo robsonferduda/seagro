@@ -117,7 +117,7 @@
                                
              
             <div class="col-lg-12 text-center">
-              <a href="{{ url('eventos/todos') }}">Veja agenda completa</a>
+              <a href="{{ url('eventos') }}">Veja agenda completa</a>
             </div>
             </div>
           </div>

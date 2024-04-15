@@ -12,6 +12,6 @@ class Estatistica extends Model
     protected $connection = 'mysql';
     protected $table = 'estatistica';
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id','pagina'];
 
 }

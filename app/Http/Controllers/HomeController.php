@@ -19,7 +19,8 @@ class HomeController extends Controller
         $eventos = Evento::all();
         $noticias = Noticia::where("fl_ativa", 1)->get();
 
-        $dados_acesso = array('pagina'=>'home');
+        $dados_acesso = array('pagina' => 'home');
+        
         Estatistica::create($dados_acesso);
 
         return view('home', compact('noticias','eventos'));

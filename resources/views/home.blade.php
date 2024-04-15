@@ -91,7 +91,7 @@
         <div class="row">
           <div class="container">
             <div class="row">
-              @foreach ($collection as $item)
+              @foreach ($eventos as $evento)
 
                 <div class="col-lg-12">
                   <div class="">               

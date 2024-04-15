@@ -91,6 +91,7 @@
         <div class="row">
           <div class="container">
             <div class="row">
+              @foreach ($collection as $item)
 
                 <div class="col-lg-12">
                   <div class="">               
@@ -110,67 +111,11 @@
                           </div>
                       </div>
                   </div>
-              </div>
-
-                <div class="col-lg-12">
-                    <div class="">               
-                        <div class="pt-0">
-                            <div class="widget-49">
-                                <div class="widget-49-title-wrapper">
-                                    <div class="widget-49-date-primary">
-                                        <span class="widget-49-date-day">15</span>
-                                        <span class="widget-49-date-month">DEZ</span>
-                                    </div>
-                                    <div class="widget-49-meeting-info mt-3">
-                                        <span class="widget-49-pro-title"><a href="">Eleição Conselheiros junto ao CREA-SC</a></span>
-                                        <span>15/12/2022 - 17:00</span>
-                                        <p class="text-primary">ONLINE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="col-lg-12">
-                  <div class="">               
-                      <div class="pt-0">
-                          <div class="widget-49">
-                              <div class="widget-49-title-wrapper">
-                                  <div class="widget-49-date-success">
-                                      <span class="widget-49-date-day">28</span>
-                                      <span class="widget-49-date-month">OUT</span>
-                                  </div>
-                                  <div class="widget-49-meeting-info mt-3">
-                                      <span class="widget-49-pro-title"><a href="">Assembléia Geral</a></span>
-                                      <span class="">28/10/2022 - 17:00</span>
-                                      <p style="color: #17d1bd" >PRESENCIAL</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col-lg-12">
-                <div class="">               
-                    <div class="pt-0">
-                        <div class="widget-49">
-                            <div class="widget-49-title-wrapper">
-                                <div class="widget-49-date-primary">
-                                    <span class="widget-49-date-day">06</span>
-                                    <span class="widget-49-date-month">AGO</span>
-                                </div>
-                                <div class="widget-49-meeting-info mt-3">
-                                    <span class="widget-49-pro-title"><a href="">Assembleia Geral Extraordinária Virtual - Negociações CONAB / FISENGE</a></span>
-                                    <span class="">06/08/2022 - 17:00</span>
-                                    <p class="text-primary">ONLINE</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                  
+              @endforeach
+                               
+             
             <div class="col-lg-12 text-center">
               <a href="{{ url('eventos/todos') }}">Veja agenda completa</a>
             </div>

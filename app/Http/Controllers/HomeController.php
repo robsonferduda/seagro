@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evento;
 use App\Models\Noticia;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class HomeController extends Controller
 
     public function index()
     {
+        $eventos = Evento::all();
         $noticias = Noticia::where("fl_ativa", 1)->get();
-        return view('home', compact('noticias'));
+
+        return view('home', compact('noticias','eventos'));
     }
 }

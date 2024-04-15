@@ -103,9 +103,9 @@
                                       <span class="widget-49-date-month">ABR</span>
                                   </div>
                                   <div class="widget-49-meeting-info mt-3">
-                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/pesencial/sessao-solene-alesc') }}">Sessão solene na Alesc em homenagem aos 40 anos do SEAGRO-SC</a></span>
-                                      <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y H:i:s') }}</span>
-                                      <p style="color: #17d1bd" >PRESENCIAL</p>
+                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/pesencial/sessao-solene-alesc') }}">{{ $evento->titulo }}</a></span>
+                                      <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
+                                      <p style="">PRESENCIAL</p>
                                   </div>
                               </div>
                           </div>

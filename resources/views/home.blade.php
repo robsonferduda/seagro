@@ -103,7 +103,7 @@
                                       <span class="widget-49-date-month">ABR</span>
                                   </div>
                                   <div class="widget-49-meeting-info mt-3">
-                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes/',$evento->id) }}">{{ $evento->titulo }}</a></span>
+                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes',$evento->id) }}">{{ $evento->titulo }}</a></span>
                                       <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
                                       <p style="">PRESENCIAL</p>
                                   </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evento;
 use App\Models\Pagina;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,9 @@ class PaginaController extends Controller
 
     public function index()
     {
-        
+        $eventos = Evento::all();
 
-        return view('home');
+        return view('home',compact('eventos'));
     }
 
     public function destaque($pagina)

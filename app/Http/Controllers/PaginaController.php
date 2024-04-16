@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use App\Models\Pagina;
+use App\Models\Estatistica;
 use Illuminate\Http\Request;
 
 class PaginaController extends Controller
@@ -47,6 +48,10 @@ class PaginaController extends Controller
     public function buscar($pagina)
     {
         $pagina = Pagina::where('apelido', $pagina)->first();
+
+        $dados_acesso = array('pagina' => $pagina->apelido);
+        
+        Estatistica::create($dados_acesso);
         
         return view('paginas/conteudo', compact('pagina'));
     }

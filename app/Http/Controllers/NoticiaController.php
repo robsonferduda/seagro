@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pagina;
+use App\Models\Noticia;
 use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
@@ -29,10 +29,10 @@ class NoticiaController extends Controller
         return view('home');
     }
 
-    public function buscar($pagina)
+    public function buscar($url)
     {
-        $pagina = Pagina::where('apelido', $pagina)->first();
+        $noticia = Noticia::where('url', $url)->first();
         
-        return view('paginas/conteudo', compact('pagina'));
+        return view('noticia/conteudo', compact('noticia'));
     }
 }

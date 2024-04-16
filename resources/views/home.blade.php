@@ -3,25 +3,14 @@
 <main id="main">
     <section style="padding: 10px 0;">
       <div class="container">
-          <div class="row no-gutters">
-                           
-
-             
+          <div class="row no-gutters">                          
                 <div class="col-lg-4" style="padding: 3px !important;">
-      
                   @include("carrossel/pequeno_superior")
                   @include("carrossel/pequeno_inferior")
-      
-                
-                  
                 </div>
-      
-      
-      
                 <div class="col-lg-8" style="padding: 3px !important;">
                   @include("carrossel/grande")              
                 </div>
-              
           </div>
       </div>
     </section>

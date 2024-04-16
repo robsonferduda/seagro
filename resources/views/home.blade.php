@@ -91,30 +91,33 @@
         <div class="row">
           <div class="container">
             <div class="row">
-                @foreach($eventos as $key => $evento)
-                  <div class="col-lg-12">
-                    <div class="">               
-                        <div class="pt-0">
-                            <div class="widget-49">
-                                <div class="widget-49-title-wrapper">
-                                    <div class="widget-49-date-success">
-                                        <span class="widget-49-date-day">27</span>
-                                        <span class="widget-49-date-month">ABR</span>
-                                    </div>
-                                    <div class="widget-49-meeting-info mt-3">
-                                        <span class="widget-49-pro-title"><a href="{{ url('eventos/pesencial/sessao-solene-alesc') }}">{{ $evento->titulo }}</a></span>
-                                        <span>27/04/2023 - 19:00</span>
-                                        <p style="color: #17d1bd" >PRESENCIAL</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach               
+              @foreach ($eventos as $evento)
 
-                           <div class="col-lg-12 text-center">
-              <a href="{{ url('eventos/todos') }}">Veja agenda completa</a>
+                <div class="col-lg-12">
+                  <div class="">               
+                      <div class="pt-0">
+                          <div class="widget-49">
+                              <div class="widget-49-title-wrapper">
+                                  <div class="widget-49-date-success">
+                                      <span class="widget-49-date-day">27</span>
+                                      <span class="widget-49-date-month">ABR</span>
+                                  </div>
+                                  <div class="widget-49-meeting-info mt-3">
+                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes',$evento->id) }}">{{ $evento->titulo }}</a></span>
+                                      <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
+                                      <p style="">PRESENCIAL</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                  
+              @endforeach
+                               
+             
+            <div class="col-lg-12 text-center">
+              <a href="{{ url('eventos') }}">Veja agenda completa</a>
             </div>
             </div>
           </div>

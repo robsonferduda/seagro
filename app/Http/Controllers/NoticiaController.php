@@ -32,6 +32,8 @@ class NoticiaController extends Controller
     public function buscar($url)
     {
         $noticia = Noticia::where('url', $url)->first();
+        $noticia->num_visitas = $noticia->num_visitas + 1;
+        $noticia->save();
         
         return view('noticia/conteudo', compact('noticia'));
     }

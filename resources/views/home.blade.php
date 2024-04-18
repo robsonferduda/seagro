@@ -87,14 +87,18 @@
                       <div class="pt-0">
                           <div class="widget-49">
                               <div class="widget-49-title-wrapper">
-                                  <div class="widget-49-date-success">
-                                      <span class="widget-49-date-day">27</span>
-                                      <span class="widget-49-date-month">ABR</span>
+                                  <div class="widget-49-date-{{ ($evento->id_tipo == 1) ? 'success' : 'info' }}">
+                                      <span class="widget-49-date-day">{{ \Carbon\Carbon::parse($evento->data)->format('d') }}</span>
+                                      <span class="widget-49-date-month">{{ App\Models\Utils::formataMes(\Carbon\Carbon::parse($evento->data)->format('m')) }}</span>
                                   </div>
                                   <div class="widget-49-meeting-info mt-3">
                                       <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes',$evento->id) }}">{{ $evento->titulo }}</a></span>
                                       <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
-                                      <p style="">PRESENCIAL</p>
+                                      @if($evento->id_tipo == 1)
+                                          <p style="">PRESENCIAL</p>
+                                      @else
+                                          <p style="">ONLINE</p>
+                                      @endif
                                   </div>
                               </div>
                           </div>

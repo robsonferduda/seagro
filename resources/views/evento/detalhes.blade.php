@@ -10,6 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
                         {!! $evento->descricao !!}
+                        <a href="{{ URL::previous() }}">Voltar para o Início</a>
                     </div>
                 </div>
             </div>

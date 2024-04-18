@@ -38,10 +38,9 @@
         <i class="bi bi-phone-fill phone-icon"></i> 48 3224-5681
       </div>
       <div class="social-links d-none d-md-block">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="https://twitter.com/seagro_sc" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/seagrosc" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/seagro.sc" class="instagram"><i class="bi bi-instagram"></i></a>
       </div>
     </div>
   </section>
@@ -143,9 +142,9 @@
               <strong>Email:</strong> seagro@seagro-sc.org.br<br>
             </p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://twitter.com/seagro_sc" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/seagrosc" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/seagro.sc" class="instagram"><i class="bx bxl-instagram"></i></a>
             </div>
           </div>
 

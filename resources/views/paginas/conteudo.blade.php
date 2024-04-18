@@ -10,6 +10,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
                         {!! $pagina->text !!}
+                        <a href="{{ URL::previous() }}">Voltar para o Início</a>
                     </div>
                 </div>
             </div>

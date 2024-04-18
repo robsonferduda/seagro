@@ -19,9 +19,9 @@ class EventoController extends Controller
         return view('evento/index', compact('eventos'));
     }
 
-    public function detalhes($id)
+    public function detalhes($apelido)
     {
-        $evento = Evento::find($id);
+        $evento = Evento::where('apelido', $apelido)->first();
 
         return view('evento/detalhes', compact('evento'));
     }

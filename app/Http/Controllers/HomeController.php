@@ -16,7 +16,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $eventos = Evento::orderBy('data','DESC')->get();
+        $eventos = Evento::where('fl_ativo', 1)->orderBy('data','DESC')->get();
         $noticias = Noticia::where("fl_ativa", 1)->get();
 
         $dados_acesso = array('pagina' => 'home');

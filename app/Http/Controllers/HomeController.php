@@ -18,11 +18,12 @@ class HomeController extends Controller
     {
         $eventos = Evento::where('fl_ativo', 1)->orderBy('data','DESC')->get();
         $noticias = Noticia::where("fl_ativa", 1)->where("fl_banner", 1)->orderBy('dt_noticia','DESC')->get();
+        $noticias_extra = Noticia::where("fl_ativa", 1)->where("fl_banner", 0)->orderBy('dt_noticia','DESC')->get();
 
         $dados_acesso = array('pagina' => 'home');
         
         Estatistica::create($dados_acesso);
 
-        return view('home', compact('noticias','eventos'));
+        return view('home', compact('noticias','eventos','noticias_extra'));
     }
 }

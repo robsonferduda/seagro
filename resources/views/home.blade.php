@@ -16,30 +16,6 @@
     </section>
 
     <section id="services" class="services">
-      <div class="container">
-        <div class="section-title">
-          <h2 class="title" style="font-size: 28px;">Notícias</h2>
-        </div>
-        <div class="row">
-          <div class="container">
-            <div class="row">
-              @foreach ($noticias_extra as $noticia)
-              <div class="col-lg-12">
-                  <p> <a href="{{ url('noticia', $noticia->url) }}">{{ \Carbon\Carbon::parse($noticia->dt_noticia)->format('d/m/Y') }} | {{ $noticia->titulo }}</a></p>             
-              </div>                      
-          @endforeach
-                               
-             
-            <div class="col-lg-12 text-center">
-              <a href="{{ url('noticias') }}">Todas as notícias</a>
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="services">
       <div class="container" data-aos="">
         <div class="row">
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up">
@@ -65,6 +41,30 @@
         </div>
         
 
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="title" style="font-size: 28px;">Notícias</h2>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              @foreach ($noticias_extra as $noticia)
+              <div class="col-lg-12">
+                  <p> <a href="{{ url('noticia', $noticia->url) }}">{{ \Carbon\Carbon::parse($noticia->dt_noticia)->format('d/m/Y') }} | {{ $noticia->titulo }}</a></p>             
+              </div>                      
+          @endforeach
+                               
+             
+            <div class="col-lg-12 text-center">
+              <a href="{{ url('noticias') }}">Todas as notícias</a>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

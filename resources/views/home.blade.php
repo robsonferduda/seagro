@@ -11,6 +11,7 @@
                 <div class="col-lg-8" style="padding: 3px !important;">
                   @include("carrossel/grande")              
                 </div>
+                <p class="center"><a href="noticias">+ Noticias Seagro</a></p>
           </div>
       </div>
     </section>

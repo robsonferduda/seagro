@@ -14,9 +14,9 @@ class NoticiaController extends Controller
 
     public function index()
     {
-        
+        $noticias = Noticia::where("fl_ativa", 1)->orderBy('dt_noticia','DESC')->get();
 
-        return view('home');
+        return view('noticia/index', compact('noticias'));
     }
 
     public function destaque($pagina)

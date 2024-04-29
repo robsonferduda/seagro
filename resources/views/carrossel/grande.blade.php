@@ -10,7 +10,7 @@
     <div class="carousel-inner">
         @for($i = 0; $i < 3; $i++)
             <div class="carousel-item carousel-principal {{ ($i == 0) ? "active" : "" }}">
-                <a href="{{ url('noticia', $noticias[$i]['url']) }}"><img src="{{ asset('img/noticias/'.$noticias[$i]['img_capa']) }}" class="d-block w-100" alt="Slide 2"></a>
+                <a href="{{ url('noticia', $noticias[$i]['url']) }}"><img src="{{ asset('img/noticias/'.$noticias[$i]['img_capa']) }}" class="d-block w-100" alt="{{ $noticias[$i]['titulo'] }}"></a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5></h5>
                     <p>{{ $noticias[$i]['titulo'] }}</p>

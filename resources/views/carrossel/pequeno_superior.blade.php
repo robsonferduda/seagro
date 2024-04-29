@@ -9,7 +9,7 @@
 
         @for($i = 3; $i < 5; $i++)
             <div class="carousel-item {{ ($i == 3) ? "active" : "" }}">
-                <a href="{{ url('noticia', $noticias[$i]['url']) }}"><img src="{{ asset('img/noticias/'.$noticias[$i]['img_capa']) }}" class="d-block w-100" alt="Slide 2"></a>
+                <a href="{{ url('noticia', $noticias[$i]['url']) }}"><img src="{{ asset('img/noticias/'.$noticias[$i]['img_capa']) }}" class="d-block w-100" alt="{{ $noticias[$i]['titulo'] }}"></a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5></h5>
                     <p style="font-size: 12px;">{{ $noticias[$i]['titulo'] }}</p>

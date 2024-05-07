@@ -150,7 +150,7 @@
                                             <div class="forum-icon">
                                                 <i class="fa fa-bookmark"></i>
                                             </div>
-                                            <a href="{{ url('boletim/download', $boletim->id) }}" class="forum-item-title">{{ $boletim->titulo }}</a>
+                                            <a href="{{ url('boletim/detalhes', $boletim->dt_publicacao) }}" class="forum-item-title">{{ $boletim->titulo }}</a>
                                             <div class="forum-sub-title">{{ $boletim->subtitulo }}</div>
                                         </div>
                                         <div class="col-md-2 forum-info">

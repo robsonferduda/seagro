@@ -62,7 +62,14 @@ class PaginaController extends Controller
     public function contato()
     {        
         return view('formulario');
-    }   
+    } 
+    
+    public function getBoletim($data)
+    {        
+        $boletim = Boletim::where('dt_publicacao', $data)->first();
+
+        return view('boletim/detalhes', compact('boletim'));
+    }
     
     public function boletim($id)
     {        

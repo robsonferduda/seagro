@@ -141,100 +141,41 @@
                         </div>
         
                         <div class="ibox-content forum-container">
-        
-                            <div class="forum-item">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="forum-icon">
-                                            <i class="fa fa-bookmark"></i>
-                                        </div>
-                                        <a href="forum_post.html" class="forum-item-title">Boletim Empresas Públicas nº 03 - Campanha Salarial 2023/2024</a>
-                                        <div class="forum-sub-title">Reunião dos Sindicatos com presidente da EPAGRI</div>
-                                    </div>
-                                    <div class="col-md-2 forum-info">
-                                        <div>
-                                            <small>Publicado em</small>
-                                        </div>
-                                    <span class="views-number">
-                                        05/04/2023
-                                    </span>
-        
-                                    </div>
-                                    <div class="col-md-2 forum-info">
-                                        <div>
-                                            <small>Donwloads</small>
-                                        </div>
-                                    <span class="views-number">
-                                        3
-                                    </span>
-        
-                                    </div>
-                                    
-                                </div>
-                            </div>
 
-                            <div class="forum-item">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="forum-icon">
-                                            <i class="fa fa-bookmark"></i>
-                                        </div>
-                                        <a href="forum_post.html" class="forum-item-title">Boletim Empresas Públicas nº 02 - Campanha Salarial 2023/2024</a>
-                                        <div class="forum-sub-title">Primeira reunião de negociação da Campanha Salarial 2023/2024 com SAR e Empresas </div>
-                                    </div>
-                                    <div class="col-md-2 forum-info">
-                                        <div>
-                                            <small>Publicado em</small>
-                                        </div>
-                                    <span class="views-number">
-                                        23/03/2023
-                                    </span>
-        
-                                    </div>
-                                    <div class="col-md-2 forum-info">
-                                        <div>
-                                            <small>Donwloads</small>
-                                        </div>
-                                    <span class="views-number">
-                                        3
-                                    </span>
-        
-                                    </div>
-                                    
-                                </div>
-                            </div>
+                            @foreach ($boletins as $boletim)
 
-                            <div class="forum-item">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="forum-icon">
-                                            <i class="fa fa-bookmark"></i>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="forum-icon">
+                                                <i class="fa fa-bookmark"></i>
+                                            </div>
+                                            <a href="{{ url('boletim/download', $boletim->id) }}" class="forum-item-title">{{ $boletim->titulo }}</a>
+                                            <div class="forum-sub-title">{{ $boletim->subtitulo }}</div>
                                         </div>
-                                        <a href="forum_post.html" class="forum-item-title">Boletim Empresas Públicas nº 01 - Campanha Salarial 2023/2024</a>
-                                        <div class="forum-sub-title">TERCEIRA REUNIÃO DE NEGOCIAÇÃO COM SAR E EMPRESAS SEM AVANÇOS</div>
-                                    </div>
-                                    <div class="col-md-2 forum-info">
-                                        <div>
-                                            <small>Publicado em</small>
+                                        <div class="col-md-2 forum-info">
+                                            <div>
+                                                <small>Publicado em</small>
+                                            </div>
+                                        <span class="views-number">
+                                            {{ \Carbon\Carbon::parse($boletim->dt_publicacao)->format('d/m/Y') }}
+                                        </span>
+            
                                         </div>
-                                    <span class="views-number">
-                                        15/03/2023
-                                    </span>
-        
-                                    </div>
-                                    <div class="col-md-2 forum-info">
-                                        <div>
-                                            <small>Donwloads</small>
+                                        <div class="col-md-2 forum-info">
+                                            <div>
+                                                <small>Donwloads</small>
+                                            </div>
+                                        <span class="views-number">
+                                            {{ $boletim->acessos }}
+                                        </span>
+            
                                         </div>
-                                    <span class="views-number">
-                                        3
-                                    </span>
-        
+                                        
                                     </div>
-                                    
                                 </div>
-                            </div>
-                                    
+                                
+                            @endforeach                                    
                         </div>
                     </div>
                 </div>

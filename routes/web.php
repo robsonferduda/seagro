@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 
+Route::get('boletim/download/{id}','App\Http\Controllers\PaginaController@boletim');
+
 Route::get('contato','App\Http\Controllers\PaginaController@contato');
 
 Route::get('noticia/{url}','App\Http\Controllers\NoticiaController@buscar');

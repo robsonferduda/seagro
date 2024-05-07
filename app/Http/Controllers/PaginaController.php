@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Boletim;
 use App\Models\Evento;
 use App\Models\Pagina;
 use App\Models\Estatistica;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PaginaController extends Controller
 {
@@ -26,7 +28,8 @@ class PaginaController extends Controller
 
         switch ($pagina) {
             case 'boletim':
-                return view('destaque/boletim');
+                $boletins = Boletim::orderBy('dt_publicacao','desc')->get();
+                return view('destaque/boletim',compact('boletins'));
                 break;
 
             case 'contribuicao-sindical':
@@ -59,5 +62,18 @@ class PaginaController extends Controller
     public function contato()
     {        
         return view('formulario');
-    }    
+    }   
+    
+    public function boletim($id)
+    {        
+        $boletim = Boletim::find($id);
+        $boletim->acessos = $boletim->acessos + 1;
+        $boletim->save();
+
+        $file = public_path()."/boletim/".$boletim->arquivo;
+
+        $headers = array('Content-Type: application/pdf',);
+
+        return response()->download($file, $boletim->arquivo, $headers);
+    }
 }

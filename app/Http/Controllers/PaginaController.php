@@ -67,6 +67,8 @@ class PaginaController extends Controller
     public function getBoletim($data)
     {        
         $boletim = Boletim::where('dt_publicacao', $data)->first();
+        $boletim->acessos = $boletim->acessos + 1;
+        $boletim->save();
 
         return view('boletim/detalhes', compact('boletim'));
     }
@@ -74,7 +76,7 @@ class PaginaController extends Controller
     public function boletim($id)
     {        
         $boletim = Boletim::find($id);
-        $boletim->acessos = $boletim->acessos + 1;
+        $boletim->downloads = $boletim->downloads + 1;
         $boletim->save();
 
         $file = public_path()."/boletim/".$boletim->arquivo;

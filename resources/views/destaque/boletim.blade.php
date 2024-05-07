@@ -164,7 +164,7 @@
                                         </div>
                                         <div class="col-md-2 forum-info">
                                             <div>
-                                                <small>Donwloads</small>
+                                                <small>Visualizações</small>
                                             </div>
                                         <span class="views-number">
                                             {{ $boletim->acessos }}

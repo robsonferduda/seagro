@@ -103,10 +103,10 @@
           </li>
           <li class="dropdown"><a href="#"><span>Acordos e Convenções</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">O que é ACT e CCT</a></li>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Empresas Publicas</a></li>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Empresas Privadas</a></li>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">CREA-SC</a></li>
+              <li><a href="{{ url('pagina/o-que-e-act-e-cct') }}">O que é ACT e CCT</a></li>
+              <li><a href="{{ url('pagina/acordos-empresas-publicas') }}">Empresas Publicas</a></li>
+              <li><a href="{{ url('pagina/acordos-empresas-privadas') }}">Empresas Privadas</a></li>
+              <li><a href="{{ url('pagina/acordos-crea-sc') }}">CREA-SC</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Campanha Salarial</a></li>

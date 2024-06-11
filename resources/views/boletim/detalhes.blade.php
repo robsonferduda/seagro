@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <meta property="og:image" content="https://www.seagro-sc.org.br/boletim/boletim-2024-06-11.jpeg" />
+    <meta property="og:image:width" content="931" />
+    <meta property="og:image:height" content="1280" />
     <main id="main">
         <section id="services" class="services">
             <div class="container" data-aos="">

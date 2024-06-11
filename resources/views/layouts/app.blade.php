@@ -11,6 +11,8 @@
   <meta property="og:type" content="article" />
   <meta property="og:description" content="SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA" />
   <meta property="og:image" content="https://www.seagro-sc.org.br/img/apple-touch-icon.png" />
+  <meta property="og:logo" content="{{ asset('img/favicon.png') }}" />
+        
   
   <link href="{{ asset('img/favicon.png') }}" rel="icon">
   <link href="https://www.seagro-sc.org.br/img/apple-touch-icon.png" rel="apple-touch-icon">

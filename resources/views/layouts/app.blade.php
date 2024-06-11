@@ -8,7 +8,8 @@
   <meta name="description" content="SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA" >
   <meta name="keywords" content="seagro">
   <meta property="og:title" content="SEAGRO-SC" />
-  <meta property="og:description" content="SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA">
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA" />
   <meta property="og:image" content="apple-touch-icon.png" />
   <meta property="og:image:width" content="176" />
   <meta property="og:image:height" content="173" />

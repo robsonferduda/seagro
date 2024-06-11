@@ -28,7 +28,7 @@ class PaginaController extends Controller
 
         switch ($pagina) {
             case 'boletim':
-                $boletins = Boletim::orderBy('dt_publicacao','desc')->get();
+                $boletins = Boletim::where('fl_publicacao', 1)->orderBy('dt_publicacao','desc')->get();
                 return view('destaque/boletim',compact('boletins'));
                 break;
 

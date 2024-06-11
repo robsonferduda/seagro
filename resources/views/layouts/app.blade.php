@@ -5,8 +5,13 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Seagro</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta name="description" content="SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA" >
+  <meta name="keywords" content="seagro">
+  <meta property="og:title" content="SEAGRO-SC" />
+  <meta property="og:description" content="SINDICATO DOS ENGENHEIROS AGRÔNOMOS DE SANTA CATARINA">
+  <meta property="og:image" content="https://www.seagro-sc.org.br/boletim/boletim-2024-06-11.jpeg" />
+  <meta property="og:image:width" content="931" />
+  <meta property="og:image:height" content="1280" />
 
   <link href="{{ asset('img/favicon.png') }}" rel="icon">
   <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">

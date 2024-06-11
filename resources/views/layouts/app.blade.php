@@ -13,7 +13,7 @@
   <meta property="og:image" content="apple-touch-icon.png" />
   
   <link href="{{ asset('img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="https://www.seagro-sc.org.br/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
 

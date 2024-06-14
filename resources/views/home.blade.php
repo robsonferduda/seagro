@@ -58,7 +58,7 @@
             </a>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <a href=" {{ url('destaque/revista') }}">
+            <a href=" {{ url('destaque/linha_do_tempo') }}">
               <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
             </a>
           </div>

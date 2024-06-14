@@ -35,6 +35,10 @@ class PaginaController extends Controller
             case 'contribuicao-sindical':
                 return view('destaque/contribuicao');
                 break;
+
+            case 'linha_do_tempo':
+                return view('destaque/linha_tempo');
+                break;
             
             default:
                 return view('home');

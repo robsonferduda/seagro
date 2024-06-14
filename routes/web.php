@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Route::get('gercont','App\Http\Controllers\ConteudoController@index');
+
 Route::get('/','App\Http\Controllers\HomeController@index');
 
 Route::get('boletim/detalhes/{data}','App\Http\Controllers\PaginaController@getBoletim');

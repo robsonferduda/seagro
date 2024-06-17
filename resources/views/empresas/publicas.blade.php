@@ -140,25 +140,7 @@
 
                         @if($pagina == 'Pautas de Reivindicações')
                         <div class="ibox-content forum-container">
-                            <div class="forum-item">
-                                <div class="row">
-                                  <div class="col-md-10" style="text-align: left;">
-                                      <div class="forum-icon">
-                                         <i class="fa fa-bookmark"></i>
-                                      </div>
-                                      <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/linha_do_tempo_2024_2025.pdf" class="forum-item-title">Linha do Tempo</a>
-                                      <div class="forum-sub-title">Acompanhamento das ações da Campanha Salarial 2024/2025 das empresas públicas</div>
-                                  </div>
-                                  <div class="col-md-2 forum-info">
-                                      <div>
-                                         <small>Atualizada em</small>
-                                      </div>
-                                      <span class="views-number">
-                                         17/06/2024
-                                      </span>
-                                  </div>
-                                </div>
-                             </div>
+                            
                             <div class="forum-item">
                                <div class="row">
                                  <div class="col-md-10" style="text-align: left;">

@@ -36,3 +36,6 @@ Route::get('eventos/pesencial/sessao-solene-alesc','App\Http\Controllers\PaginaC
 Route::get('destaque/{nome}','App\Http\Controllers\PaginaController@destaque');
 
 Route::post('email/contato','App\Http\Controllers\EmailController@contato');
+
+Route::get('empresas-publicas/{pagina}','App\Http\Controllers\EmpresaController@publicas');
+Route::get('empresas-privadas/{pagina}','App\Http\Controllers\EmpresaController@privadas');

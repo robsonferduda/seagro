@@ -116,7 +116,25 @@
               <li><a href="{{ url('pagina/acordos-crea-sc') }}">CREA-SC</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Campanha Salarial</a></li>
+          <li class="dropdown"><a href="#"><span>Campanha Salarial</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown"><a href="#"><span>Empresas Públicas</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="{{ url('empresas-publicas/pautas') }}">Pautas de Reivindicações</a></li>
+                  <li><a href="{{ url('empresas-publicas/editais-de-convocacao') }}">Editais de Convocação</a></li>
+                  <li><a href="{{ url('empresas-publicas/diversos') }}">Diversos</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>Empresas Privadas</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="{{ url('empresas-privadas/cooperativas') }}">Cooperativas</a></li>
+                  <li><a href="{{ url('empresas-privadas/agroindustrias') }}">Agroindústrias</a></li>
+                  <li><a href="{{ url('empresas-privadas/crea-sc') }}">CREA-SC</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Legislação</a></li>
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Publicações</a></li>
           <li><a class="nav-link scrollto" href="contato">Contato</a></li>

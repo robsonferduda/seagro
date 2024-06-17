@@ -154,7 +154,7 @@
                                         <small>Publicado em</small>
                                      </div>
                                      <span class="views-number">
-                                         24/08/2023
+                                        17/06/2024
                                      </span>
                                  </div>
                                </div>
@@ -173,7 +173,7 @@
                                         <small>Publicado em</small>
                                      </div>
                                      <span class="views-number">
-                                         24/08/2023
+                                        17/06/2024
                                      </span>
                                  </div>
                                </div>
@@ -192,7 +192,7 @@
                                         <small>Publicado em</small>
                                      </div>
                                      <span class="views-number">
-                                         24/08/2023
+                                        17/06/2024
                                      </span>
                                  </div>
                                </div>

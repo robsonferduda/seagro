@@ -11,6 +11,10 @@
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
                         <ul class="timeline">
                             <li>
+                                <a target="_blank" href="{{ asset('linha_tempo/linha_do_tempo_2024_2025.pdf') }}">Campanha Salarial 2024/2025</a>
+                                <p>Acompanhamento das ações da Campanha Salarial 2023/2024 das empresas públicas Epagri – Cidasc - Ceasa</p>
+                            </li>
+                            <li>
                                 <a target="_blank" href="{{ asset('linha_tempo/linha_tempo_2023-2024.pdf') }}">Campanha Salarial 2023/2024</a>
                                 <p>Acompanhamento das ações da Campanha Salarial 2023/2024 das empresas públicas Epagri – Cidasc - Ceasa</p>
                             </li>

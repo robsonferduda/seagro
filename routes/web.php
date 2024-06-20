@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('gercont','App\Http\Controllers\ConteudoController@index');
+Route::get('gercont/boletins','App\Http\Controllers\ConteudoController@boletins');
+Route::get('gercont/videos','App\Http\Controllers\ConteudoController@videos');
+Route::resource('boletim','App\Http\Controllers\BoletimController');
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 
@@ -39,3 +42,5 @@ Route::post('email/contato','App\Http\Controllers\EmailController@contato');
 
 Route::get('empresas-publicas/{pagina}','App\Http\Controllers\EmpresaController@publicas');
 Route::get('empresas-privadas/{pagina}','App\Http\Controllers\EmpresaController@privadas');
+
+Route::get('videos/todos','App\Http\Controllers\VideoController@index');

@@ -2,3 +2,6 @@
 .forget-password{ font-weight: 600; font-size: 0.8571em; text-transform: uppercase; }
 .card-footer a { text-decoration: none; }
 .select2 { width: 100% !important;}
+.select2-selection { min-height: 38px; padding: 5px 2px; border: 1px solid #d7d7d7 !important;}
+.swal2-html-container{ text-align: center; font-size: 18px;}
+.swal2-title{font-size: 25px;}

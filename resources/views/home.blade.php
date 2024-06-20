@@ -12,6 +12,11 @@
                   @include("carrossel/grande")              
                 </div>
           </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 icon-box aos-init aos-animate center" data-aos="fade-up">
+              <h5 class="mt-3"><a href="{{ url('noticias') }}">Todas as Notícias</a></h5>
+            </div>
+          </div>
       </div>
     </section>
 
@@ -38,6 +43,7 @@
             <h4 class="title"><a href="">Indique o Seagro-SC</a></h4>
             <p class="description">Quando preencher sua ART, indique o Seagro: COD 21</p>
           </div>
+         
         </div>
         
 
@@ -69,6 +75,27 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section id="services" class="services destaques">
+      <div class="section-title">
+        <h2 class="title" style="font-size: 28px;">Vídeos SEAGRO-SC</h2>
+      </div>
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+            @foreach ($videos as $video)
+              <div class="col-lg-4 col-md-4 icon-box aos-init aos-animate" data-aos="fade-up">
+                  <h6>{{ $video->nm_video }}</h6>
+                  <iframe width="100%" height="300" style="border-radius: 15px;" src="{{ $video->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <p>Postado em {{ \Carbon\Carbon::parse($video->dt_video)->format('d/m/Y') }}</p>
+              </div>             
+            @endforeach
+
+            <div class="col-lg-12 col-md-12 icon-box aos-init aos-animate center" data-aos="fade-up">
+                <h6><a href="{{ url('videos/todos') }}">Ver Todos</a></h6>
+            </div>
+        </div>
       </div>
     </section>
 

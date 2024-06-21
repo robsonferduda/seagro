@@ -109,8 +109,13 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
+                <a class="nav-link" target="blank" href="http://www.seagro-sc.org.br/">
+                  <i class="fa fa-globe text-info"></i>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                  <i class="fa fa-sign-out"></i>
+                  <i class="fa fa-sign-out text-danger"></i>
                 </a>
               </li>
             </ul>
@@ -162,6 +167,7 @@
   <script src="{{ asset('demo/demo.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
   <script src="{{ asset('js/sweetalert2.js') }}"></script>
+  <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
   @yield('script')
   <script>
     function setFormValidation(id) {
@@ -191,6 +197,7 @@
     $(document).ready(function() {
 
       var host =  $('meta[name="base-url"]').attr('content');
+      $('.data').mask('00/00/0000',{ "placeholder": "dd/mm/YYYY" });
 
       /*
       const eventSource = new EventSource(host+'/certificado/status');

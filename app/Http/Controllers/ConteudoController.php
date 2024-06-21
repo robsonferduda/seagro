@@ -20,8 +20,10 @@ class ConteudoController extends Controller
     {
         $boletins = Boletim::orderBy('created_at','DESC')->get();
         $paginas = Pagina::orderBy('created_at','DESC')->get();
+        $videos = Video::where('fl_ativo', 1)->orderBy('dt_video')->get();
+        $noticias = Noticia::where("fl_ativa", 1)->where("fl_banner", 1)->orderBy('dt_noticia','DESC')->get();
 
-        return view('gercont/index', compact('boletins','paginas'));
+        return view('gercont/index', compact('boletins','paginas','noticias','videos'));
     }
 
     public function videos()

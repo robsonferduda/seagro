@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('gercont','App\Http\Controllers\ConteudoController@index');
 Route::get('gercont/boletins','App\Http\Controllers\ConteudoController@boletins');
+Route::get('gercont/noticias','App\Http\Controllers\ConteudoController@noticias');
+Route::get('gercont/paginas','App\Http\Controllers\ConteudoController@paginas');
 Route::get('gercont/videos','App\Http\Controllers\ConteudoController@videos');
 Route::resource('boletim','App\Http\Controllers\BoletimController');
 
@@ -44,3 +46,6 @@ Route::get('empresas-publicas/{pagina}','App\Http\Controllers\EmpresaController@
 Route::get('empresas-privadas/{pagina}','App\Http\Controllers\EmpresaController@privadas');
 
 Route::get('videos/todos','App\Http\Controllers\VideoController@index');
+Route::get('video/{id}/delete','App\Http\Controllers\VideoController@delete');
+Route::get('videos/publicacao/atualizar/{id}','App\Http\Controllers\VideoController@atualizar');
+Route::resource('video','App\Http\Controllers\VideoController');

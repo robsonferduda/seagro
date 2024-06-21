@@ -19,8 +19,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    {!! Form::open(['id' => 'frm', 'url' => ['video', $video], 'method' => 'patch']) !!}
+                    <form class="form-horizontal" method="POST" action="{{ route('video.update', ['video' => $video]) }}">
                         @csrf
+                        @method('PATCH')
                         <div class="form-group m-3 w-70">
                             <div class="row">
                                 <div class="col-md-2">
@@ -58,7 +59,7 @@
                             <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar</button>
                             <a href="{{ url()->previous() }}" class="btn btn-danger ml-2"><i class="fa fa-times"></i> Cancelar</a>
                         </div>
-                    {!! Form::close() !!} 
+                    </form> 
                 </div>
             </div>
         </div>

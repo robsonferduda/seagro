@@ -31,6 +31,9 @@
                       </span>
                     </div>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <div class="view-eye">
+                      <i class="fa fa-eye view-password" data-target="password"></i>  
+                    </div> 
                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

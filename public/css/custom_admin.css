@@ -5,3 +5,21 @@
 .select2-selection { min-height: 38px; padding: 5px 2px; border: 1px solid #d7d7d7 !important;}
 .swal2-html-container{ text-align: center; font-size: 18px;}
 .swal2-title{font-size: 25px;}
+.view-eye{
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    z-index: 1000;
+}
+.view-eye:hover{
+    cursor: pointer;
+}
+.view-eye-p{
+    position: absolute;
+    top: 10px;
+    right: 28px;
+    z-index: 1000;
+}
+.view-eye-p:hover{
+    cursor: pointer;
+}

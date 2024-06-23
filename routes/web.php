@@ -20,12 +20,17 @@ Route::get('gercont/boletins','App\Http\Controllers\ConteudoController@boletins'
 Route::get('gercont/noticias','App\Http\Controllers\ConteudoController@noticias');
 Route::get('gercont/paginas','App\Http\Controllers\ConteudoController@paginas');
 Route::get('gercont/videos','App\Http\Controllers\ConteudoController@videos');
-Route::resource('boletim','App\Http\Controllers\BoletimController');
+Route::get('gercont/eventos','App\Http\Controllers\ConteudoController@eventos');
+Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
 
 Route::get('/','App\Http\Controllers\HomeController@index');
 
 Route::get('boletim/detalhes/{data}','App\Http\Controllers\PaginaController@getBoletim');
 Route::get('boletim/download/{id}','App\Http\Controllers\PaginaController@boletim');
+Route::get('boletim/publicacao/atualizar/{id}','App\Http\Controllers\BoletimController@atualizar');
+Route::post('boletim/novo','App\Http\Controllers\BoletimController@store');
+Route::resource('boletim','App\Http\Controllers\BoletimController');
+
 
 Route::get('contato','App\Http\Controllers\PaginaController@contato');
 

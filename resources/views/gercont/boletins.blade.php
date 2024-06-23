@@ -5,10 +5,11 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="card-title"><i class="fa fa-files-o"></i> Boletim</h4>
+                    <h4 class="card-title"><i class="fa fa-files-o ml-3"></i> Boletins</h4>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ url('boletim/create') }}" class="btn btn-info pull-right ml-3" style="margin-right: 12px;"><i class="fa fa-plus"></i> Cadastrar</a>
+                    <a href="{{ url('gercont') }}" class="btn btn-warning pull-right ml-3 mr-3"><i class="nc-icon nc-chart-pie-36"></i> Dashboard</a>
+                    <a href="{{ url('boletim/create') }}" class="btn btn-info pull-right ml-3"><i class="fa fa-plus"></i> Cadastrar</a>
                 </div>
             </div>
         </div>

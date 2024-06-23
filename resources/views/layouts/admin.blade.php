@@ -32,43 +32,43 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                <li class="{{ (Session::has('url') and Session::get('url') == 'home') ? 'active' : '' }}">
-                    <a href="{{ url('/') }}">
+                <li class="{{ (Session::has('url') and Session::get('url') == 'gercont') ? 'active' : '' }}">
+                    <a href="{{ url('gercont') }}">
                     <i class="nc-icon nc-chart-pie-36"></i>
                     <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
+                <li class="{{ (Session::has('url') and Session::get('url') == 'boletins') ? 'active' : '' }}">
                   <a href="{{ url('gercont/boletins') }}">
                     <i class="fa fa-files-o"></i>
                       <p>Boletins</p>
                   </a>
                 </li>
-                <li>
-                  <a href="{{ url('eventos') }}">
+                <li class="{{ (Session::has('url') and Session::get('url') == 'eventos') ? 'active' : '' }}">
+                  <a href="{{ url('gercont/eventos') }}">
                     <i class="nc-icon nc-tag-content"></i>
                       <p>Eventos</p>
                   </a>
                 </li>
-                <li>
-                    <a href="{{ url('paginas') }}">
+                <li class="{{ (Session::has('url') and Session::get('url') == 'paginas') ? 'active' : '' }}">
+                    <a href="{{ url('gercont/paginas') }}">
                     <i class="fa fa-globe"></i>
                       <p>Páginas</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('estatisticas') }}">
+                <li class="{{ (Session::has('url') and Session::get('url') == 'menus') ? 'active' : '' }}">
+                    <a href="{{ url('gercont/menus') }}">
                     <i class="fa fa-list-ul"></i>
                       <p>Menus</p>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('modelos') }}">
+                <li class="{{ (Session::has('url') and Session::get('url') == 'noticias') ? 'active' : '' }}">
+                    <a href="{{ url('gercont/noticias') }}">
                     <i class="fa fa-newspaper-o"></i>
                     <p>Notícias</p>
                     </a>
                 </li>    
-                <li>
+                <li class="{{ (Session::has('url') and Session::get('url') == 'videos') ? 'active' : '' }}">
                     <a href="{{ url('gercont/videos') }}">
                     <i class="fa fa-video-camera"></i>
                     <p>Vídeos</p>

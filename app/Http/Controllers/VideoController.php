@@ -11,12 +11,13 @@ use App\Models\Estatistica;
 use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 
 class VideoController extends Controller
 {
     public function __construct()
     {
-        
+        Session::put('url','videos');
     }
 
     public function index()

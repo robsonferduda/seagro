@@ -137,7 +137,79 @@
                         }
                     </style>
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
-                        
+                        <div class="ibox-content forum-container">
+                            @if($pagina == 'Cooperativas')
+
+                            <div class="forum-item">
+                                <div class="row">
+                                  <div class="col-md-10" style="text-align: left;">
+                                      <div class="forum-icon">
+                                         <i class="fa fa-bookmark"></i>
+                                      </div>
+                                      <a href="https://www.seagro-sc.org.br/acordos/pauta_de_reivindicacoes_2020_agroindustrias_29_04_2020.pdf" class="forum-item-title">Pauta de Reivindicações 2020/2021 - SINDICARNE (Agroindústrias)</a>
+                                      <div class="forum-sub-title"></div>
+                                  </div>
+                                  <div class="col-md-2 forum-info">
+                                      <div>
+                                         <small>Publicado em</small>
+                                      </div>
+                                      <span class="views-number">
+                                          29/04/2020
+                                      </span>
+                                  </div>
+                                </div>
+                             </div>
+                            
+                             <div class="forum-item">
+                                <div class="row">
+                                  <div class="col-md-10" style="text-align: left;">
+                                      <div class="forum-icon">
+                                         <i class="fa fa-bookmark"></i>
+                                      </div>
+                                      <a href="https://www.seagro-sc.org.br/acordos/pauta_de_reivindicacoes_2018_agroindustrias_26_04_2019.pdf" class="forum-item-title">Pauta de Reivindicações 2019/2020 - SINDICARNE (Agroindústrias)</a>
+                                      <div class="forum-sub-title"></div>
+                                  </div>
+                                  <div class="col-md-2 forum-info">
+                                      <div>
+                                         <small>Publicado em</small>
+                                      </div>
+                                      <span class="views-number">
+                                          26/04/2019
+                                      </span>
+                                  </div>
+                                </div>
+                             </div>
+
+                            @endif
+
+                            @if($pagina == 'Agroindústrias')
+
+                            <div class="forum-item">
+                                <div class="row">
+                                  <div class="col-md-10" style="text-align: left;">
+                                      <div class="forum-icon">
+                                         <i class="fa fa-bookmark"></i>
+                                      </div>
+                                      <a href="https://www.seagro-sc.org.br/acordos/pauta_de_reivindicacoes_2019_cooperativas_26_04_2019.pdf" class="forum-item-title">Pauta de Reivindicações 2019/2020 - SINDIOCESC (Cooperativas)</a>
+                                      <div class="forum-sub-title"></div>
+                                  </div>
+                                  <div class="col-md-2 forum-info">
+                                      <div>
+                                         <small>Publicado em</small>
+                                      </div>
+                                      <span class="views-number">
+                                          26/04/2019
+                                      </span>
+                                  </div>
+                                </div>
+                             </div>
+
+                            @endif
+
+                            @if($pagina == 'CREA-SC')
+
+                            @endif
+                        </div>
                         <a href="{{ URL::previous() }}">Voltar para o Início</a>
                     </div>
                 </div>

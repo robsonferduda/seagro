@@ -138,7 +138,7 @@
                     </style>
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
                         <div class="ibox-content forum-container">
-                            @if($pagina == 'Cooperativas')
+                            @if($pagina == 'Agroindústrias')
 
                             <div class="forum-item">
                                 <div class="row">
@@ -182,7 +182,7 @@
 
                             @endif
 
-                            @if($pagina == 'Agroindústrias')
+                            @if($pagina == 'Cooperativas')
 
                             <div class="forum-item">
                                 <div class="row">

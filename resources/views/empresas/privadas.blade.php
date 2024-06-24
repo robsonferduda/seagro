@@ -210,7 +210,7 @@
                                       <div class="forum-icon">
                                          <i class="fa fa-bookmark"></i>
                                       </div>
-                                      <a href="https://www.seagro-sc.org.br/acordos/pauta_de_reivindicacoes_2024_2025_cooperativas.pdf" class="forum-item-title">Pauta de Reivindicações 2019/2020 - SINDIOCESC (Cooperativas)</a>
+                                      <a href="https://www.seagro-sc.org.br/acordos/pauta_de_reivindicacoes_2024_2025_cooperativas.pdf" class="forum-item-title">Pauta de Reivindicações 2024/2025 - Cooperativas</a>
                                       <div class="forum-sub-title"></div>
                                   </div>
                                   <div class="col-md-2 forum-info">

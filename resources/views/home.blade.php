@@ -88,7 +88,6 @@
               <div class="col-lg-4 col-md-4 icon-box aos-init aos-animate" data-aos="fade-up">
                   <h6>{{ $video->nm_video }}</h6>
                   <iframe width="100%" height="300" style="border-radius: 15px;" src="{{ $video->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <p>Postado em {{ \Carbon\Carbon::parse($video->dt_video)->format('d/m/Y') }}</p>
               </div>             
             @endforeach
 

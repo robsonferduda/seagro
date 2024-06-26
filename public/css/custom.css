@@ -363,3 +363,5 @@ ul.timeline > li:before {
   height: 20px;
   z-index: 400;
 }
+.img-diretoria { position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%; } 
+.box-diretoria { width: 100%; height: auto; }

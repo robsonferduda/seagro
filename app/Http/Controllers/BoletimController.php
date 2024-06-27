@@ -50,7 +50,22 @@ class BoletimController extends Controller
         $pdf = $request->file('pdf');
         $audio = $request->file('audio');
 
-        dd($pdf);
+        $data = implode('-', array_reverse(explode('/', $request->dt_publicacao)));
+
+        $nome_arquivo = 'boletim-'.$data;
+
+        $arquivo_imagem = $nome_arquivo.'.'.$imagem->getClientOriginalExtension();
+        $arquivo_pdf = $nome_arquivo.'.'.$pdf->getClientOriginalExtension();
+        $arquivo_audio = $nome_arquivo.'.'.$audio->getClientOriginalExtension();
+
+        $request->file('pdf')->storeAs('pdf', $arquivo_pdf, 'boletim');
+        $request->file('imagem')->storeAs('img', $arquivo_imagem, 'boletim');
+        $request->file('audio')->storeAs('audio', $arquivo_audio, 'boletim');
+
+        $dados = array('titulo' => $request->titulo,
+                       'dt_publicacao' => $data);
+
+        Boletim::create($dados);
 
         Flash::success('<i class="fa fa-check"></i> Informações de publicação atualizadas com sucesso');
 

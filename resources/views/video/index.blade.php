@@ -4,7 +4,7 @@
         <section id="services" class="services">
             <div class="container" data-aos="">
                 <div class="section-title">
-                    <h2 class="title">Todas od Vídeos</h2>
+                    <h2 class="title">Todas os Vídeos</h2>
                 </div>
                 <div class="row">
                     @foreach ($videos as $video)

@@ -53,24 +53,29 @@
     <section id="services" class="services destaques">
       <div class="container" data-aos="fade-up">
         <div class="row">
-          <div class="col-lg-3 col-md-6 text-center">
+          <div class="col text-center">
+            <a href=" {{ url('pagina/eleicoes-2024') }}">
+              <img src="{{ asset('img/banner/eleicoes-2024.jpeg') }}" class="d-block w-100 img-radius" alt="Slide 1">
+            </a>
+          </div>
+          <div class="col text-center">
             <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
-              <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
+              <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Slide 2">
             </a>
           </div>
-          <div class="col-lg-3 col-md-6 text-center">
+          <div class="col text-center">
             <a href=" {{ url('destaque/boletim') }}">
-              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
+              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Slide 3">
             </a>
           </div>
-          <div class="col-lg-3 col-md-6 text-center">
+          <div class="col text-center">
             <a href=" {{ url('destaque/linha_do_tempo') }}">
-              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
+              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Slide 4">
             </a>
           </div>
-          <div class="col-lg-3 col-md-6 text-center">
+          <div class="col text-center">
             <a href=" {{ url('destaque/contribuicao-sindical') }}">
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="Slide 1">
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="Slide 5">
             </a>
           </div>
         </div>

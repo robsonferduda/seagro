@@ -178,7 +178,7 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Apresentação</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Estrutura Organizacional</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Relatórios Finencairos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Relatórios Financeiros</a></li>
             </ul>
           </div>
 

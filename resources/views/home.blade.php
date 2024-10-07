@@ -30,7 +30,7 @@
           </div>
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
             <div class="icon"><i class="fa fa-refresh"></i></div>
-            <h4 class="title"><a href="">Atualize Seus Dados</a></h4>
+            <h4 class="title"><a href="https://sweb.diretasistemas.com.br/prosindweb/index.php?sind=617">Atualize Seus Dados</a></h4>
             <p class="description">Mantenha seus dados atualizados</p>
           </div>
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">

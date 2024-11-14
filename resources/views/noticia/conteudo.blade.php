@@ -11,7 +11,7 @@
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up" style="text-align: justify;">
                         {!! $noticia->corpo !!}
                     </div>
-                    <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
+                    <div class="col-lg-12 col-md-12 icon-box">
                         <a href="{{ URL::previous() }}">Voltar para o Início</a>
                     </div>
                 </div>

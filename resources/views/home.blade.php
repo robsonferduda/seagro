@@ -117,7 +117,7 @@
     <section id="services" class="services">
       <div class="container">
         <div class="section-title">
-          <h2 class="title" style="font-size: 28px;">Agenda de Cursos e Eventos</h2>
+          <h2 class="title" style="font-size: 28px;">Calendário SEAGRO-SC</h2>
         </div>
         <div class="row">
           <div class="container">

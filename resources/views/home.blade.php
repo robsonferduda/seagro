@@ -24,9 +24,11 @@
       <div class="container" data-aos="">
         <div class="row">
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="fa fa-id-card-o"></i></div>
-            <h4 class="title"><a href="{{ url('pagina/fique-socio') }}">Fique Sócio</a></h4>
-            <p class="description">Baixe e preencha o formuládio de associação</p>
+            <a href="{{ url('pagina/fique-socio') }}">
+              <div class="icon"><i class="fa fa-id-card-o"></i></div>
+              <h4 class="title"><a href="{{ url('pagina/fique-socio') }}">Fique Sócio</a></h4>
+              <p class="description">Baixe e preencha o formuládio de associação</p>
+            </a>
           </div>
           <div class="col-lg-3 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
             <div class="icon"><i class="fa fa-refresh"></i></div>
@@ -56,11 +58,6 @@
         <div class="row" style="margin-bottom: 15px;">
           
           <div class="col text-center">
-            <a href=" {{ url('pagina/eleicoes-2024') }}">
-              <img src="{{ asset('img/banner/eleicoes-2024.jpeg') }}" class="d-block w-100 img-radius" alt="Eleições 2024">
-            </a>
-          </div>
-          <div class="col text-center">
             <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
               <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Revista SEAGRO">
             </a>
@@ -78,7 +75,7 @@
           </div>
           <div class="col text-center">
             <a href=" {{ url('destaque/contribuicao-sindical') }}">
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" class="d-block w-100 img-radius" alt="COntribuição Sindical">
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpeg') }}" style="min-height: 230px" class="d-block w-100 img-radius" alt="Contribuição Sindical">
             </a>
           </div>
         </div>

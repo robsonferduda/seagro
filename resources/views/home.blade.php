@@ -95,7 +95,7 @@
                   @if($video->cd_tipo == 1)
                     <iframe width="100%" height="300" style="border-radius: 15px;" src="{{ $video->url }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   @else
-                    <video width="100%" height="300" controls>
+                    <video width="100%" height="300"  style="border-radius: 15px;" controls>
                       <source src="{{ asset('videos/'.$video->url) }}" type="video/mp4">
                       <source src="movie.ogg" type="video/ogg">
                       Seu navegador não suporta a execução de vídeos

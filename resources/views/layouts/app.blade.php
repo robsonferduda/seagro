@@ -96,9 +96,9 @@
               <li><a href="{{ url('pagina/representante-junto-fisenge') }}">Representante junto à Fisenge</a></li>
             </ul>
           </li>
-          <li class="dropdown"><a href="#"><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href=""><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('pagina/atualizacao_de_dados') }}">Atualização de Dados</a></li>
+              <li><a href="https://sweb.diretasistemas.com.br/prosindweb/index.php?sind=617">Atualização de Dados</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>
@@ -136,7 +136,7 @@
           </li>
           
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Legislação</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Publicações</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('pagina/publicacoes') }}">Publicações</a></li>
           <li><a class="nav-link scrollto" href="contato">Contato</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

@@ -91,7 +91,7 @@
         <div class="row">
             @foreach ($videos as $video)
               <div class="col-lg-4 col-md-4 icon-box aos-init aos-animate" data-aos="fade-up">
-                  <h6>{{ $video->nm_video }}</h6>
+                  <h6 style="min-height: 40px;">{{ $video->nm_video }}</h6>
                   @if($video->cd_tipo == 1)
                     <iframe width="100%" height="300" style="border-radius: 15px;" src="{{ $video->url }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   @else

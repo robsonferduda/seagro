@@ -268,7 +268,7 @@
                                      <div class="forum-icon">
                                         <i class="fa fa-bookmark"></i>
                                      </div>
-                                     <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2024_2025_ceasa.pdf" class="forum-item-title">Pauta de Reivindicações 2023/2024 - CEASA</a>
+                                     <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2024_2025_ceasa.pdf" class="forum-item-title">Pauta de Reivindicações 2024/2025 - CEASA</a>
                                      <div class="forum-sub-title"></div>
                                  </div>
                                  <div class="col-md-2 forum-info">
@@ -289,7 +289,7 @@
                                      <div class="forum-icon">
                                         <i class="fa fa-bookmark"></i>
                                      </div>
-                                     <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2024_2025_cidasc.pdf" class="forum-item-title">Pauta de Reivindicações 2023/2024 - CIDASC</a>
+                                     <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2024_2025_cidasc.pdf" class="forum-item-title">Pauta de Reivindicações 2024/2025 - CIDASC</a>
                                      <div class="forum-sub-title"></div>
                                  </div>
                                  <div class="col-md-2 forum-info">
@@ -308,7 +308,7 @@
                                      <div class="forum-icon">
                                         <i class="fa fa-bookmark"></i>
                                      </div>
-                                     <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2024_2025_epagri.pdf" class="forum-item-title">Pauta de Reivindicações 2023/2024 - EPAGRI</a>
+                                     <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2024_2025_epagri.pdf" class="forum-item-title">Pauta de Reivindicações 2024/2025 - EPAGRI</a>
                                      <div class="forum-sub-title"></div>
                                  </div>
                                  <div class="col-md-2 forum-info">

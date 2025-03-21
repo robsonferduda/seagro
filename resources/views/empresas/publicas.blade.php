@@ -147,26 +147,6 @@
                                       <div class="forum-icon">
                                          <i class="fa fa-bookmark"></i>
                                       </div>
-                                      <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2025_2026_epagri.pdf" class="forum-item-title">Pauta Reinvindicações 2025-2026 - EPAGRI</a>
-                                      <div class="forum-sub-title"></div>
-                                  </div>
-                                  <div class="col-md-2 forum-info">
-                                      <div>
-                                         <small>Publicado em</small>
-                                      </div>
-                                      <span class="views-number">
-                                        21/03/2025
-                                      </span>
-                                  </div>
-                                </div>
-                             </div>
-
-                            <div class="forum-item">
-                                <div class="row">
-                                  <div class="col-md-10" style="text-align: left;">
-                                      <div class="forum-icon">
-                                         <i class="fa fa-bookmark"></i>
-                                      </div>
                                       <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2025_2026_ceasa.pdf" class="forum-item-title">Pauta Reinvindicações 2025-2026 - CEASA</a>
                                       <div class="forum-sub-title"></div>
                                   </div>
@@ -188,6 +168,26 @@
                                          <i class="fa fa-bookmark"></i>
                                       </div>
                                       <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2025_2026_cidasc.pdf" class="forum-item-title">Pauta de Reivindicações 2025-2026 - CIDASC</a>
+                                      <div class="forum-sub-title"></div>
+                                  </div>
+                                  <div class="col-md-2 forum-info">
+                                      <div>
+                                         <small>Publicado em</small>
+                                      </div>
+                                      <span class="views-number">
+                                        21/03/2025
+                                      </span>
+                                  </div>
+                                </div>
+                             </div>
+
+                             <div class="forum-item">
+                                <div class="row">
+                                  <div class="col-md-10" style="text-align: left;">
+                                      <div class="forum-icon">
+                                         <i class="fa fa-bookmark"></i>
+                                      </div>
+                                      <a href="https://www.seagro-sc.org.br/campanha-salarial/empresas-publicas/pauta_de_reivindicacoes_2025_2026_epagri.pdf" class="forum-item-title">Pauta Reinvindicações 2025-2026 - EPAGRI</a>
                                       <div class="forum-sub-title"></div>
                                   </div>
                                   <div class="col-md-2 forum-info">

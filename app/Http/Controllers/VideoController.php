@@ -22,7 +22,7 @@ class VideoController extends Controller
 
     public function index()
     {
-        $videos = Video::where('fl_ativo', 1)->orderBy('dt_video','ASC')->get();
+        $videos = Video::where('fl_ativo', 1)->orderBy('dt_video','DESC')->get();
 
         return view('video/index',compact('videos'));
     }

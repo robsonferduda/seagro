@@ -159,17 +159,27 @@
 
     <section class="services">
       <div class="container">
-        <div class="section-title">
-          <h2 class="title" style="font-size: 28px;">Filiações</h2>
-        </div>
+        
         <div class="row">
 
-          <div class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
-            <a href="https://fisenge.org.br" target="blank"><img src="{{ asset('img/logos/fisenge.jpg') }}" class="img-fluid" alt=""></a>
+          <div col class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
+            
           </div>
 
-          <div class="col-lg-6 col-md-6" data-aos="fade-up">
-            <a href="http://www.dieese.org.br" target="blank"><img src="{{ asset('img/logos/dieese.jpg') }}" class="img-fluid" alt=""></a>
+          <div col class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
+            <div class="section-title">
+            <h2 class="title" style="font-size: 28px;">Filiações</h2>
+          </div>
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
+                <a href="https://fisenge.org.br" target="blank"><img src="{{ asset('img/logos/fisenge.jpg') }}" class="img-fluid" alt=""></a>
+              </div>
+
+              <div class="col-lg-6 col-md-6" data-aos="fade-up">
+                <a href="http://www.dieese.org.br" target="blank"><img src="{{ asset('img/logos/dieese.jpg') }}" class="img-fluid" alt=""></a>
+              </div>
+            </div>
           </div>
 
         </div>

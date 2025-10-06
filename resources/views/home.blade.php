@@ -167,7 +167,7 @@
             <h2 class="title" style="font-size: 28px;">Filiações</h2>
           </div>
 
-            <div class="row" style="text-align: right;">
+            <div class="row">
               <div class="col-lg-6 col-md-6" data-aos="fade-up">
                 <a href="https://fisenge.org.br" target="blank"><img src="{{ asset('img/logos/fisenge.jpg') }}" class="img-fluid" alt=""></a>
               </div>
@@ -183,7 +183,7 @@
             <h2 class="title" style="font-size: 28px;">Entidades Parceiras</h2>
           </div>
 
-            <div class="row" style="text-align: right;">
+            <div class="row">
               <div class="col-lg-6 col-md-6" data-aos="fade-up">
                 <a href="https://www.feagrosc.org.br" target="blank"><img style="width: 32%;" src="{{ asset('img/logos/feagro.png') }}" class="img-fluid" alt=""></a>
               </div>

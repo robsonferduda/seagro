@@ -185,11 +185,11 @@
 
             <div class="row" style="text-align: right;">
               <div class="col-lg-6 col-md-6" data-aos="fade-up">
-                <a href="https://www.feagrosc.org.br" target="blank"><img src="{{ asset('img/logos/feagro.jpg') }}" class="img-fluid" alt=""></a>
+                <a href="https://www.feagrosc.org.br" target="blank"><img src="{{ asset('img/logos/feagro.png') }}" class="img-fluid" alt=""></a>
               </div>
 
               <div class="col-lg-6 col-md-6" data-aos="fade-up">
-                <a href="https://uneagro.com.br" target="blank"><img src="{{ asset('img/logos/uniagro.jpg') }}" class="img-fluid" alt=""></a>
+                <a href="https://uneagro.com.br" target="blank"><img src="{{ asset('img/logos/uniagro.png') }}" class="img-fluid" alt=""></a>
               </div>
             </div>
           </div>

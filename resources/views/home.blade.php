@@ -162,22 +162,34 @@
         
         <div class="row">
 
-          <div col class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
-            
-          </div>
-
-          <div col class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
+          <div col class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: center;">
             <div class="section-title">
             <h2 class="title" style="font-size: 28px;">Filiações</h2>
           </div>
 
-            <div class="row">
-              <div class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: right;">
+            <div class="row" style="text-align: right;">
+              <div class="col-lg-6 col-md-6" data-aos="fade-up">
                 <a href="https://fisenge.org.br" target="blank"><img src="{{ asset('img/logos/fisenge.jpg') }}" class="img-fluid" alt=""></a>
               </div>
 
               <div class="col-lg-6 col-md-6" data-aos="fade-up">
                 <a href="http://www.dieese.org.br" target="blank"><img src="{{ asset('img/logos/dieese.jpg') }}" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+          </div>
+
+          <div col class="col-lg-6 col-md-6" data-aos="fade-up" style="text-align: center;">
+            <div class="section-title">
+            <h2 class="title" style="font-size: 28px;">Entidades Parceiras</h2>
+          </div>
+
+            <div class="row" style="text-align: right;">
+              <div class="col-lg-6 col-md-6" data-aos="fade-up">
+                <a href="https://www.feagrosc.org.br" target="blank"><img src="{{ asset('img/logos/feagro.jpg') }}" class="img-fluid" alt=""></a>
+              </div>
+
+              <div class="col-lg-6 col-md-6" data-aos="fade-up">
+                <a href="https://uneagro.com.br" target="blank"><img src="{{ asset('img/logos/uniagro.jpg') }}" class="img-fluid" alt=""></a>
               </div>
             </div>
           </div>

@@ -59,7 +59,7 @@
           
           <div class="col text-center">
             <a href="{{ url('pagina/eleicoes-2025') }}"> 
-              <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" style="" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
+              <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" style="max-height: 180px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
             </a>
           </div>
 
@@ -81,7 +81,7 @@
           </div>
           <div class="col text-center">
             <a href=" {{ url('destaque/contribuicao-sindical') }}">
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpeg') }}" style="" class="d-block w-100 img-radius" alt="Contribuição Sindical">
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpeg') }}" style="min-height: 180px;" class="d-block w-100 img-radius" alt="Contribuição Sindical">
             </a>
           </div>
         </div>

@@ -138,6 +138,69 @@
                     </style>
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
 
+                        @if($pagina == 'Diversos')
+                            <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-md-10" style="text-align: left;">
+                                    <div class="forum-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <a href="https://www.seagro-sc.org.br/atas/2025-02-04_ata.pdf" class="forum-item-title">Ata da Assembleia Geral Extraordinária do SEAGRO-SC - 04/02/2025</a>
+                                    <div class="forum-sub-title"></div>
+                                    </div>
+                                    <div class="col-md-2 forum-info"></div>
+                                </div>
+                            </div>
+                            <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-md-10" style="text-align: left;">
+                                    <div class="forum-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <a href="https://www.seagro-sc.org.br/atas/2024-02-27_ata.pdf" class="forum-item-title">Ata da Assembleia Geral Extraordinária do SEAGRO-SC - 27/02/2024</a>
+                                    <div class="forum-sub-title"></div>
+                                    </div>
+                                    <div class="col-md-2 forum-info"></div>
+                                </div>
+                            </div>
+                            <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-md-10" style="text-align: left;">
+                                    <div class="forum-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <a href="https://www.seagro-sc.org.br/atas/2023-02-16_ata.pdf" class="forum-item-title">Ata da Assembleia Geral Extraordinária do SEAGRO-SC - 16/02/2023</a>
+                                    <div class="forum-sub-title"></div>
+                                    </div>
+                                    <div class="col-md-2 forum-info"></div>
+                                </div>
+                            </div>
+                            <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-md-10" style="text-align: left;">
+                                    <div class="forum-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <a href="https://www.seagro-sc.org.br/atas/2022-03-09_ata.pdf" class="forum-item-title">Ata da Assembleia Geral Extraordinária do SEAGRO-SC - 09/03/2022</a>
+                                    <div class="forum-sub-title"></div>
+                                    </div>
+                                    <div class="col-md-2 forum-info"></div>
+                                </div>
+                            </div>
+                            <div class="forum-item">
+                                <div class="row">
+                                    <div class="col-md-10" style="text-align: left;">
+                                    <div class="forum-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <a href="https://www.seagro-sc.org.br/atas/2020-08-12_ata.pdf" class="forum-item-title">Ata da Assembleia Geral Extraordinária do SEAGRO-SC - 08/12/2020</a>
+                                    <div class="forum-sub-title"></div>
+                                    </div>
+                                    <div class="col-md-2 forum-info"></div>
+                                </div>
+                            </div>
+                        @endif
+
                         @if($pagina == 'Pautas de Reivindicações')
                         <div class="ibox-content forum-container">
 

@@ -138,6 +138,81 @@
                     </style>
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
 
+                        @if($pagina == 'Editais de Convocação')
+                            <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-10" style="text-align: left;">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bookmark"></i>
+                                        </div>
+                                        <a href="https://www.seagro-sc.org.br/editais/edital-convocacao-2025-02-04-publicado" class="forum-item-title">Edital de Convocação 04 a 20/02/2025 - Publicado Jornal ND</a>
+                                        <div class="forum-sub-title"></div>
+                                        </div>
+                                        <div class="col-md-2 forum-info"></div>
+                                    </div>
+                                </div>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-10" style="text-align: left;">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bookmark"></i>
+                                        </div>
+                                        <a href="https://www.seagro-sc.org.br/editais/edital-convocacao-2025-02-04" class="forum-item-title">Edital de Convocação 04 a 20/02/2025 </a>
+                                        <div class="forum-sub-title"></div>
+                                        </div>
+                                        <div class="col-md-2 forum-info"></div>
+                                    </div>
+                                </div>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-10" style="text-align: left;">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bookmark"></i>
+                                        </div>
+                                        <a href="https://www.seagro-sc.org.br/editais/edital-convocacao-2024-02-27-publicacao" class="forum-item-title">Edital de Convocação 27/02/2024 - Divulgação</a>
+                                        <div class="forum-sub-title"></div>
+                                        </div>
+                                        <div class="col-md-2 forum-info"></div>
+                                    </div>
+                                </div>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-10" style="text-align: left;">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bookmark"></i>
+                                        </div>
+                                        <a href="https://www.seagro-sc.org.br/editais/edital-convocacao-2024-02-27" class="forum-item-title">Edital de Convocação 27/02/2024 </a>
+                                        <div class="forum-sub-title"></div>
+                                        </div>
+                                        <div class="col-md-2 forum-info"></div>
+                                    </div>
+                                </div>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-10" style="text-align: left;">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bookmark"></i>
+                                        </div>
+                                        <a href="https://www.seagro-sc.org.br/editais/edital-convocacao-2023-02-16-publicacao" class="forum-item-title">Edital de Convocação 16/02/2023 - Divulgação</a>
+                                        <div class="forum-sub-title"></div>
+                                        </div>
+                                        <div class="col-md-2 forum-info"></div>
+                                    </div>
+                                </div>
+                                <div class="forum-item">
+                                    <div class="row">
+                                        <div class="col-md-10" style="text-align: left;">
+                                        <div class="forum-icon">
+                                            <i class="fa fa-bookmark"></i>
+                                        </div>
+                                        <a href="https://www.seagro-sc.org.br/editais/edital-convocacao-2023-02-16" class="forum-item-title">Edital de Convocação 16/02/2023</a>
+                                        <div class="forum-sub-title"></div>
+                                        </div>
+                                        <div class="col-md-2 forum-info"></div>
+                                    </div>
+                                </div>
+                        @endif
+
                         @if($pagina == 'Diversos')
                             <div class="forum-item">
                                 <div class="row">

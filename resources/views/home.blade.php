@@ -59,7 +59,7 @@
           
           <div class="col text-center">
             <a href="{{ url('pagina/eleicoes-2025') }}"> 
-              <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
+              <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" style="min-height: 230px" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
             </a>
           </div>
 

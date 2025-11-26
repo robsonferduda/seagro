@@ -99,7 +99,7 @@
           <li class="dropdown"><a href=""><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="https://sweb.diretasistemas.com.br/prosindweb/index.php?sind=617">Atualização de Dados</a></li>
-              <li><a href="{{ url('pagina/associado/beneficios') }}">Benefícios</a></li>
+              <li><a href="{{ url('pagina/associados-beneficios') }}">Benefícios</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>

@@ -57,37 +57,35 @@
         
         <div class="row" style="margin-bottom: 15px;">
           
-          <div class="col text-center">
+          <div class="col-xs-12 col-sm-12 col-md-2 text-center mb-3">
             <a href="https://votacao.link/eleicao_seagro"> 
-              <img src="{{ asset('img/banner/vote_aqui.jpeg') }}" style="max-height: 180px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
+              <img src="{{ asset('img/banner/vote_aqui.jpeg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
             </a>
           </div>
 
-          <div class="col text-center">
+          <div class="col-xs-12 col-sm-12 col-md-2 text-center mb-3">
             <a href="{{ url('pagina/eleicoes-2025') }}"> 
-              <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" style="max-height: 180px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
+              <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
             </a>
           </div>
-          <!--
-          <div class="col text-center">
+          <div class="col-xs-12 col-sm-12 col-md-2 text-center mb-3">
             <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
-              <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Revista SEAGRO">
+              <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Revista SEAGRO">
             </a>
           </div>
-        -->
-          <div class="col text-center">
+          <div class="col-xs-12 col-sm-12 col-md-2  text-center mb-3">
             <a href=" {{ url('destaque/boletim') }}">
-              <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Boletins">
+              <img src="{{ asset('img/banner/boletim.jpg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Boletins">
             </a>
           </div>
-          <div class="col text-center">
+          <div class="col-xs-12 col-sm-12 col-md-2  text-center mb-3">
             <a href=" {{ url('destaque/linha_do_tempo') }}">
-              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" class="d-block w-100 img-radius" alt="Linha do Tempo">
+              <img src="{{ asset('img/banner/linha_do_tempo.jpg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Linha do Tempo">
             </a>
           </div>
-          <div class="col text-center">
+          <div class="col-xs-12 col-sm-12 col-md-2  text-center mb-3">
             <a href=" {{ url('destaque/contribuicao-sindical') }}">
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpeg') }}" style="min-height: 180px;" class="d-block w-100 img-radius" alt="Contribuição Sindical">
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpeg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Contribuição Sindical">
             </a>
           </div>
         </div>

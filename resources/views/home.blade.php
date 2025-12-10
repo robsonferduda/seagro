@@ -58,17 +58,23 @@
         <div class="row" style="margin-bottom: 15px;">
           
           <div class="col text-center">
+            <a href="https://votacao.link/eleicao_seagro"> 
+              <img src="{{ asset('img/banner/vote_aqui.jpeg') }}" style="max-height: 180px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
+            </a>
+          </div>
+
+          <div class="col text-center">
             <a href="{{ url('pagina/eleicoes-2025') }}"> 
               <img src="{{ asset('img/banner/banner_eleicao.jpeg') }}" style="max-height: 180px;" class="d-block w-100 img-radius" alt="Eleições SEAGRO-SC">
             </a>
           </div>
-
+          <!--
           <div class="col text-center">
             <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
               <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" class="d-block w-100 img-radius" alt="Revista SEAGRO">
             </a>
           </div>
-      
+        -->
           <div class="col text-center">
             <a href=" {{ url('destaque/boletim') }}">
               <img src="{{ asset('img/banner/boletim.jpg') }}" class="d-block w-100 img-radius" alt="Boletins">

@@ -56,18 +56,39 @@ class BoletimController extends Controller
 
         $arquivo_imagem = $nome_arquivo.'.'.$imagem->getClientOriginalExtension();
         $arquivo_pdf = $nome_arquivo.'.'.$pdf->getClientOriginalExtension();
-        $arquivo_audio = $nome_arquivo.'.'.$audio->getClientOriginalExtension();
+        $arquivo_audio = null;
 
-        $request->file('pdf')->storeAs('pdf', $arquivo_pdf, 'boletim');
-        $request->file('imagem')->storeAs('img', $arquivo_imagem, 'boletim');
-        $request->file('audio')->storeAs('audio', $arquivo_audio, 'boletim');
+        // Salvar arquivos diretamente na pasta boletim
+        $request->file('pdf')->storeAs('', $arquivo_pdf, 'boletim');
+        $request->file('imagem')->storeAs('', $arquivo_imagem, 'boletim');
+        
+        if ($audio) {
+            $arquivo_audio = $nome_arquivo.'.'.$audio->getClientOriginalExtension();
+            $request->file('audio')->storeAs('', $arquivo_audio, 'boletim');
+        }
 
-        $dados = array('titulo' => $request->titulo,
-                       'dt_publicacao' => $data);
+        // Criar boletim para obter o ID
+        $boletim = Boletim::create([
+            'titulo' => $request->titulo,
+            'subtitulo' => $request->subtitulo,
+            'dt_publicacao' => $data,
+            'arquivo' => $arquivo_pdf,
+            'imagem' => $arquivo_imagem,
+            'audio' => $arquivo_audio,
+            'fl_publicacao' => $request->has('fl_publicacao') ? 1 : 0,
+            'acessos' => 0,
+            'downloads' => 0
+        ]);
 
-        Boletim::create($dados);
+        // Gerar o campo texto automaticamente
+        $texto = '<p><a href="'.url('boletim/download/'.$boletim->id).'" class="forum-item-title">Clique aqui para baixar</a></p>'."\n";
+        $texto .= '<p><img src="'.url('boletim/'.$arquivo_imagem).'" width="100%"  alt=""></p>';
 
-        Flash::success('<i class="fa fa-check"></i> Informações de publicação atualizadas com sucesso');
+        // Atualizar com o texto gerado
+        $boletim->texto = $texto;
+        $boletim->save();
+
+        Flash::success('<i class="fa fa-check"></i> Boletim cadastrado com sucesso');
 
         return redirect('gercont/boletins')->withInput();
     }

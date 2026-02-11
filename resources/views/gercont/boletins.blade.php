@@ -52,7 +52,7 @@
                                     </td>
                                     <td class="text-center">{{ $boletim->acessos }}</td>
                                     <td class="text-center">
-                                        <a title="Detalhes" href="{{ url('boletim', $boletim->id) }}" class="btn btn-warning btn-link btn-icon"><i class="fa fa-files-o fa-2x"></i></a>
+                                        <a title="Ver no Site" href="{{ url('boletim', $boletim->id) }}" class="btn btn-success btn-link btn-icon"><i class="fa fa-globe fa-2x"></i></a>
                                         <a title="Editar" href="{{ route('boletim.edit',$boletim) }}" class="btn btn-primary btn-link btn-icon"><i class="fa fa-edit fa-2x"></i></a>
                                         <a title="Excluir" href="#" class="btn btn-danger btn-link btn-icon remove"><i class="fa fa-times fa-2x"></i></a>
                                     </td>

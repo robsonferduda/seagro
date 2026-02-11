@@ -24,11 +24,13 @@ class BoletimRequest extends FormRequest
     public function rules()
     {
         return [
-            'dt_publicacao' => 'required',
-            'titulo' => 'required',
-            'pdf' => 'required',
-            'imagem' => 'required',
-            'audio' => 'required'
+            'dt_publicacao' => 'required|date_format:d/m/Y',
+            'titulo' => 'required|min:3|max:255',
+            'subtitulo' => 'nullable|max:255',
+            'texto' => 'nullable',
+            'pdf' => 'required|file|mimes:pdf|max:10240',
+            'imagem' => 'required|file|mimes:jpeg,jpg,png|max:5120',
+            'audio' => 'nullable|file|mimes:mp3,wav,mpeg,mpga|max:20480'
         ];
     }
 
@@ -36,10 +38,19 @@ class BoletimRequest extends FormRequest
     {
         return [
             'dt_publicacao.required' => 'Campo <strong>Data de Publicação</strong> é obrigatório',
+            'dt_publicacao.date_format' => 'Campo <strong>Data de Publicação</strong> deve estar no formato dd/mm/aaaa',
             'titulo.required' => 'Campo <strong>Título</strong> é obrigatório',
+            'titulo.min' => 'Campo <strong>Título</strong> deve ter no mínimo 3 caracteres',
+            'titulo.max' => 'Campo <strong>Título</strong> deve ter no máximo 255 caracteres',
+            'subtitulo.max' => 'Campo <strong>Subtítulo</strong> deve ter no máximo 255 caracteres',
             'pdf.required' => 'Campo <strong>Arquivo PDF</strong> é obrigatório',
+            'pdf.mimes' => 'Campo <strong>Arquivo PDF</strong> deve ser um arquivo PDF',
+            'pdf.max' => 'Campo <strong>Arquivo PDF</strong> não pode ser maior que 10MB',
             'imagem.required' => 'Campo <strong>Arquivo Imagem</strong> é obrigatório',
-            'audio.required' => 'Campo <strong>Arquivo Áudio</strong> é obrigatório'
+            'imagem.mimes' => 'Campo <strong>Arquivo Imagem</strong> deve ser JPG, JPEG ou PNG',
+            'imagem.max' => 'Campo <strong>Arquivo Imagem</strong> não pode ser maior que 5MB',
+            'audio.mimes' => 'Campo <strong>Arquivo Áudio</strong> deve ser MP3 ou WAV',
+            'audio.max' => 'Campo <strong>Arquivo Áudio</strong> não pode ser maior que 20MB'
         ];
     }
 }

@@ -12,6 +12,6 @@ class Boletim extends Model
     protected $connection = 'mysql';
     protected $table = 'boletim';
 
-    protected $fillable = ['id','titulo','dt_publicacao'];
+    protected $fillable = ['id','titulo','subtitulo','texto','dt_publicacao','arquivo','imagem','audio','fl_publicacao','acessos','downloads'];
 
 }

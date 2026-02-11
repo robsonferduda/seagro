@@ -12,6 +12,11 @@ class TipoEvento extends Model
     protected $connection = 'mysql';
     protected $table = 'tipo_evento';
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id','nm_tipo'];
 
+    // Relacionamento com Evento
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class, 'id_tipo');
+    }
 }

@@ -71,6 +71,12 @@
           </div>
           -->
 
+          <div class="col-xs-12 col-sm-12 col-md-2 text-center mb-3">
+            <a href="{{ url('pagina/eleicoes-2025') }}"> 
+              <img src="{{ asset('img/banner/oportunidades.jpeg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Oportunidades SEAGRO-SC">
+            </a>
+          </div>
+
           <div class="col-xs-12 col-sm-12 col-md-3 text-center mb-3">
             <a href="https://www.calameo.com/read/0024823218cec57041ed2"> 
               <img src="{{ asset('img/banner/revista_40_anos.jpg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Revista SEAGRO">

@@ -31,6 +31,10 @@ Route::get('boletim/publicacao/atualizar/{id}','App\Http\Controllers\BoletimCont
 Route::post('boletim/novo','App\Http\Controllers\BoletimController@store');
 Route::resource('boletim','App\Http\Controllers\BoletimController');
 
+Route::get('evento/ativo/atualizar/{id}','App\Http\Controllers\EventoController@atualizar');
+Route::post('evento/novo','App\Http\Controllers\EventoController@store');
+Route::resource('evento','App\Http\Controllers\EventoController');
+
 
 Route::get('contato','App\Http\Controllers\PaginaController@contato');
 

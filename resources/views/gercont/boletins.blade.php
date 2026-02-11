@@ -52,9 +52,15 @@
                                     </td>
                                     <td class="text-center">{{ $boletim->acessos }}</td>
                                     <td class="text-center">
-                                        <a title="Ver no Site" href="{{ url('boletim', $boletim->id) }}" class="btn btn-success btn-link btn-icon"><i class="fa fa-globe fa-2x"></i></a>
+                                        <a title="Ver no Site" href="{{ url('boletim', $boletim->id) }}" class="btn btn-success btn-link btn-icon" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
                                         <a title="Editar" href="{{ route('boletim.edit',$boletim) }}" class="btn btn-primary btn-link btn-icon"><i class="fa fa-edit fa-2x"></i></a>
-                                        <a title="Excluir" href="#" class="btn btn-danger btn-link btn-icon remove"><i class="fa fa-times fa-2x"></i></a>
+                                        <form action="{{ route('boletim.destroy', $boletim->id) }}" method="POST" class="d-inline form-delete">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" title="Excluir" class="btn btn-danger btn-link btn-icon btn-remove" style="border: none; background: none; cursor: pointer;">
+                                                <i class="fa fa-times fa-2x"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -83,6 +89,7 @@
                     showCancelButton: true,
                     confirmButtonText: '<i class="fa fa-check text-white"></i> Sim, continuar',
                     confirmButtonColor: '#1BC5BD',
+                    cancelButtonText: 'Cancelar',
                     allowEscapeKey: false,
                     allowOutsideClick: false,
                 }).then(function(result) {
@@ -90,7 +97,30 @@
                         location = url;
                     }
                 });
-            });           
+            });
+
+            // Confirmação de exclusão
+            $(".btn-remove").click(function(e) {
+                e.preventDefault();
+
+                var form = $(this).closest('form');
+
+                Swal.fire({
+                    title: "Tem certeza que deseja excluir este boletim?",
+                    html: "<strong>Atenção:</strong> Esta ação não pode ser desfeita. Todos os arquivos (PDF, Imagem e Áudio) serão removidos permanentemente.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: '<i class="fa fa-trash text-white"></i> Sim, excluir',
+                    confirmButtonColor: '#dc3545',
+                    cancelButtonText: 'Cancelar',
+                    allowEscapeKey: false,
+                    allowOutsideClick: false,
+                }).then(function(result) {
+                    if (result.value) {
+                        form.submit();
+                    }
+                });
+            });
 
         });
     </script>

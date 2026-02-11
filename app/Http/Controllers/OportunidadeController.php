@@ -18,7 +18,7 @@ class OportunidadeController extends Controller
 
     public function index()
     {
-        $$oportunidades = null;
+        $oportunidades = null;
 
         return view('oportunidades/index',compact('oportunidades'));
     }

@@ -41,6 +41,8 @@ Route::get('contato','App\Http\Controllers\PaginaController@contato');
 Route::get('noticia/{url}','App\Http\Controllers\NoticiaController@buscar');
 Route::get('noticias','App\Http\Controllers\NoticiaController@index');
 
+Route::get('oportunidades','App\Http\Controllers\OportunidadesController@index');
+
 Route::get('pagina/{nome}','App\Http\Controllers\PaginaController@buscar');
 
 Route::get('eventos','App\Http\Controllers\EventoController@index');

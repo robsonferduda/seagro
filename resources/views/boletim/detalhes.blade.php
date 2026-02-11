@@ -9,16 +9,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
-                        @if($boletim->imagem)
-                        <p>Ouça o conteúdo no player abaixo</p>
-                        <audio controls>
-                          <source src="horse.ogg" type="audio/ogg">
-                          <source src="{{ url('boletim/'.$boletim->audio) }}" type="audio/mpeg">
-                        Seu navegador não suporta arquivos de áudio
-                        </audio><br/>
-                        <p><a href="{{ url('boletim/download', $boletim->id) }}" class="forum-item-title">Clique aqui para baixar</a></p>
-                        <p><img src="{{ url('boletim/'.$boletim->imagem) }}" width="100%"  alt=""></p>
-                        @endif
+                        
                         {!! $boletim->texto !!}
                         <a href="{{ URL::previous() }}">Voltar para o Início</a>
                     </div>

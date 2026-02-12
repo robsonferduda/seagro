@@ -94,7 +94,7 @@
           </div>
           <div class="col text-center mb-3">
             <a href=" {{ url('destaque/contribuicao-sindical') }}">
-              <img src="{{ asset('img/banner/contribuicao_sindical.jpeg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Contribuição Sindical">
+              <img src="{{ asset('img/banner/contribuicao_sindical.jpg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Contribuição Sindical">
             </a>
           </div>
         </div>

@@ -73,7 +73,7 @@
 
           <div class="col text-center mb-3">
             <a href="{{ url('oportunidades') }}"> 
-              <img src="{{ asset('img/banner/oportunidades.jpeg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Oportunidades SEAGRO-SC">
+              <img src="{{ asset('img/banner/oportunidades.jpg') }}" style="min-height: 160px;" class="d-block w-100 img-radius" alt="Oportunidades SEAGRO-SC">
             </a>
           </div>
 

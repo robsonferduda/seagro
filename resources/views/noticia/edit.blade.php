@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
     <style>
         .tox-tinymce, .tox-tinymce * { box-sizing: content-box; line-height: normal; }
         .tox .tox-tbtn { background: none; }
@@ -198,11 +197,11 @@
             });
 
             // Datepicker
-            $('.datepicker').datepicker({
-                format: 'dd/mm/yyyy',
-                language: 'pt-BR',
-                autoclose: true,
-                todayHighlight: true
+            $('.datepicker').datetimepicker({
+                format: 'DD/MM/YYYY',
+                locale: 'pt-br',
+                showTodayButton: true,
+                pickTime: false
             });
 
             // Preview da imagem

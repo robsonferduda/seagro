@@ -1,9 +1,5 @@
 @extends('layouts.admin')
 @section('style')
-    <style>
-        .tox-tinymce, .tox-tinymce * { box-sizing: content-box; line-height: normal; }
-        .tox .tox-tbtn { background: none; }
-    </style>
 @endsection
 @section('content')
 <div class="col-md-12">
@@ -166,34 +162,16 @@
 @endsection
 
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/0o1tsmhxqh407w51d7t6rudxg7su3huk8s00qfpz6ojabpq0/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
     <script>
         $(document).ready(function(){
 
-            // TinyMCE
-            tinymce.init({
-                selector: '#corpo',
-                language: 'pt_BR',
-                language_url: 'https://cdn.jsdelivr.net/npm/tinymce-i18n@23.7.24/langs6/pt_BR.js',
+            // CKEditor
+            CKEDITOR.replace('corpo', {
+                language: 'pt',
                 height: 450,
-                menubar: true,
-                plugins: [
-                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                    'searchreplace', 'code', 'fullscreen', 'insertdatetime', 'media',
-                    'table', 'wordcount'
-                ],
-                toolbar: 'undo redo | formatselect | bold italic underline | forecolor backcolor | ' +
-                    'alignleft aligncenter alignright alignjustify | bullist numlist | ' +
-                    'link image media | table | code fullscreen',
-                images_upload_url: false,
-                automatic_uploads: false,
-                file_picker_types: 'image',
-                content_style: 'body { font-family:Arial,sans-serif; font-size:14px }',
-                setup: function(editor) {
-                    editor.on('change', function() {
-                        editor.save();
-                    });
-                }
+                extraPlugins: 'iframe,embed',
+                allowedContent: true
             });
 
             // Datepicker
@@ -218,7 +196,9 @@
 
             // Submit
             $('#formNoticia').on('submit', function() {
-                tinymce.triggerSave();
+                for (var instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].updateElement();
+                }
                 $('#btnSalvar').prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Salvando...');
             });
         });

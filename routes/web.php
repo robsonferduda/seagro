@@ -47,6 +47,13 @@ Route::get('contato','App\Http\Controllers\PaginaController@contato');
 Route::get('noticia/{url}','App\Http\Controllers\NoticiaController@buscar');
 Route::get('noticias','App\Http\Controllers\NoticiaController@index');
 
+Route::get('noticia-admin/create','App\Http\Controllers\NoticiaAdminController@create');
+Route::post('noticia-admin','App\Http\Controllers\NoticiaAdminController@store');
+Route::get('noticia-admin/{id}/edit','App\Http\Controllers\NoticiaAdminController@edit');
+Route::post('noticia-admin/{id}','App\Http\Controllers\NoticiaAdminController@update');
+Route::post('noticia-admin/{id}/destroy','App\Http\Controllers\NoticiaAdminController@destroy');
+Route::get('noticia-admin/{id}/toggle-ativa','App\Http\Controllers\NoticiaAdminController@toggleAtiva');
+
 Route::get('oportunidades','App\Http\Controllers\OportunidadeController@index');
 
 Route::get('pagina/{nome}','App\Http\Controllers\PaginaController@buscar');

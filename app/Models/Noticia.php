@@ -12,6 +12,16 @@ class Noticia extends Model
     protected $connection = 'mysql';
     protected $table = 'noticia';
 
-    protected $fillable = ['id'];
+    protected $fillable = [
+        'titulo',
+        'subtitulo',
+        'dt_noticia',
+        'corpo',
+        'img_capa',
+        'fl_ativa',
+        'fl_banner',
+        'url',
+    ];
 
+    protected $dates = ['dt_noticia', 'deleted_at'];
 }

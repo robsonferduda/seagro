@@ -1,0 +1,226 @@
+@extends('layouts.admin')
+@section('style')
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+@endsection
+@section('content')
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="card-title">
+                        <i class="fa fa-newspaper-o"></i> Notícias
+                        <i class="fa fa-angle-double-right"></i> Editar
+                    </h4>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ url('gercont') }}" class="btn btn-warning pull-right ml-3 mr-3"><i class="nc-icon nc-chart-pie-36"></i> Dashboard</a>
+                    <a href="{{ url('gercont/noticias') }}" class="btn btn-info pull-right ml-3"><i class="fa fa-newspaper-o"></i> Notícias</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="col-md-12">
+                @include('layouts.mensagens')
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal" method="POST" action="{{ url('noticia-admin/' . $noticia->id) }}" enctype="multipart/form-data" id="formNoticia">
+                        @csrf
+
+                        <!-- Data e Flags -->
+                        <div class="form-group px-3 w-100">
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Data de Publicação <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control datepicker" name="dt_noticia" required
+                                            value="{{ old('dt_noticia', \Carbon\Carbon::parse($noticia->dt_noticia)->format('d/m/Y')) }}"
+                                            placeholder="dd/mm/aaaa">
+                                        @error('dt_noticia')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Publicar?</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" name="fl_ativa" value="1"
+                                                    {{ old('fl_ativa', $noticia->fl_ativa) ? 'checked' : '' }}>
+                                                <span class="form-check-sign">Ativa</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Banner?</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" name="fl_banner" value="1"
+                                                    {{ old('fl_banner', $noticia->fl_banner) ? 'checked' : '' }}>
+                                                <span class="form-check-sign">Exibir no banner</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Título -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Título <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="titulo" id="titulo" minlength="3"
+                                            required placeholder="Título da notícia"
+                                            value="{{ old('titulo', $noticia->titulo) }}">
+                                        @error('titulo')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Subtítulo -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Subtítulo <small class="text-muted">(opcional)</small></label>
+                                        <input type="text" class="form-control" name="subtitulo"
+                                            placeholder="Breve descrição exibida abaixo do título"
+                                            value="{{ old('subtitulo', $noticia->subtitulo) }}">
+                                        @error('subtitulo')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Imagem de Capa -->
+                                <div class="col-md-12"><hr><h5 class="mb-3"><i class="fa fa-image"></i> Imagem de Capa</h5></div>
+
+                                @if($noticia->img_capa)
+                                <div class="col-md-12 mb-3">
+                                    <label>Imagem atual:</label><br>
+                                    <img src="{{ asset('img/noticias/' . $noticia->img_capa) }}" alt="Imagem atual"
+                                        class="img-thumbnail" style="max-width:300px; max-height:200px;">
+                                    <p class="text-muted mt-1"><small>Envie uma nova imagem abaixo para substituir.</small></p>
+                                </div>
+                                @endif
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="img_capa">{{ $noticia->img_capa ? 'Substituir Imagem' : 'Imagem' }} <small class="text-muted">(opcional)</small></label>
+                                        <div class="input-group mb-2">
+                                            <div class="custom-file">
+                                                <input type="file" name="img_capa" class="custom-file-input file-input"
+                                                    id="img_capa" accept="image/*">
+                                                <label class="custom-file-label" for="img_capa">Selecionar Imagem</label>
+                                            </div>
+                                        </div>
+                                        <small class="form-text text-muted">Formatos: JPG, PNG, JPEG (máx. 5MB). Recomendado: 1200×630px.</small>
+                                        @error('img_capa')
+                                            <small class="text-danger d-block">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div id="preview-container" class="mt-2 mb-3" style="display: none;">
+                                        <img id="preview-image" src="" alt="Preview" class="img-thumbnail" style="max-width:400px; max-height:280px;">
+                                    </div>
+                                </div>
+
+                                <!-- Conteúdo -->
+                                <div class="col-md-12 mt-2"><hr>
+                                    <div class="form-group">
+                                        <label for="corpo">Conteúdo <span class="text-danger">*</span></label>
+                                        <textarea name="corpo" id="corpo" rows="12">{{ old('corpo', $noticia->corpo) }}</textarea>
+                                        @error('corpo')
+                                            <small class="text-danger d-block">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Botões -->
+                            <div class="text-center mb-2 mt-4">
+                                <button type="submit" class="btn btn-success btn-lg" id="btnSalvar">
+                                    <i class="fa fa-save"></i> Salvar Alterações
+                                </button>
+                                <a href="{{ url('gercont/noticias') }}" class="btn btn-danger btn-lg">
+                                    <i class="fa fa-times"></i> Cancelar
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('script')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        $(document).ready(function(){
+
+            // TinyMCE
+            tinymce.init({
+                selector: '#corpo',
+                language: 'pt_BR',
+                language_url: 'https://cdn.jsdelivr.net/npm/tinymce-i18n@23.7.24/langs6/pt_BR.js',
+                height: 450,
+                menubar: true,
+                plugins: [
+                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                    'searchreplace', 'code', 'fullscreen', 'insertdatetime', 'media',
+                    'table', 'wordcount'
+                ],
+                toolbar: 'undo redo | formatselect | bold italic underline | forecolor backcolor | ' +
+                    'alignleft aligncenter alignright alignjustify | bullist numlist | ' +
+                    'link image media | table | code fullscreen',
+                images_upload_url: false,
+                automatic_uploads: false,
+                file_picker_types: 'image',
+                content_style: 'body { font-family:Arial,sans-serif; font-size:14px }',
+                setup: function(editor) {
+                    editor.on('change', function() {
+                        editor.save();
+                    });
+                }
+            });
+
+            // Datepicker
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR',
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            // Preview da imagem
+            $('#img_capa').on('change', function() {
+                var fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').html(fileName);
+
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#preview-image').attr('src', e.target.result);
+                        $('#preview-container').slideDown();
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+            // Submit
+            $('#formNoticia').on('submit', function() {
+                tinymce.triggerSave();
+                $('#btnSalvar').prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Salvando...');
+            });
+        });
+    </script>
+@endsection

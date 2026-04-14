@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 @section('style')
     <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+    <style>
+        .tox-tinymce, .tox-tinymce * { box-sizing: content-box; line-height: normal; }
+        .tox .tox-tbtn { background: none; }
+    </style>
 @endsection
 @section('content')
 <div class="col-md-12">

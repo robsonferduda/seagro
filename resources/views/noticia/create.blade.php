@@ -184,7 +184,6 @@
             // Datepicker
             $('.datepicker').datetimepicker({
                 format: 'DD/MM/YYYY',
-                locale: 'pt-br',
                 showTodayButton: true,
                 pickTime: false
             });

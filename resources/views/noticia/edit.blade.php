@@ -170,7 +170,6 @@
             CKEDITOR.replace('corpo', {
                 language: 'pt',
                 height: 450,
-                extraPlugins: 'iframe,embed',
                 allowedContent: true
             });
 

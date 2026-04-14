@@ -198,9 +198,7 @@
 
             // Datepicker
             $('.datepicker').datetimepicker({
-                format: 'DD/MM/YYYY',
-                showTodayButton: true,
-                pickTime: false
+                format: 'DD/MM/YYYY'
             });
 
             // Preview da imagem

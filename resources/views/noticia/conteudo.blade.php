@@ -1,4 +1,23 @@
 @extends('layouts.app')
+
+@push('og_meta')
+  <meta property="og:title" content="{{ $noticia->titulo }}" />
+  <meta property="og:url" content="{{ url()->current() }}" />
+  @if($noticia->img_capa)
+    <meta property="og:image" content="{{ asset('img/noticias/' . $noticia->img_capa) }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  @endif
+  @if($noticia->subtitulo)
+    <meta property="og:description" content="{{ $noticia->subtitulo }}" />
+  @endif
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ $noticia->titulo }}" />
+  @if($noticia->img_capa)
+    <meta name="twitter:image" content="{{ asset('img/noticias/' . $noticia->img_capa) }}" />
+  @endif
+@endpush
+
 @section('content')
     <main id="main">
         <section id="services" class="services">

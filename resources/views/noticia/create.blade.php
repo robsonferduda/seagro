@@ -148,7 +148,7 @@
 @endsection
 
 @section('script')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/0o1tsmhxqh407w51d7t6rudxg7su3huk8s00qfpz6ojabpq0/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         $(document).ready(function(){
 

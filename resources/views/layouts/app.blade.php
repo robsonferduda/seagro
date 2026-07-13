@@ -114,9 +114,9 @@
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Sindical</a></li>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Social</a></li>
-              <li><a href="{{ url('pagina/em-desenvolvimento') }}">Assistencial</a></li>
+              <li><a href="{{ url('pagina/contribuicoes-sindical') }}">Sindical</a></li>
+              <li><a href="{{ url('pagina/contribuicoes-social') }}">Social</a></li>
+              <li><a href="{{ url('pagina/contribuicoes-assistencial') }}">Assistencial</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Acordos e Convenções</span> <i class="bi bi-chevron-down"></i></a>
@@ -187,18 +187,18 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>O Sindicato</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Apresentação</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Estrutura Organizacional</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Relatórios Financeiros</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('pagina/apresentacao') }}">Apresentação</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('pagina/estrutura-organizacional') }}">Estrutura Organizacional</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('pagina/relatorios-financeiros') }}">Relatórios Financeiros</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Contribuições</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Sindical</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Social</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Assistencial</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('pagina/contribuicoes-sindical') }}">Sindical</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('pagina/contribuicoes-social') }}">Social</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('pagina/contribuicoes-assistencial') }}">Assistencial</a></li>
             </ul>
           </div>
 

@@ -56,6 +56,19 @@ class PaginaController extends Controller
     {
         $pagina = Pagina::where('apelido', $pagina)->first();
 
+        if(!$pagina){
+            return redirect()->route('home');
+        }
+
+        if($pagina->fl_publicacao == 0){
+            return redirect()->route('home');
+        }
+
+        if($pagina){
+            $pagina->nu_visualizacoes = $pagina->nu_visualizacoes + 1;
+            $pagina->save();
+        }
+
         $dados_acesso = array('pagina' => $pagina->apelido);
         
         Estatistica::create($dados_acesso);

@@ -11,5 +11,5 @@ class Pagina extends Model
 
     protected $connection = 'mysql';
     protected $table = 'pagina';
-    protected $fillable = ['id'];
+    protected $fillable = ['id','nu_visualizacoes'];
 }

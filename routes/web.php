@@ -24,7 +24,7 @@ Route::get('gercont/eventos','App\Http\Controllers\ConteudoController@eventos');
 Route::get('gercont/oportunidades','App\Http\Controllers\OportunidadeController@lista');
 Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
 
-Route::get('/','App\Http\Controllers\HomeController@index');
+Route::get('/','App\Http\Controllers\HomeController@index')->name('home');
 
 Route::get('boletim/detalhes/{data}','App\Http\Controllers\PaginaController@getBoletim');
 Route::get('boletim/download/{id}','App\Http\Controllers\PaginaController@boletim');

@@ -109,7 +109,7 @@
                   <li><a href="{{ url('pagina/telemedicina') }}">Telemedicina</a></li>
                 </ul>
               </li>
-              <li><a href="{{ url('minhas-contribuicoes') }}">Minhas Contribuições</a></li>
+              <li><a href="https://sweb.diretasistemas.com.br/prosindweb/index.php?sind=617">Minhas Contribuições</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>

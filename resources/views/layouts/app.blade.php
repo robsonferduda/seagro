@@ -100,7 +100,16 @@
           <li class="dropdown"><a href=""><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="https://sweb.diretasistemas.com.br/prosindweb/index.php?sind=617">Atualização de Dados</a></li>
-              <li><a href="{{ url('pagina/associados-beneficios') }}">Benefícios</a></li>
+              <li class="dropdown"><a href="{{ url('pagina/associados-beneficios') }}"><span>Benefícios</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="{{ url('pagina/plano-de-saude') }}">Plano de Saúde</a></li>
+                  <li><a href="{{ url('pagina/academia') }}">Academia</a></li>
+                  <li><a href="{{ url('pagina/plano-odontologico') }}">Plano Odontológico</a></li>
+                  <li><a href="{{ url('pagina/telemedicina') }}">Telemedicina</a></li>
+                  <li><a href="{{ url('pagina/certificado-digital') }}">Certificado Digital</a></li>
+                </ul>
+              </li>
+              <li><a href="{{ url('minhas-contribuicoes') }}">Minhas Contribuições</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#"><span>Contribuições</span> <i class="bi bi-chevron-down"></i></a>

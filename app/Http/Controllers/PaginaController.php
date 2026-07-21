@@ -72,6 +72,10 @@ class PaginaController extends Controller
         $dados_acesso = array('pagina' => $pagina->apelido);
         
         Estatistica::create($dados_acesso);
+
+        if ($pagina->apelido === 'estatuto-social') {
+            return view('paginas/estatuto_social', compact('pagina'));
+        }
         
         return view('paginas/conteudo', compact('pagina'));
     }

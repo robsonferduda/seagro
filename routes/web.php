@@ -43,6 +43,7 @@ Route::resource('oportunidade','App\Http\Controllers\OportunidadeController')->e
 
 
 Route::get('contato','App\Http\Controllers\PaginaController@contato');
+Route::get('atualizacao-cadastro','App\Http\Controllers\PaginaController@atualizacaoCadastro');
 
 Route::get('noticia/{url}','App\Http\Controllers\NoticiaController@buscar');
 Route::get('noticias','App\Http\Controllers\NoticiaController@index');
@@ -65,6 +66,7 @@ Route::get('eventos/pesencial/sessao-solene-alesc','App\Http\Controllers\PaginaC
 Route::get('destaque/{nome}','App\Http\Controllers\PaginaController@destaque');
 
 Route::post('email/contato','App\Http\Controllers\EmailController@contato');
+Route::post('email/atualizacao-cadastro','App\Http\Controllers\EmailController@atualizacaoCadastro');
 
 Route::get('empresas-publicas/{pagina}','App\Http\Controllers\EmpresaController@publicas');
 Route::get('empresas-privadas/{pagina}','App\Http\Controllers\EmpresaController@privadas');

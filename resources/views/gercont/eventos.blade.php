@@ -45,7 +45,7 @@
                                     <td>{{ $evento->titulo }}</td>
                                     <td>
                                         @if($evento->tipo)
-                                            <span class="badge badge-{{ $evento->id_tipo == 1 ? 'primary' : 'info' }}">
+                                            <span class="badge badge-{{ $evento->ds_color ?: 'info' }}">
                                                 {{ $evento->tipo->nm_tipo }}
                                             </span>
                                         @endif

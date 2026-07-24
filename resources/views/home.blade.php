@@ -152,11 +152,8 @@
                                   <div class="widget-49-meeting-info mt-3">
                                       <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes',$evento->apelido) }}">{{ $evento->titulo }}</a></span>
                                       <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
-                                      @if($evento->id_tipo == 1)
-                                          <p style="">PRESENCIAL</p>
-                                      @else
-                                          <p style="">ONLINE</p>
-                                      @endif
+                                      {!! $evento->tipo ? '<p style="margin: 0;">' . $evento->tipo->nm_tipo . '</p>' : '' !!}
+                                      
                                   </div>
                               </div>
                           </div>

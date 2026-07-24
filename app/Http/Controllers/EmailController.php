@@ -71,15 +71,20 @@ class EmailController extends Controller
             'informacoes_complementares' => $request->informacoes_complementares,
         );
 
-        Mail::send('email/atualizacao-cadastro', $data, function($message) use($email, $from, $nome) {
-            $message->to($email)->subject('atualização de cadastro');
-            $message->from($from, $nome);
-        });
+        try {
+            Mail::send('email/atualizacao-cadastro', $data, function($message) use($email, $from, $nome) {
+                $message->to($email)->subject('atualização de cadastro');
+                $message->from(config('mail.from.address', 'seagro@seagro-sc.org.br'), config('mail.from.name', 'SEAGRO-SC'));
+                $message->replyTo($from, $nome);
+            });
 
-        if(count(Mail::failures()) > 0) {
-            return response()->json(['error' => 'invalid'], 400);
-        }else{
-            echo "OK";
+            if (count(Mail::failures()) > 0) {
+                return response('Falha ao enviar a atualização de cadastro.', 200);
+            }
+
+            return response('OK', 200);
+        } catch (\Throwable $exception) {
+            return response('Falha ao enviar a atualização de cadastro.', 200);
         }
     }
 }

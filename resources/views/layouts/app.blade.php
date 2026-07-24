@@ -47,7 +47,7 @@
       </div>
       <div class="social-links d-none d-md-block">
         <a href="https://ciram.epagri.sc.gov.br/index.php/solucoes/tempo-e-clima/" target="_blank" rel="noopener noreferrer" title="Previsão do tempo">
-          <img src="https://www.seagro-sc.org.br/img/previsao_do_tempo.jpeg" alt="Previsão do tempo" style="height: 28px; width: 28px; object-fit: cover; border-radius: 50%; margin-right: 8px;">
+          <img src="https://www.seagro-sc.org.br/img/previsao_do_tempo.jpeg" alt="Previsão do tempo" style="height: 28px; object-fit: cover; margin-right: 8px;">
         </a>
         <a href="https://twitter.com/seagro_sc" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="https://www.facebook.com/seagrosc" class="facebook"><i class="bi bi-facebook"></i></a>

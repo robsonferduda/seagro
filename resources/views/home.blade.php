@@ -145,7 +145,7 @@
                       <div class="pt-0">
                           <div class="widget-49">
                               <div class="widget-49-title-wrapper">
-                                  <div class="widget-49-date-{{ $evento->ds_color ?: 'info' }}">
+                                  <div class="widget-49-date-{{ $evento->tipo->ds_color ?: 'info' }}">
                                       <span class="widget-49-date-day">{{ \Carbon\Carbon::parse($evento->data)->format('d') }}</span>
                                       <span class="widget-49-date-month">{{ App\Models\Utils::formataMes(\Carbon\Carbon::parse($evento->data)->format('m')) }}</span>
                                   </div>

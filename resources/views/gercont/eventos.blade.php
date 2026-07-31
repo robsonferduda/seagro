@@ -47,7 +47,11 @@
                                     <td>{{ $evento->titulo }}</td>
                                     <td>
                                         @if($evento->tipo)
+<<<<<<< HEAD
                                             <span class="badge badge-{{ $evento->tipo->ds_color }}">
+=======
+                                            <span class="badge badge-{{ $evento->ds_color ?: 'info' }}">
+>>>>>>> c2699e2fe7d04111041bca749598cc75602164fe
                                                 {{ $evento->tipo->nm_tipo }}
                                             </span>
                                         @endif

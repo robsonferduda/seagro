@@ -84,6 +84,11 @@ class PaginaController extends Controller
     {        
         return view('formulario');
     } 
+
+    public function atualizacaoCadastro()
+    {
+        return view('atualizacao-cadastro');
+    }
     
     public function getBoletim($data)
     {        

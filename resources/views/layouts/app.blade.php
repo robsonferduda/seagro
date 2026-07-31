@@ -46,6 +46,9 @@
         <i class="bi bi-phone-fill phone-icon"></i> 48 3224-5681
       </div>
       <div class="social-links d-none d-md-block">
+        <a href="https://ciram.epagri.sc.gov.br/index.php/solucoes/tempo-e-clima/" target="_blank" rel="noopener noreferrer" title="Previsão do tempo">
+          <img src="https://www.seagro-sc.org.br/img/previsao_do_tempo.jpeg" alt="Previsão do tempo" style="height: 28px; object-fit: cover; margin-right: 8px;">
+        </a>
         <a href="https://twitter.com/seagro_sc" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="https://www.facebook.com/seagrosc" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/seagro.sc" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -99,7 +102,7 @@
           </li>
           <li class="dropdown"><a href=""><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="https://sweb.diretasistemas.com.br/prosindweb/index.php?sind=617">Atualização de Dados</a></li>
+              <li><a href="{{ url('atualizacao-cadastro') }}">Atualização de Dados</a></li>
               <li class="dropdown"><a href="{{ url('pagina/associados-beneficios') }}"><span>Benefícios</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="{{ url('pagina/academia') }}">Academia</a></li>
@@ -148,7 +151,7 @@
           
           <li><a class="nav-link scrollto" href="{{ url('pagina/em-desenvolvimento') }}">Legislação</a></li>
           <li><a class="nav-link scrollto" href="{{ url('pagina/publicacoes') }}">Publicações</a></li>
-          <li><a class="nav-link scrollto" href="contato">Contato</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('contato') }}">Contato</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

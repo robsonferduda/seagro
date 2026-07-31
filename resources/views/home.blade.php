@@ -135,6 +135,7 @@
         <div class="section-title">
           <h2 class="title" style="font-size: 28px;">Calendário SEAGRO-SC</h2>
         </div>
+<<<<<<< HEAD
         <div class="evento-lista">
           @forelse ($eventos as $evento)
             @include('evento._item', ['evento' => $evento])
@@ -144,6 +145,42 @@
         </div>
         <div class="evento-lista-actions">
           <a href="{{ url('eventos/todos') }}">Ver agenda completa</a>
+=======
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              @foreach ($eventos as $evento)
+
+                <div class="col-lg-12">
+                  <div class="">               
+                      <div class="pt-0">
+                          <div class="widget-49">
+                              <div class="widget-49-title-wrapper">
+                                  <div class="widget-49-date-{{ $evento->tipo->ds_color ?: 'info' }}">
+                                      <span class="widget-49-date-day">{{ \Carbon\Carbon::parse($evento->data)->format('d') }}</span>
+                                      <span class="widget-49-date-month">{{ App\Models\Utils::formataMes(\Carbon\Carbon::parse($evento->data)->format('m')) }}</span>
+                                  </div>
+                                  <div class="widget-49-meeting-info mt-3">
+                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes',$evento->apelido) }}">{{ $evento->titulo }}</a></span>
+                                      <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
+                                      {!! $evento->tipo ? '<p style="margin: 0;">' . $evento->tipo->nm_tipo . '</p>' : '' !!}
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                  
+              @endforeach
+                               
+             
+            <div class="col-lg-12 text-center">
+              <a href="{{ url('eventos') }}">Veja agenda completa</a>
+            </div>
+            </div>
+          </div>
+>>>>>>> c2699e2fe7d04111041bca749598cc75602164fe
         </div>
       </div>
     </section>

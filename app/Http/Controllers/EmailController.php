@@ -54,4 +54,37 @@ class EmailController extends Controller
             echo "OK";
         }
     }
+
+    public function atualizacaoCadastro(Request $request)
+    {
+        $from = $request->email;
+        $nome = $request->nome;
+        $email = 'cadastro@seagro-sc.org.br';
+
+        $data = array(
+            'nome' => $request->nome,
+            'telefone' => $request->celular,
+            'email' => $request->email,
+            'endereco' => $request->endereco,
+            'empresa' => $request->empresa,
+            'local_trabalho' => $request->local_trabalho,
+            'informacoes_complementares' => $request->informacoes_complementares,
+        );
+
+        try {
+            Mail::send('email/atualizacao-cadastro', $data, function($message) use($email, $from, $nome) {
+                $message->to($email)->subject('atualização de cadastro');
+                $message->from(config('mail.from.address', 'seagro@seagro-sc.org.br'), config('mail.from.name', 'SEAGRO-SC'));
+                $message->replyTo($from, $nome);
+            });
+
+            if (count(Mail::failures()) > 0) {
+                return response('Falha ao enviar a atualização de cadastro.', 200);
+            }
+
+            return response('OK', 200);
+        } catch (\Throwable $exception) {
+            return response('Falha ao enviar a atualização de cadastro.', 200);
+        }
+    }
 }

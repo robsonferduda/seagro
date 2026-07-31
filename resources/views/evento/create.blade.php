@@ -30,14 +30,24 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Tipo de Evento <span class="text-danger">*</span></label>
-                                        <select class="form-control" name="id_tipo" id="id_tipo" required>
-                                            <option value="">Selecione...</option>
-                                            @foreach($tipos as $tipo)
-                                                <option value="{{ $tipo->id }}" {{ old('id_tipo') == $tipo->id ? 'selected' : '' }}>
-                                                    {{ $tipo->nm_tipo }}
-                                                </option>
-                                            @endforeach
+                                        @php
+                                            $listaTipos = $tipos ?? collect();
+                                        @endphp
+                                        <select class="form-control" name="id_tipo" id="id_tipo" required {{ $listaTipos->isEmpty() ? 'disabled' : '' }}>
+                                            @if($listaTipos->isEmpty())
+                                                <option value="">Nenhum tipo de evento cadastrado</option>
+                                            @else
+                                                <option value="">Selecione...</option>
+                                                @foreach($listaTipos as $tipo)
+                                                    <option value="{{ $tipo->id }}" {{ old('id_tipo') == $tipo->id ? 'selected' : '' }}>
+                                                        {{ $tipo->nm_tipo ?? $tipo->nome ?? $tipo->descricao ?? ('Tipo ' . $tipo->id) }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
+                                        @if($listaTipos->isEmpty())
+                                            <small class="text-warning d-block mt-1">Cadastre ao menos um tipo de evento para continuar.</small>
+                                        @endif
                                         @error('id_tipo')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror

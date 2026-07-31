@@ -17,7 +17,7 @@
    <link href="{{ asset('css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
    <!-- CSS Just for demo purpose, don't include it in your project -->
    <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
-   <link href="{{ asset('css/custom_admin.css') }}" rel="stylesheet" />
+   <link href="{{ asset('css/custom_admin.css') }}?v={{ @filemtime(public_path('css/custom_admin.css')) ?: '1' }}" rel="stylesheet" />
    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
   @yield('style')
 </head>
@@ -73,7 +73,13 @@
                     <i class="fa fa-video-camera"></i>
                     <p>Vídeos</p>
                     </a>
-                </li>                        
+                </li>
+                <li class="{{ (Session::has('url') and Session::get('url') == 'oportunidades') ? 'active' : '' }}">
+                    <a href="{{ url('gercont/oportunidades') }}">
+                    <i class="fa fa-briefcase"></i>
+                    <p>Oportunidades</p>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                       <i class="nc-icon nc-button-power"></i>

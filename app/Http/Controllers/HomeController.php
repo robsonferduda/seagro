@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $eventos = Evento::where('fl_ativo', 1)->orderBy('data','DESC')->get();
+        $eventos = Evento::with('tipo')->where('fl_ativo', 1)->orderBy('data','DESC')->take(5)->get();
         $noticias = Noticia::where("fl_ativa", 1)->where("fl_banner", 1)->orderBy('dt_noticia','DESC')->get();
         $videos = Video::where('fl_ativo', 1)->orderBy('dt_video','DESC')->orderBy('created_at','DESC')->take(3)->get();
         $noticias_extra = Noticia::where("fl_ativa", 1)->where("fl_banner", 0)->orderBy('dt_noticia','DESC')->get();

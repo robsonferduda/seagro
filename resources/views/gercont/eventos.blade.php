@@ -22,18 +22,20 @@
                     <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Data do Evento</th>
+                                <th>Data</th>
                                 <th>Título</th>
                                 <th>Tipo</th>
+                                <th class="text-center">Destino</th>
                                 <th class="text-center">Ativo</th>
-                                <th class="disabled-sorting text-center">Ações</th>
+                                <th class="disabled-sorting text-center" style="width: 150px;">Ações</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Data do Evento</th>
+                                <th>Data</th>
                                 <th>Título</th>
                                 <th>Tipo</th>
+                                <th class="text-center">Destino</th>
                                 <th class="text-center">Ativo</th>
                                 <th class="disabled-sorting text-center">Ações</th>
                             </tr>
@@ -45,9 +47,16 @@
                                     <td>{{ $evento->titulo }}</td>
                                     <td>
                                         @if($evento->tipo)
-                                            <span class="badge badge-{{ $evento->id_tipo == 1 ? 'primary' : 'info' }}">
+                                            <span class="badge badge-{{ $evento->tipo->ds_color }}">
                                                 {{ $evento->tipo->nm_tipo }}
                                             </span>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if($evento->isRedirect())
+                                            <span class="badge badge-info" title="{{ $evento->url_destino }}">Link Externo</span>
+                                        @else
+                                            <span class="badge badge-warning">Própria</span>
                                         @endif
                                     </td>
                                     <td class="text-center">
@@ -62,7 +71,12 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <a title="Ver no Site" href="{{ url('eventos/detalhes', $evento->apelido) }}" class="btn btn-success btn-link btn-icon" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+                                        <a title="Ver no Site"
+                                           href="{{ $evento->linkPublico() }}"
+                                           class="btn btn-success btn-link btn-icon"
+                                           @if($evento->abreNovaAba()) target="_blank" rel="noopener" @else target="_blank" @endif>
+                                            <i class="fa fa-globe fa-2x"></i>
+                                        </a>
                                         <a title="Editar" href="{{ route('evento.edit', $evento) }}" class="btn btn-primary btn-link btn-icon"><i class="fa fa-edit fa-2x"></i></a>
                                         <form action="{{ route('evento.destroy', $evento->id) }}" method="POST" class="d-inline form-delete">
                                             @csrf

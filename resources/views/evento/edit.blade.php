@@ -55,13 +55,13 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Evento Ativo?</label>
                                         <div class="form-check">
                                             <label class="form-check-label">
                                                 <input class="form-check-input" type="checkbox" name="fl_ativo" value="1" {{ old('fl_ativo', $evento->fl_ativo) ? 'checked' : '' }}>
-                                                <span class="form-check-sign">Sim</span>
+                                                <span class="form-check-sign">Sim (O evento será exibido na página inicial do site)</span>
                                             </label>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                 <div class="col-md-12">
                                     <hr>
                                     <h5 class="mb-3"><i class="fa fa-upload"></i> Imagem/Arquivo do Evento</h5>
-                                    <p class="text-muted"><small><i class="fa fa-info-circle"></i> Deixe em branco se não quiser alterar o arquivo</small></p>
+                                    <p class="text-muted"><small><i class="fa fa-info-circle"></i> Deixe em branco se não quiser alterar o arquivo. O arquivo enviado aparece automaticamente na página do evento.</small></p>
                                 </div>
 
                                 <div class="col-md-6">
@@ -112,7 +112,7 @@
                                 <div class="col-md-12 mt-3">
                                     <label>Imagem/Arquivo Atual:</label>
                                     <div class="text-center">
-                                        <img src="{{ url('eventos/'.$evento->imagem) }}" alt="Imagem atual" class="img-thumbnail" style="max-width: 500px; max-height: 400px;">
+                                        <img src="{{ url('img/eventos/'.$evento->imagem) }}" alt="Imagem atual" class="img-thumbnail" style="max-width: 500px; max-height: 400px;">
                                     </div>
                                 </div>
                                 @endif
@@ -127,21 +127,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Descrição/Conteúdo -->
-                                <div class="col-md-12 mt-3">
-                                    <hr>
-                                    <div class="form-group">
-                                        <label for="descricao">Descrição do Evento <small class="text-muted">(opcional - aceita HTML)</small></label>
-                                        <textarea class="form-control" name="descricao" id="descricao" rows="8" placeholder="Adicione informações sobre o evento...">{{ old('descricao', $evento->descricao) }}</textarea>
-                                        <small class="form-text text-muted">
-                                            <i class="fa fa-info-circle"></i> Você pode adicionar HTML. Por exemplo: 
-                                            <code>&lt;img src="URL_DA_IMAGEM" width="100%" alt=""&gt;</code>
-                                        </small>
-                                        @error('descricao')
-                                            <small class="text-danger d-block">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
+                                @include('evento._destino_fields', ['evento' => $evento])
                             </div>
 
                             <!-- Informações Adicionais -->
@@ -153,7 +139,8 @@
                                             <li>Deixe o campo de arquivo em branco para manter o arquivo atual</li>
                                             <li>O <strong>apelido/slug</strong> será regenerado automaticamente a partir do título e data</li>
                                             <li>Se alterar o título ou data, a URL do evento também mudará</li>
-                                            <li>Você pode inserir HTML na descrição para formatação avançada</li>
+                                            <li><strong>Página própria:</strong> use o upload para cartaz/PDF e o editor para texto/links</li>
+                                            <li><strong>Redirecionar:</strong> envia o visitante para outra URL ao clicar no evento</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -173,25 +160,62 @@
 </div> 
 @endsection
 
+@section('style')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+
 @section('script')    
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-pt-BR.min.js"></script>
+    @include('evento._editor_descricao')
     <script>
         $(document).ready(function(){
-            // Inicializa datepicker
-            $('.datepicker').datepicker({
-                format: 'dd/mm/yyyy',
-                language: 'pt-BR',
-                autoclose: true,
-                todayHighlight: true
+            $('.datepicker').datetimepicker({
+                format: 'DD/MM/YYYY',
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove'
+                }
             });
 
-            // Slug será gerado automaticamente no backend a partir do título
+            function toggleDestinoPanels() {
+                var tipo = $('input[name="tp_destino"]:checked').val() || 'conteudo';
+                if (tipo === 'redirect') {
+                    $('#painel-conteudo').addClass('d-none-destino');
+                    $('#painel-redirect').removeClass('d-none-destino');
+                } else {
+                    $('#painel-redirect').addClass('d-none-destino');
+                    $('#painel-conteudo').removeClass('d-none-destino');
+                    setTimeout(function () {
+                        window.SeagroEventoEditor.resize('descricao');
+                    }, 50);
+                }
+                $('.destino-option').removeClass('is-selected');
+                $('.destino-option[data-destino="' + tipo + '"]').addClass('is-selected');
+            }
 
-            // Mostra o nome do arquivo selecionado
+            $(document).on('change click', 'input[name="tp_destino"]', toggleDestinoPanels);
+            $(document).on('click', '.destino-option', function () {
+                var radio = $(this).find('input[name="tp_destino"]')[0];
+                if (radio) {
+                    radio.checked = true;
+                    toggleDestinoPanels();
+                }
+            });
+            toggleDestinoPanels();
+            window.SeagroEventoEditor.init('descricao');
+
             $('.file-input').on('change', function() {
                 var fileName = $(this).val().split('\\').pop();
                 $(this).next('.custom-file-label').html(fileName);
 
-                // Preview da imagem (se não for PDF)
                 if (this.id === 'imagem' && this.files && this.files[0]) {
                     var file = this.files[0];
                     if (file.type.includes('image')) {
@@ -207,18 +231,25 @@
                 }
             });
 
-            // Validação adicional antes de enviar
             $('#formEvento').on('submit', function(e) {
+                window.SeagroEventoEditor.sync('descricao');
+
                 var valid = true;
                 var messages = [];
+                var tipo = $('input[name="tp_destino"]:checked').val();
 
-                // Validar Imagem (se enviada)
-                var imagemFile = $('#imagem')[0].files[0];
-                if (imagemFile) {
-                    if (imagemFile.size > 5 * 1024 * 1024) {
+                if (tipo === 'redirect') {
+                    var urlDestino = $.trim($('#url_destino').val() || '');
+                    if (!urlDestino) {
                         valid = false;
-                        messages.push('O arquivo não pode ser maior que 5MB');
+                        messages.push('Informe a URL de destino para redirecionamento');
                     }
+                }
+
+                var imagemFile = $('#imagem')[0].files[0];
+                if (imagemFile && imagemFile.size > 5 * 1024 * 1024) {
+                    valid = false;
+                    messages.push('O arquivo não pode ser maior que 5MB');
                 }
 
                 if (!valid) {
@@ -231,13 +262,12 @@
                     
                     Swal.fire({
                         icon: 'error',
-                        title: 'Validação de Arquivos',
+                        title: 'Validação',
                         html: errorMsg
                     });
                     return false;
                 }
 
-                // Desabilita botão de envio para evitar duplo clique
                 $('#btnSalvar').prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Atualizando...');
             });
         });

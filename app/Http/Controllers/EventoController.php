@@ -17,16 +17,37 @@ class EventoController extends Controller
         $this->middleware('auth')->except(['index', 'detalhes']);
     }
 
-    public function index()
-    {        
-        $eventos = Evento::where('fl_ativo', 1)->orderBy('data','DESC')->get();
+    public function index(Request $request)
+    {
+        $busca = trim((string) $request->get('q', ''));
 
-        return view('evento/index', compact('eventos'));
+        $eventos = Evento::with('tipo')
+            ->where('fl_ativo', 1)
+            ->when($busca !== '', function ($query) use ($busca) {
+                $query->where(function ($q) use ($busca) {
+                    $q->where('titulo', 'like', '%' . $busca . '%')
+                      ->orWhere('descricao', 'like', '%' . $busca . '%');
+                });
+            })
+            ->orderBy('data', 'DESC')
+            ->get();
+
+        return view('evento/index', compact('eventos', 'busca'));
     }
 
     public function detalhes($apelido)
     {
-        $evento = Evento::where('apelido', $apelido)->where('fl_ativo', 1)->firstOrFail();
+        $evento = Evento::with('tipo')->where('apelido', $apelido)->where('fl_ativo', 1)->firstOrFail();
+
+        if ($evento->isRedirect()) {
+            $url = $evento->url_destino;
+
+            if (strpos($url, '/') === 0) {
+                return redirect($url);
+            }
+
+            return redirect()->away($url);
+        }
 
         return view('evento/detalhes', compact('evento'));
     }
@@ -53,11 +74,16 @@ class EventoController extends Controller
             $count++;
         }
         
+        $tpDestino = $request->tp_destino === 'redirect' ? 'redirect' : 'conteudo';
+
         $dados = [
             'id_tipo' => $request->id_tipo,
             'data' => $data,
             'titulo' => $request->titulo,
             'descricao' => $request->descricao,
+            'tp_destino' => $tpDestino,
+            'url_destino' => $tpDestino === 'redirect' ? $request->url_destino : null,
+            'fl_nova_aba' => $tpDestino === 'redirect' && $request->boolean('fl_nova_aba') ? 1 : 0,
             'apelido' => $apelido,
             'fl_ativo' => $request->has('fl_ativo') ? 1 : 0
         ];
@@ -66,7 +92,7 @@ class EventoController extends Controller
         if ($request->hasFile('imagem')) {
             $imagem = $request->file('imagem');
             $nomeArquivo = $apelido . '.' . $imagem->getClientOriginalExtension();
-            $imagem->move(public_path('eventos'), $nomeArquivo);
+            $imagem->move(public_path('img/eventos'), $nomeArquivo);
             $dados['imagem'] = $nomeArquivo;
         }
 
@@ -101,23 +127,28 @@ class EventoController extends Controller
             $count++;
         }
         
+        $tpDestino = $request->tp_destino === 'redirect' ? 'redirect' : 'conteudo';
+
         $evento->id_tipo = $request->id_tipo;
         $evento->data = $data;
         $evento->titulo = $request->titulo;
+        $evento->tp_destino = $tpDestino;
         $evento->descricao = $request->descricao;
+        $evento->url_destino = $tpDestino === 'redirect' ? $request->url_destino : null;
+        $evento->fl_nova_aba = $tpDestino === 'redirect' && $request->boolean('fl_nova_aba') ? 1 : 0;
         $evento->apelido = $apelido;
         $evento->fl_ativo = $request->has('fl_ativo') ? 1 : 0;
 
         // Upload de imagem se enviada
         if ($request->hasFile('imagem')) {
             // Excluir imagem antiga se existir
-            if ($evento->imagem && file_exists(public_path('eventos/'.$evento->imagem))) {
-                unlink(public_path('eventos/'.$evento->imagem));
+            if ($evento->imagem && file_exists(public_path('img/eventos/'.$evento->imagem))) {
+                unlink(public_path('img/eventos/'.$evento->imagem));
             }
             
             $imagem = $request->file('imagem');
             $nomeArquivo = $apelido . '.' . $imagem->getClientOriginalExtension();
-            $imagem->move(public_path('eventos'), $nomeArquivo);
+            $imagem->move(public_path('img/eventos'), $nomeArquivo);
             $evento->imagem = $nomeArquivo;
         }
 
@@ -143,8 +174,8 @@ class EventoController extends Controller
         $evento = Evento::findOrFail($id);
 
         // Excluir imagem se existir
-        if ($evento->imagem && file_exists(public_path('eventos/'.$evento->imagem))) {
-            unlink(public_path('eventos/'.$evento->imagem));
+        if ($evento->imagem && file_exists(public_path('img/eventos/'.$evento->imagem))) {
+            unlink(public_path('img/eventos/'.$evento->imagem));
         }
 
         // Excluir registro do banco

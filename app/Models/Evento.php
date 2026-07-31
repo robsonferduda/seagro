@@ -12,11 +12,41 @@ class Evento extends Model
     protected $connection = 'mysql';
     protected $table = 'evento';
 
-    protected $fillable = ['id','id_tipo','data','titulo','descricao','apelido','fl_ativo'];
+    protected $fillable = [
+        'id',
+        'id_tipo',
+        'data',
+        'titulo',
+        'descricao',
+        'tp_destino',
+        'url_destino',
+        'fl_nova_aba',
+        'apelido',
+        'fl_ativo',
+        'imagem',
+    ];
 
-    // Relacionamento com TipoEvento
     public function tipo()
     {
         return $this->belongsTo(TipoEvento::class, 'id_tipo');
+    }
+
+    public function isRedirect()
+    {
+        return $this->tp_destino === 'redirect' && !empty($this->url_destino);
+    }
+
+    public function linkPublico()
+    {
+        if ($this->isRedirect()) {
+            return $this->url_destino;
+        }
+
+        return url('eventos/detalhes', $this->apelido);
+    }
+
+    public function abreNovaAba()
+    {
+        return $this->isRedirect() && (int) $this->fl_nova_aba === 1;
     }
 }

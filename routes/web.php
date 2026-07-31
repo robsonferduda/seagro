@@ -58,7 +58,7 @@ Route::get('oportunidades','App\Http\Controllers\OportunidadeController@index');
 
 Route::get('pagina/{nome}','App\Http\Controllers\PaginaController@buscar');
 
-Route::get('eventos','App\Http\Controllers\EventoController@index');
+Route::get('eventos/todos','App\Http\Controllers\EventoController@index');
 Route::get('eventos/detalhes/{id}','App\Http\Controllers\EventoController@detalhes');
 Route::get('eventos/pesencial/sessao-solene-alesc','App\Http\Controllers\PaginaController@evento');
 

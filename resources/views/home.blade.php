@@ -109,8 +109,7 @@
       <div class="container" data-aos="fade-up">
         <div class="row">
             @foreach ($videos as $video)
-              <div class="col-lg-4 col-md-4 icon-box aos-init aos-animate" data-aos="fade-up">
-                  <h6 style="min-height: 40px;">{{ $video->nm_video }}</h6>
+              <div class="col-lg-4 col-md-4 icon-box aos-init aos-animate" data-aos="fade-up">                  
                   @if($video->cd_tipo == 1)
                     <iframe width="100%" height="300" style="border-radius: 15px;" src="{{ $video->url }}?autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   @else
@@ -120,6 +119,7 @@
                       Seu navegador não suporta a execução de vídeos
                     </video>
                   @endif
+                  <h6 style="min-height: 40px;">{{ $video->nm_video }}</h6>
               </div>             
             @endforeach
 
@@ -135,43 +135,15 @@
         <div class="section-title">
           <h2 class="title" style="font-size: 28px;">Calendário SEAGRO-SC</h2>
         </div>
-        <div class="row">
-          <div class="container">
-            <div class="row">
-              @foreach ($eventos as $evento)
-
-                <div class="col-lg-12">
-                  <div class="">               
-                      <div class="pt-0">
-                          <div class="widget-49">
-                              <div class="widget-49-title-wrapper">
-                                  <div class="widget-49-date-{{ ($evento->id_tipo == 1) ? 'success' : 'info' }}">
-                                      <span class="widget-49-date-day">{{ \Carbon\Carbon::parse($evento->data)->format('d') }}</span>
-                                      <span class="widget-49-date-month">{{ App\Models\Utils::formataMes(\Carbon\Carbon::parse($evento->data)->format('m')) }}</span>
-                                  </div>
-                                  <div class="widget-49-meeting-info mt-3">
-                                      <span class="widget-49-pro-title"><a href="{{ url('eventos/detalhes',$evento->apelido) }}">{{ $evento->titulo }}</a></span>
-                                      <span>{{ \Carbon\Carbon::parse($evento->data)->format('d/m/Y') }}</span>
-                                      @if($evento->id_tipo == 1)
-                                          <p style="">PRESENCIAL</p>
-                                      @else
-                                          <p style="">ONLINE</p>
-                                      @endif
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-                  
-              @endforeach
-                               
-             
-            <div class="col-lg-12 text-center">
-              <a href="{{ url('eventos') }}">Veja agenda completa</a>
-            </div>
-            </div>
-          </div>
+        <div class="evento-lista">
+          @forelse ($eventos as $evento)
+            @include('evento._item', ['evento' => $evento])
+          @empty
+            <p class="text-center text-muted mb-0">Nenhum evento publicado no momento.</p>
+          @endforelse
+        </div>
+        <div class="evento-lista-actions">
+          <a href="{{ url('eventos/todos') }}">Ver agenda completa</a>
         </div>
       </div>
     </section>

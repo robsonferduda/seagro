@@ -26,7 +26,7 @@
                                 <th>Título</th>
                                 <th>Arquivo / Link</th>
                                 <th class="text-center">Ativo</th>
-                                <th class="disabled-sorting text-center">Ações</th>
+                                <th class="disabled-sorting text-center" style="width: 150px;">Ações</th>
                             </tr>
                         </thead>
                         <tfoot>

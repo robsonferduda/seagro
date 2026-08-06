@@ -21,6 +21,18 @@
         </div>
     </div>
 
+    @if($alertas->count())
+        <div class="dash-alerts">
+            @foreach($alertas as $alerta)
+                <a href="{{ $alerta['url'] }}" class="dash-alert dash-alert-{{ $alerta['nivel'] }}">
+                    <i class="fa {{ $alerta['nivel'] === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle' }}"></i>
+                    <span>{{ $alerta['texto'] }}</span>
+                    <i class="fa fa-angle-right dash-alert-arrow"></i>
+                </a>
+            @endforeach
+        </div>
+    @endif
+
     <div class="row">
         @foreach($kpis as $kpi)
             <div class="col-lg-4 col-md-6">
@@ -36,17 +48,23 @@
         @endforeach
     </div>
 
-    @if($alertas->count())
-        <div class="dash-alerts">
-            @foreach($alertas as $alerta)
-                <a href="{{ $alerta['url'] }}" class="dash-alert dash-alert-{{ $alerta['nivel'] }}">
-                    <i class="fa {{ $alerta['nivel'] === 'warning' ? 'fa-exclamation-triangle' : 'fa-info-circle' }}"></i>
-                    <span>{{ $alerta['texto'] }}</span>
-                    <i class="fa fa-angle-right dash-alert-arrow"></i>
-                </a>
-            @endforeach
+    <div class="dash-panel">
+        <div class="dash-panel-header">
+            <h4 class="dash-panel-title"><i class="fa fa-th-large"></i> Atalhos de conteúdo</h4>
         </div>
-    @endif
+        <div class="dash-panel-body">
+            <div class="row">
+                @foreach($atalhos as $atalho)
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="{{ $atalho['url'] }}" class="dash-shortcut {{ $atalho['tom'] }}">
+                            <i class="fa {{ $atalho['icone'] }}"></i>
+                            <span>{{ $atalho['label'] }}</span>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-lg-7">
@@ -110,24 +128,6 @@
                         <p class="dash-empty mb-0">Nenhuma atividade recente.</p>
                     @endforelse
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="dash-panel">
-        <div class="dash-panel-header">
-            <h4 class="dash-panel-title"><i class="fa fa-th-large"></i> Atalhos de conteúdo</h4>
-        </div>
-        <div class="dash-panel-body">
-            <div class="row">
-                @foreach($atalhos as $atalho)
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <a href="{{ $atalho['url'] }}" class="dash-shortcut {{ $atalho['tom'] }}">
-                            <i class="fa {{ $atalho['icone'] }}"></i>
-                            <span>{{ $atalho['label'] }}</span>
-                        </a>
-                    </div>
-                @endforeach
             </div>
         </div>
     </div>

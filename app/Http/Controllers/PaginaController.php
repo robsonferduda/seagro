@@ -76,6 +76,15 @@ class PaginaController extends Controller
         if ($pagina->apelido === 'estatuto-social') {
             return view('paginas/estatuto_social', compact('pagina'));
         }
+
+        if ($pagina->apelido === 'publicacoes') {
+            $publicacoes = \App\Models\Publicacao::ativas()
+                ->orderBy('nu_ordem')
+                ->orderBy('titulo')
+                ->get();
+
+            return view('publicacoes/index', compact('publicacoes', 'pagina'));
+        }
         
         return view('paginas/conteudo', compact('pagina'));
     }

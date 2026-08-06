@@ -80,6 +80,12 @@
                     <p>Oportunidades</p>
                     </a>
                 </li>
+                <li class="{{ (Session::has('url') and Session::get('url') == 'publicacoes') ? 'active' : '' }}">
+                    <a href="{{ url('gercont/publicacoes') }}">
+                    <i class="fa fa-book"></i>
+                    <p>Publicações</p>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                       <i class="nc-icon nc-button-power"></i>

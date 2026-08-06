@@ -22,6 +22,7 @@ Route::get('gercont/paginas','App\Http\Controllers\ConteudoController@paginas');
 Route::get('gercont/videos','App\Http\Controllers\ConteudoController@videos');
 Route::get('gercont/eventos','App\Http\Controllers\ConteudoController@eventos');
 Route::get('gercont/oportunidades','App\Http\Controllers\OportunidadeController@lista');
+Route::get('gercont/publicacoes','App\Http\Controllers\PublicacaoController@lista');
 Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
 
 Route::get('/','App\Http\Controllers\HomeController@index')->name('home');
@@ -35,6 +36,9 @@ Route::resource('boletim','App\Http\Controllers\BoletimController');
 Route::get('evento/ativo/atualizar/{id}','App\Http\Controllers\EventoController@atualizar');
 Route::post('evento/novo','App\Http\Controllers\EventoController@store');
 Route::resource('evento','App\Http\Controllers\EventoController');
+
+Route::get('publicacao/ativo/atualizar/{id}','App\Http\Controllers\PublicacaoController@atualizar');
+Route::resource('publicacao','App\Http\Controllers\PublicacaoController')->except(['show', 'index']);
 
 Route::get('oportunidades/atualizar/{id}','App\Http\Controllers\OportunidadeController@atualizar');
 Route::get('oportunidades/show/{id}','App\Http\Controllers\OportunidadeController@show');

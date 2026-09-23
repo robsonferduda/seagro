@@ -161,7 +161,7 @@
     <form method="POST" action="{{ url('noticia-admin') }}" enctype="multipart/form-data" id="formNoticia">
         @csrf
         <div class="row align-items-start">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="nf-panel nf-panel-conteudo">
                     <div class="nf-panel-title">Conteúdo</div>
 
@@ -190,60 +190,52 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="nf-panel nf-panel-side">
-                            <div class="nf-panel-title">Publicação</div>
+            <div class="col-lg-4">
+                <div class="nf-panel nf-panel-side">
+                    <div class="nf-panel-title">Publicação</div>
 
-                            <div class="form-group mb-2">
-                                <label>Data <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control datepicker" name="dt_noticia" required
-                                       value="{{ old('dt_noticia', date('d/m/Y')) }}" placeholder="dd/mm/aaaa">
-                                @error('dt_noticia') <small class="text-danger">{{ $message }}</small> @enderror
-                            </div>
-
-                            <label class="nf-switch">
-                                <span>Publicar<small>Visível no site</small></span>
-                                <input type="checkbox" name="fl_ativa" value="1" {{ old('fl_ativa', 1) ? 'checked' : '' }}>
-                            </label>
-
-                            <label class="nf-switch">
-                                <span>Banner<small>Destaque na home</small></span>
-                                <input type="checkbox" name="fl_banner" value="1" {{ old('fl_banner') ? 'checked' : '' }}>
-                            </label>
-                        </div>
+                    <div class="form-group mb-2">
+                        <label>Data <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control datepicker" name="dt_noticia" required
+                               value="{{ old('dt_noticia', date('d/m/Y')) }}" placeholder="dd/mm/aaaa">
+                        @error('dt_noticia') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="nf-panel nf-panel-side">
-                            <div class="nf-panel-title">Imagem de capa</div>
-                            <div class="nf-capa-box">
-                                <div id="preview-container" style="display:none;">
-                                    <img id="preview-image" src="" alt="Preview" class="nf-capa-preview">
-                                </div>
-                                <div id="capa-empty" class="nf-capa-empty">
-                                    <i class="fa fa-cloud-upload"></i>
-                                    JPG/PNG · 5MB<br>
-                                    <small>1200×630px</small>
-                                </div>
-                                <div class="custom-file text-left">
-                                    <input type="file" name="img_capa" class="custom-file-input" id="img_capa" accept="image/*">
-                                    <label class="custom-file-label" for="img_capa">Selecionar capa</label>
-                                </div>
-                                @error('img_capa') <small class="text-danger d-block mt-1">{{ $message }}</small> @enderror
-                            </div>
-                        </div>
-                    </div>
+                    <label class="nf-switch">
+                        <span>Publicar<small>Visível no site</small></span>
+                        <input type="checkbox" name="fl_ativa" value="1" {{ old('fl_ativa', 1) ? 'checked' : '' }}>
+                    </label>
 
-                    <div class="col-12">
-                        <div class="nf-actions">
-                            <a href="{{ url('gercont/noticias') }}" class="btn btn-default"><i class="fa fa-times"></i> Cancelar</a>
-                            <button type="submit" class="btn btn-success" id="btnSalvar">
-                                <i class="fa fa-save"></i> Salvar notícia
-                            </button>
+                    <label class="nf-switch">
+                        <span>Banner<small>Destaque na home</small></span>
+                        <input type="checkbox" name="fl_banner" value="1" {{ old('fl_banner') ? 'checked' : '' }}>
+                    </label>
+                </div>
+
+                <div class="nf-panel nf-panel-side">
+                    <div class="nf-panel-title">Imagem de capa</div>
+                    <div class="nf-capa-box">
+                        <div id="preview-container" style="display:none;">
+                            <img id="preview-image" src="" alt="Preview" class="nf-capa-preview">
                         </div>
+                        <div id="capa-empty" class="nf-capa-empty">
+                            <i class="fa fa-cloud-upload"></i>
+                            JPG/PNG · 5MB<br>
+                            <small>1200×630px</small>
+                        </div>
+                        <div class="custom-file text-left">
+                            <input type="file" name="img_capa" class="custom-file-input" id="img_capa" accept="image/*">
+                            <label class="custom-file-label" for="img_capa">Selecionar capa</label>
+                        </div>
+                        @error('img_capa') <small class="text-danger d-block mt-1">{{ $message }}</small> @enderror
                     </div>
+                </div>
+
+                <div class="nf-actions">
+                    <a href="{{ url('gercont/noticias') }}" class="btn btn-default"><i class="fa fa-times"></i> Cancelar</a>
+                    <button type="submit" class="btn btn-success" id="btnSalvar">
+                        <i class="fa fa-save"></i> Salvar notícia
+                    </button>
                 </div>
             </div>
         </div>

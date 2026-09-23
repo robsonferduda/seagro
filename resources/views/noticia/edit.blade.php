@@ -40,16 +40,22 @@
     border-radius: 10px;
     padding: 1.15rem 1.25rem;
     margin-bottom: 1rem;
+}
+.noticia-form .nf-panel-conteudo {
     height: 100%;
 }
+.noticia-form .nf-panel-side {
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.85rem;
+}
 .noticia-form .nf-panel-title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: var(--nf-muted);
     font-weight: 700;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
     border-bottom: 1px solid var(--nf-border);
 }
 .noticia-form label {
@@ -75,14 +81,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.7rem 0.85rem;
+    gap: 0.5rem;
+    padding: 0.5rem 0.65rem;
     background: var(--nf-bg);
     border: 1px solid var(--nf-border);
     border-radius: 8px;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.45rem;
 }
+.noticia-form .nf-switch:last-of-type { margin-bottom: 0; }
 .noticia-form .nf-switch span {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     color: var(--nf-navy);
     font-weight: 600;
 }
@@ -90,38 +98,39 @@
     display: block;
     font-weight: 400;
     color: var(--nf-muted);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 .noticia-form .nf-capa-box {
     border: 2px dashed #c5d3e0;
-    border-radius: 10px;
-    padding: 1rem;
+    border-radius: 8px;
+    padding: 0.65rem;
     text-align: center;
     background: var(--nf-bg);
 }
 .noticia-form .nf-capa-preview {
     width: 100%;
-    max-height: 180px;
+    height: 88px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
 }
 .noticia-form .nf-capa-empty {
-    padding: 1.5rem 0.5rem;
+    padding: 0.55rem 0.25rem;
     color: var(--nf-muted);
+    font-size: 0.78rem;
 }
 .noticia-form .nf-capa-empty i {
-    font-size: 2rem;
+    font-size: 1.35rem;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 .noticia-form .nf-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: flex-end;
-    margin-top: 1rem;
-    padding-top: 1rem;
+    margin-top: 0.25rem;
+    padding: 0.85rem 0 0;
     border-top: 1px solid var(--nf-border);
 }
 .noticia-form .nf-actions .btn { margin: 0 !important; }
@@ -147,9 +156,9 @@
 
     <form method="POST" action="{{ url('noticia-admin/' . $noticia->id) }}" enctype="multipart/form-data" id="formNoticia">
         @csrf
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="nf-panel">
+        <div class="row align-items-start">
+            <div class="col-lg-6">
+                <div class="nf-panel nf-panel-conteudo">
                     <div class="nf-panel-title">Conteúdo</div>
 
                     <div class="form-group">
@@ -179,63 +188,71 @@
                 </div>
             </div>
 
-            <div class="col-lg-4">
-                <div class="nf-panel">
-                    <div class="nf-panel-title">Publicação</div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="nf-panel nf-panel-side">
+                            <div class="nf-panel-title">Publicação</div>
 
-                    <div class="form-group">
-                        <label>Data <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control datepicker" name="dt_noticia" required
-                               value="{{ old('dt_noticia', \Carbon\Carbon::parse($noticia->dt_noticia)->format('d/m/Y')) }}"
-                               placeholder="dd/mm/aaaa">
-                        @error('dt_noticia') <small class="text-danger">{{ $message }}</small> @enderror
-                    </div>
+                            <div class="form-group mb-2">
+                                <label>Data <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control datepicker" name="dt_noticia" required
+                                       value="{{ old('dt_noticia', \Carbon\Carbon::parse($noticia->dt_noticia)->format('d/m/Y')) }}"
+                                       placeholder="dd/mm/aaaa">
+                                @error('dt_noticia') <small class="text-danger">{{ $message }}</small> @enderror
+                            </div>
 
-                    <label class="nf-switch">
-                        <span>Publicar no site<small>Visível para os associados</small></span>
-                        <input type="checkbox" name="fl_ativa" value="1" {{ old('fl_ativa', $noticia->fl_ativa) ? 'checked' : '' }}>
-                    </label>
+                            <label class="nf-switch">
+                                <span>Publicar<small>Visível no site</small></span>
+                                <input type="checkbox" name="fl_ativa" value="1" {{ old('fl_ativa', $noticia->fl_ativa) ? 'checked' : '' }}>
+                            </label>
 
-                    <label class="nf-switch">
-                        <span>Destaque / Banner<small>Exibir no carrossel da home</small></span>
-                        <input type="checkbox" name="fl_banner" value="1" {{ old('fl_banner', $noticia->fl_banner) ? 'checked' : '' }}>
-                    </label>
-                </div>
-
-                <div class="nf-panel">
-                    <div class="nf-panel-title">Imagem de capa</div>
-                    <div class="nf-capa-box">
-                        @if($noticia->img_capa)
-                            <div id="preview-container">
-                                <img id="preview-image" src="{{ asset('img/noticias/' . $noticia->img_capa) }}" alt="Capa atual" class="nf-capa-preview">
-                            </div>
-                            <div id="capa-empty" class="nf-capa-empty" style="display:none;">
-                                <i class="fa fa-cloud-upload"></i>
-                                JPG, PNG · máx. 5MB
-                            </div>
-                        @else
-                            <div id="preview-container" style="display:none;">
-                                <img id="preview-image" src="" alt="Preview" class="nf-capa-preview">
-                            </div>
-                            <div id="capa-empty" class="nf-capa-empty">
-                                <i class="fa fa-cloud-upload"></i>
-                                JPG, PNG · máx. 5MB<br>
-                                <small>Recomendado 1200×630px</small>
-                            </div>
-                        @endif
-                        <div class="custom-file text-left">
-                            <input type="file" name="img_capa" class="custom-file-input" id="img_capa" accept="image/*">
-                            <label class="custom-file-label" for="img_capa">{{ $noticia->img_capa ? 'Substituir capa' : 'Selecionar capa' }}</label>
+                            <label class="nf-switch">
+                                <span>Banner<small>Destaque na home</small></span>
+                                <input type="checkbox" name="fl_banner" value="1" {{ old('fl_banner', $noticia->fl_banner) ? 'checked' : '' }}>
+                            </label>
                         </div>
-                        @error('img_capa') <small class="text-danger d-block mt-1">{{ $message }}</small> @enderror
                     </div>
-                </div>
 
-                <div class="nf-actions">
-                    <a href="{{ url('gercont/noticias') }}" class="btn btn-default"><i class="fa fa-times"></i> Cancelar</a>
-                    <button type="submit" class="btn btn-success" id="btnSalvar">
-                        <i class="fa fa-save"></i> Salvar alterações
-                    </button>
+                    <div class="col-md-6">
+                        <div class="nf-panel nf-panel-side">
+                            <div class="nf-panel-title">Imagem de capa</div>
+                            <div class="nf-capa-box">
+                                @if($noticia->img_capa)
+                                    <div id="preview-container">
+                                        <img id="preview-image" src="{{ asset('img/noticias/' . $noticia->img_capa) }}" alt="Capa atual" class="nf-capa-preview">
+                                    </div>
+                                    <div id="capa-empty" class="nf-capa-empty" style="display:none;">
+                                        <i class="fa fa-cloud-upload"></i>
+                                        JPG/PNG · 5MB
+                                    </div>
+                                @else
+                                    <div id="preview-container" style="display:none;">
+                                        <img id="preview-image" src="" alt="Preview" class="nf-capa-preview">
+                                    </div>
+                                    <div id="capa-empty" class="nf-capa-empty">
+                                        <i class="fa fa-cloud-upload"></i>
+                                        JPG/PNG · 5MB<br>
+                                        <small>1200×630px</small>
+                                    </div>
+                                @endif
+                                <div class="custom-file text-left">
+                                    <input type="file" name="img_capa" class="custom-file-input" id="img_capa" accept="image/*">
+                                    <label class="custom-file-label" for="img_capa">{{ $noticia->img_capa ? 'Substituir capa' : 'Selecionar capa' }}</label>
+                                </div>
+                                @error('img_capa') <small class="text-danger d-block mt-1">{{ $message }}</small> @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="nf-actions">
+                            <a href="{{ url('gercont/noticias') }}" class="btn btn-default"><i class="fa fa-times"></i> Cancelar</a>
+                            <button type="submit" class="btn btn-success" id="btnSalvar">
+                                <i class="fa fa-save"></i> Salvar alterações
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

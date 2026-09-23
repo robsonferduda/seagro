@@ -9,29 +9,58 @@
                     <h1 class="noticias-page-title">Notícias</h1>
                     <p class="noticias-page-sub">Acompanhe as publicações do SEAGRO-SC</p>
                 </div>
-                <form action="{{ url('noticias') }}" method="GET" class="noticias-page-busca">
+            </div>
+
+            <form action="{{ url('noticias') }}" method="GET" class="noticias-page-filtros">
+                <div class="noticias-page-busca">
                     <input type="search"
                            name="q"
                            value="{{ $busca ?? '' }}"
-                           placeholder="Buscar notícias..."
+                           placeholder="Buscar por palavra..."
                            aria-label="Buscar notícias">
-                    <button type="submit" title="Buscar"><i class="bi bi-search"></i></button>
-                    @if(!empty($busca))
-                        <a href="{{ url('noticias') }}" class="noticias-page-limpar" title="Limpar busca">Limpar</a>
+                </div>
+                <div class="noticias-page-periodo">
+                    <label>
+                        <span>De</span>
+                        <input type="date" name="de" value="{{ $de ?? '' }}" aria-label="Data inicial">
+                    </label>
+                    <label>
+                        <span>Até</span>
+                        <input type="date" name="ate" value="{{ $ate ?? '' }}" aria-label="Data final">
+                    </label>
+                </div>
+                <div class="noticias-page-acoes">
+                    <button type="submit" title="Buscar"><i class="bi bi-search"></i> Buscar</button>
+                    @if(!empty($temFiltro))
+                        <a href="{{ url('noticias') }}" class="noticias-page-limpar" title="Limpar filtros">Limpar</a>
                     @endif
-                </form>
-            </div>
+                </div>
+            </form>
 
             <p class="noticias-page-meta">
-                @if(!empty($busca))
-                    {{ $noticias->count() }} resultado(s) para “{{ $busca }}”
+                @php
+                    $partes = [];
+                    if (!empty($busca)) {
+                        $partes[] = '“' . $busca . '”';
+                    }
+                    if (!empty($de) || !empty($ate)) {
+                        $deFmt = !empty($de) ? \Carbon\Carbon::parse($de)->format('d/m/Y') : '…';
+                        $ateFmt = !empty($ate) ? \Carbon\Carbon::parse($ate)->format('d/m/Y') : '…';
+                        $partes[] = 'período ' . $deFmt . ' a ' . $ateFmt;
+                    }
+                @endphp
+                @if(!empty($temFiltro))
+                    {{ $noticias->count() }} resultado(s)
+                    @if(count($partes))
+                        para {{ implode(' · ', $partes) }}
+                    @endif
                     @if($total > $noticias->count())
                         · exibindo as {{ $limite }} mais recentes
                     @endif
                 @else
                     Últimas {{ $noticias->count() }} publicações
                     @if($total > $noticias->count())
-                        · use a busca para encontrar notícias anteriores
+                        · use a busca ou o período para encontrar notícias anteriores
                     @endif
                 @endif
             </p>
@@ -44,7 +73,7 @@
                     $capa = $noticia->img_capa
                         ? asset('img/noticias/' . $noticia->img_capa)
                         : null;
-                    $isDestaque = $index === 0 && empty($busca);
+                    $isDestaque = $index === 0 && empty($temFiltro);
                 @endphp
 
                 @if($isDestaque)
@@ -86,8 +115,11 @@
             @empty
                 <div class="noticias-vazio">
                     <i class="bi bi-info-circle"></i>
-                    @if(!empty($busca))
-                        Nenhuma notícia encontrada para “{{ $busca }}”.
+                    @if(!empty($temFiltro))
+                        Nenhuma notícia encontrada
+                        @if(!empty($busca) || !empty($de) || !empty($ate))
+                            com os filtros informados.
+                        @endif
                     @else
                         Nenhuma notícia publicada no momento.
                     @endif
@@ -111,12 +143,7 @@
     padding: 2rem 0 3rem;
 }
 .noticias-page-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1.25rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
 }
 .noticias-page-title {
     margin: 0 0 0.25rem;
@@ -129,20 +156,27 @@
     color: var(--np-muted);
     font-size: 0.95rem;
 }
-.noticias-page-busca {
+.noticias-page-filtros {
     display: flex;
-    align-items: stretch;
-    max-width: 420px;
-    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.65rem 0.75rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid var(--np-border);
+    border-radius: 10px;
+}
+.noticias-page-busca {
+    flex: 1 1 220px;
+    min-width: 180px;
 }
 .noticias-page-busca input {
-    flex: 1;
-    min-width: 0;
-    height: 44px;
+    width: 100%;
+    height: 42px;
     border: 1px solid #cfd8e3;
-    border-right: 0;
-    border-radius: 8px 0 0 8px;
-    padding: 0 0.9rem;
+    border-radius: 8px;
+    padding: 0 0.85rem;
     font-size: 0.95rem;
     background: #fff;
 }
@@ -150,22 +184,60 @@
     outline: none;
     border-color: var(--np-blue);
 }
-.noticias-page-busca button {
-    height: 44px;
-    width: 48px;
-    border: 1px solid var(--np-blue);
+.noticias-page-periodo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.noticias-page-periodo label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--np-muted);
+}
+.noticias-page-periodo input[type="date"] {
+    height: 42px;
+    border: 1px solid #cfd8e3;
+    border-radius: 8px;
+    padding: 0 0.65rem;
+    font-size: 0.9rem;
+    color: var(--np-navy);
+    background: #fff;
+    min-width: 150px;
+}
+.noticias-page-periodo input[type="date"]:focus {
+    outline: none;
+    border-color: var(--np-blue);
+}
+.noticias-page-acoes {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+.noticias-page-acoes button {
+    height: 42px;
+    border: 0;
+    border-radius: 8px;
     background: var(--np-blue);
     color: #fff;
-    border-radius: 0 8px 8px 0;
+    padding: 0 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
     cursor: pointer;
 }
+.noticias-page-acoes button:hover {
+    background: #164a76;
+}
 .noticias-page-limpar {
-    display: inline-flex;
-    align-items: center;
-    margin-left: 0.5rem;
     color: var(--np-muted);
     font-size: 0.85rem;
     text-decoration: none;
+    white-space: nowrap;
 }
 .noticias-page-limpar:hover { color: var(--np-blue); }
 .noticias-page-meta {

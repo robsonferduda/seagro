@@ -23,7 +23,10 @@ Route::get('gercont/videos','App\Http\Controllers\ConteudoController@videos');
 Route::get('gercont/eventos','App\Http\Controllers\ConteudoController@eventos');
 Route::get('gercont/oportunidades','App\Http\Controllers\OportunidadeController@lista');
 Route::get('gercont/publicacoes','App\Http\Controllers\PublicacaoController@lista');
+Route::get('gercont/galeria','App\Http\Controllers\GaleriaController@index');
 Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
+
+Route::resource('galeria','App\Http\Controllers\GaleriaController')->except(['show', 'index', 'edit', 'update']);
 
 Route::get('/','App\Http\Controllers\HomeController@index')->name('home');
 

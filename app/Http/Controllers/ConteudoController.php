@@ -241,6 +241,7 @@ class ConteudoController extends Controller
             ['label' => 'Vídeos', 'url' => url('gercont/videos'), 'icone' => 'fa-video-camera', 'tom' => 'dash-tone-red'],
             ['label' => 'Oportunidades', 'url' => url('gercont/oportunidades'), 'icone' => 'fa-briefcase', 'tom' => 'dash-tone-teal'],
             ['label' => 'Publicações', 'url' => url('gercont/publicacoes'), 'icone' => 'fa-book', 'tom' => 'dash-tone-gray'],
+            ['label' => 'Galeria', 'url' => url('gercont/galeria'), 'icone' => 'fa-picture-o', 'tom' => 'dash-tone-blue'],
             ['label' => 'Menus', 'url' => url('gercont/menus'), 'icone' => 'fa-list-ul', 'tom' => 'dash-tone-gray'],
         ];
 

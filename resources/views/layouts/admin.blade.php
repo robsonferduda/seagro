@@ -86,6 +86,12 @@
                     <p>Publicações</p>
                     </a>
                 </li>
+                <li class="{{ (Session::has('url') and Session::get('url') == 'galeria') ? 'active' : '' }}">
+                    <a href="{{ url('gercont/galeria') }}">
+                    <i class="fa fa-picture-o"></i>
+                    <p>Galeria</p>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                       <i class="nc-icon nc-button-power"></i>

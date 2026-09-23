@@ -26,6 +26,7 @@ Route::get('gercont/publicacoes','App\Http\Controllers\PublicacaoController@list
 Route::get('gercont/galeria','App\Http\Controllers\GaleriaController@index');
 Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
 
+Route::get('galeria/json','App\Http\Controllers\GaleriaController@json');
 Route::resource('galeria','App\Http\Controllers\GaleriaController')->except(['show', 'index', 'edit', 'update']);
 
 Route::get('/','App\Http\Controllers\HomeController@index')->name('home');

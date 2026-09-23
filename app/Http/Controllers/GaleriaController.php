@@ -34,6 +34,31 @@ class GaleriaController extends Controller
         return view('gercont/galeria', compact('imagens', 'busca'));
     }
 
+    public function json(Request $request)
+    {
+        $busca = trim((string) $request->get('q', ''));
+
+        $imagens = Galeria::when($busca !== '', function ($query) use ($busca) {
+                $query->where(function ($q) use ($busca) {
+                    $q->where('titulo', 'like', '%' . $busca . '%')
+                      ->orWhere('arquivo', 'like', '%' . $busca . '%');
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->limit(60)
+            ->get()
+            ->map(function ($imagem) {
+                return [
+                    'id' => $imagem->id,
+                    'titulo' => $imagem->titulo ?: $imagem->arquivo,
+                    'url' => $imagem->urlPublica(),
+                    'tamanho' => $imagem->tamanhoFormatado(),
+                ];
+            });
+
+        return response()->json(['imagens' => $imagens]);
+    }
+
     public function create()
     {
         return view('galeria/create');

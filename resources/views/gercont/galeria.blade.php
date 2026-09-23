@@ -19,16 +19,18 @@
                 @include('layouts.mensagens')
             </div>
 
-            <form action="{{ url('gercont/galeria') }}" method="GET" class="mb-4">
-                <div class="input-group" style="max-width: 420px;">
-                    <input type="search" name="q" class="form-control" value="{{ $busca ?? '' }}" placeholder="Buscar por título ou arquivo...">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                        @if(!empty($busca))
-                            <a href="{{ url('gercont/galeria') }}" class="btn btn-outline-secondary">Limpar</a>
-                        @endif
-                    </div>
-                </div>
+            <form action="{{ url('gercont/galeria') }}" method="GET" class="galeria-busca mb-4">
+                <input type="search"
+                       name="q"
+                       class="galeria-busca-input"
+                       value="{{ $busca ?? '' }}"
+                       placeholder="Buscar por título ou arquivo...">
+                <button class="btn btn-primary galeria-busca-btn" type="submit" title="Buscar">
+                    <i class="fa fa-search"></i>
+                </button>
+                @if(!empty($busca))
+                    <a href="{{ url('gercont/galeria') }}" class="btn btn-default galeria-busca-btn">Limpar</a>
+                @endif
             </form>
 
             @if($imagens->count())
@@ -45,22 +47,20 @@
                                         {{ $imagem->tamanhoFormatado() }}
                                         · {{ optional($imagem->created_at)->format('d/m/Y') }}
                                     </small>
-                                    <div class="input-group input-group-sm mb-2">
+                                    <div class="galeria-url-row">
                                         <input type="text"
-                                               class="form-control galeria-url"
+                                               class="galeria-url"
                                                value="{{ $imagem->urlPublica() }}"
                                                readonly
                                                onclick="this.select()">
-                                        <div class="input-group-append">
-                                            <button type="button"
-                                                    class="btn btn-outline-primary btn-copy-url"
-                                                    data-url="{{ $imagem->urlPublica() }}"
-                                                    title="Copiar URL">
-                                                <i class="fa fa-copy"></i>
-                                            </button>
-                                        </div>
+                                        <button type="button"
+                                                class="btn btn-primary btn-sm btn-copy-url"
+                                                data-url="{{ $imagem->urlPublica() }}"
+                                                title="Copiar URL">
+                                            <i class="fa fa-copy"></i>
+                                        </button>
                                     </div>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="galeria-actions">
                                         <a href="{{ $imagem->urlPublica() }}" target="_blank" rel="noopener" class="btn btn-sm btn-link pl-0">
                                             <i class="fa fa-external-link"></i> Abrir
                                         </a>
@@ -94,6 +94,40 @@
 
 @section('style')
 <style>
+.galeria-busca {
+    display: flex;
+    align-items: stretch;
+    max-width: 460px;
+    gap: 0;
+}
+.galeria-busca-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 38px;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    font-size: 0.875rem;
+    background: #fff;
+    color: #495057;
+}
+.galeria-busca-input:focus {
+    outline: none;
+    border-color: #51cbce;
+    box-shadow: none;
+}
+.galeria-busca-btn {
+    flex: 0 0 auto;
+    height: 38px;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 0.9rem;
+}
+.galeria-busca-btn:last-child {
+    border-radius: 0 4px 4px 0 !important;
+}
+
 .galeria-card {
     background: #fff;
     border: 1px solid #e3e8ee;
@@ -119,15 +153,52 @@
 .galeria-card-body {
     padding: 0.85rem;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 .galeria-title {
     display: block;
     color: #284866;
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
+    word-break: break-word;
+}
+.galeria-url-row {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: 0.5rem;
 }
 .galeria-url {
-    font-size: 0.72rem !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 32px;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #ced4da;
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    font-size: 0.7rem;
+    background: #f8f9fa;
+    color: #495057;
+}
+.galeria-url:focus {
+    outline: none;
+    border-color: #51cbce;
+}
+.galeria-url-row .btn-copy-url {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 32px;
+    padding: 0;
+    margin: 0 !important;
+    border-radius: 0 4px 4px 0 !important;
+    line-height: 30px;
+}
+.galeria-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
 }
 </style>
 @endsection
@@ -145,7 +216,7 @@
                     setTimeout(function () { btn.html('<i class="fa fa-copy"></i>'); }, 1500);
                 });
             } else {
-                var input = btn.closest('.input-group').find('.galeria-url')[0];
+                var input = btn.closest('.galeria-url-row').find('.galeria-url')[0];
                 input.select();
                 document.execCommand('copy');
                 btn.html('<i class="fa fa-check"></i>');

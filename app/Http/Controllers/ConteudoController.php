@@ -286,13 +286,43 @@ class ConteudoController extends Controller
         return view('gercont/menus', compact('menus'));
     }
 
-    public function noticias()
+    public function noticias(Request $request)
     {
         Session::put('url', 'noticias');
+        Carbon::setLocale('pt_BR');
 
-        $noticias = Noticia::orderBy('dt_noticia', 'desc')->get();
+        $busca = trim((string) $request->get('q', ''));
+        $filtro = $request->get('status', 'todas'); // todas|ativas|rascunho
+        $limite = $busca !== '' ? 50 : 20;
 
-        return view('gercont/noticias', compact('noticias'));
+        $query = Noticia::query()
+            ->when($busca !== '', function ($q) use ($busca) {
+                $q->where(function ($inner) use ($busca) {
+                    $inner->where('titulo', 'like', '%' . $busca . '%')
+                          ->orWhere('subtitulo', 'like', '%' . $busca . '%')
+                          ->orWhere('url', 'like', '%' . $busca . '%');
+                });
+            })
+            ->when($filtro === 'ativas', function ($q) {
+                $q->where('fl_ativa', 1);
+            })
+            ->when($filtro === 'rascunho', function ($q) {
+                $q->where('fl_ativa', 0);
+            })
+            ->orderBy('dt_noticia', 'desc')
+            ->orderBy('id', 'desc');
+
+        $totalFiltrado = (clone $query)->count();
+        $noticias = $query->limit($limite)->get();
+
+        $resumo = [
+            'total' => Noticia::count(),
+            'ativas' => Noticia::where('fl_ativa', 1)->count(),
+            'rascunho' => Noticia::where('fl_ativa', 0)->count(),
+            'visitas' => (int) Noticia::sum('num_visitas'),
+        ];
+
+        return view('gercont/noticias', compact('noticias', 'busca', 'filtro', 'limite', 'totalFiltrado', 'resumo'));
     }
 
     public function paginas()

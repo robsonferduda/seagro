@@ -12,11 +12,26 @@ class NoticiaController extends Controller
         
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $noticias = Noticia::where("fl_ativa", 1)->orderBy('dt_noticia','DESC')->get();
+        $busca = trim((string) $request->get('q', ''));
+        $limite = 10;
 
-        return view('noticia/index', compact('noticias'));
+        $query = Noticia::where('fl_ativa', 1)
+            ->when($busca !== '', function ($q) use ($busca) {
+                $q->where(function ($inner) use ($busca) {
+                    $inner->where('titulo', 'like', '%' . $busca . '%')
+                          ->orWhere('subtitulo', 'like', '%' . $busca . '%')
+                          ->orWhere('corpo', 'like', '%' . $busca . '%');
+                });
+            })
+            ->orderBy('dt_noticia', 'desc')
+            ->orderBy('id', 'desc');
+
+        $total = (clone $query)->count();
+        $noticias = $query->limit($limite)->get();
+
+        return view('noticia/index', compact('noticias', 'busca', 'total', 'limite'));
     }
 
     public function destaque($pagina)

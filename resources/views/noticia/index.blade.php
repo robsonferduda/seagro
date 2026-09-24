@@ -70,9 +70,7 @@
                     $data = \Carbon\Carbon::parse($noticia->dt_noticia);
                     $excerpt = $noticia->subtitulo
                         ?: \Illuminate\Support\Str::limit(trim(preg_replace('/\s+/', ' ', strip_tags($noticia->corpo ?? ''))), 180);
-                    $capa = $noticia->img_capa
-                        ? asset('img/noticias/' . $noticia->img_capa)
-                        : null;
+                    $capa = $noticia->urlCapa();
                     $isDestaque = $index === 0 && empty($temFiltro);
                 @endphp
 

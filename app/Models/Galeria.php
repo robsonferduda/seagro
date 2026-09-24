@@ -21,7 +21,14 @@ class Galeria extends Model
 
     public function urlPublica()
     {
-        return asset('img/galeria/' . $this->arquivo);
+        $url = asset('img/galeria/' . $this->arquivo);
+        $path = $this->caminhoLocal();
+
+        if ($this->arquivo && file_exists($path)) {
+            $url .= '?v=' . filemtime($path);
+        }
+
+        return $url;
     }
 
     public function caminhoLocal()

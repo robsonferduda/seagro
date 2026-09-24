@@ -4,7 +4,7 @@
   <meta property="og:title" content="{{ $noticia->titulo }}" />
   <meta property="og:url" content="{{ url()->current() }}" />
   @if($noticia->img_capa)
-    <meta property="og:image" content="{{ asset('img/noticias/' . $noticia->img_capa) }}" />
+    <meta property="og:image" content="{{ $noticia->urlCapa() }}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
   @endif
@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ $noticia->titulo }}" />
   @if($noticia->img_capa)
-    <meta name="twitter:image" content="{{ asset('img/noticias/' . $noticia->img_capa) }}" />
+    <meta name="twitter:image" content="{{ $noticia->urlCapa() }}" />
   @endif
 @endpush
 

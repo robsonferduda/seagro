@@ -216,7 +216,7 @@
                     <div class="nf-capa-box">
                         @if($noticia->img_capa)
                             <div id="preview-container">
-                                <img id="preview-image" src="{{ asset('img/noticias/' . $noticia->img_capa) }}" alt="Capa atual" class="nf-capa-preview">
+                                <img id="preview-image" src="{{ $noticia->urlCapa() }}" alt="Capa atual" class="nf-capa-preview">
                             </div>
                             <div id="capa-empty" class="nf-capa-empty" style="display:none;">
                                 <i class="fa fa-cloud-upload"></i>

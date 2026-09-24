@@ -44,8 +44,9 @@ class NoticiaAdminController extends Controller
 
         if ($request->hasFile('img_capa')) {
             $ext = $request->file('img_capa')->getClientOriginalExtension();
-            $request->file('img_capa')->move(public_path('img/noticias'), $noticia->id . '.' . $ext);
-            $noticia->img_capa = $noticia->id . '.' . $ext;
+            $nomeArquivo = $noticia->id . '-' . time() . '.' . $ext;
+            $request->file('img_capa')->move(public_path('img/noticias'), $nomeArquivo);
+            $noticia->img_capa = $nomeArquivo;
             $noticia->save();
         }
 
@@ -87,7 +88,8 @@ class NoticiaAdminController extends Controller
                 }
             }
             $ext = $request->file('img_capa')->getClientOriginalExtension();
-            $nomeArquivo = $noticia->id . '.' . $ext;
+            // Nome único evita cache do navegador ao substituir a capa
+            $nomeArquivo = $noticia->id . '-' . time() . '.' . $ext;
             $request->file('img_capa')->move(public_path('img/noticias'), $nomeArquivo);
             $noticia->img_capa = $nomeArquivo;
         }

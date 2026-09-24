@@ -122,7 +122,7 @@
                                 <div class="col-md-12 mt-3">
                                     <label>Imagem/Arquivo Atual:</label>
                                     <div class="text-center">
-                                        <img src="{{ url('img/eventos/'.$evento->imagem) }}" alt="Imagem atual" class="img-thumbnail" style="max-width: 500px; max-height: 400px;">
+                                        <img src="{{ $evento->urlImagem() }}" alt="Imagem atual" class="img-thumbnail" style="max-width: 500px; max-height: 400px;">
                                     </div>
                                 </div>
                                 @endif

@@ -55,6 +55,6 @@ $(document).on('keydown', '#galeriaPickerBusca', function (e) {
     }
 });
 $(document).on('click', '.galeria-picker-item', function () {
-    window.SeagroGaleriaPicker.insert($(this).data('url'));
+    window.SeagroGaleriaPicker.insert($(this).attr('data-url'));
 });
 </script>

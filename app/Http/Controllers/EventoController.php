@@ -91,7 +91,7 @@ class EventoController extends Controller
         // Upload de imagem se enviada
         if ($request->hasFile('imagem')) {
             $imagem = $request->file('imagem');
-            $nomeArquivo = $apelido . '.' . $imagem->getClientOriginalExtension();
+            $nomeArquivo = $apelido . '-' . time() . '.' . $imagem->getClientOriginalExtension();
             $imagem->move(public_path('img/eventos'), $nomeArquivo);
             $dados['imagem'] = $nomeArquivo;
         }
@@ -147,7 +147,8 @@ class EventoController extends Controller
             }
             
             $imagem = $request->file('imagem');
-            $nomeArquivo = $apelido . '.' . $imagem->getClientOriginalExtension();
+            // Nome único evita cache do navegador ao substituir a imagem
+            $nomeArquivo = $apelido . '-' . time() . '.' . $imagem->getClientOriginalExtension();
             $imagem->move(public_path('img/eventos'), $nomeArquivo);
             $evento->imagem = $nomeArquivo;
         }

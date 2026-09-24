@@ -81,9 +81,7 @@
                 @php
                     $data = \Carbon\Carbon::parse($noticia->dt_noticia);
                     $excerpt = \Illuminate\Support\Str::limit(trim(preg_replace('/\s+/', ' ', strip_tags($noticia->corpo ?? ''))), 160);
-                    $capa = $noticia->img_capa
-                        ? asset('img/noticias/' . $noticia->img_capa)
-                        : null;
+                    $capa = $noticia->urlCapa();
                 @endphp
                 <div class="noticia-item {{ $noticia->fl_ativa ? '' : 'is-draft' }}">
                     <div class="noticia-capa">

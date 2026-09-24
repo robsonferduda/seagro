@@ -24,4 +24,29 @@ class Noticia extends Model
     ];
 
     protected $dates = ['dt_noticia', 'deleted_at'];
+
+    public function caminhoCapa()
+    {
+        if (empty($this->img_capa)) {
+            return null;
+        }
+
+        return public_path('img/noticias/' . $this->img_capa);
+    }
+
+    public function urlCapa()
+    {
+        if (empty($this->img_capa)) {
+            return null;
+        }
+
+        $url = asset('img/noticias/' . $this->img_capa);
+        $path = $this->caminhoCapa();
+
+        if ($path && file_exists($path)) {
+            $url .= '?v=' . filemtime($path);
+        }
+
+        return $url;
+    }
 }

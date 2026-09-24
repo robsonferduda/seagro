@@ -19,11 +19,11 @@
                             @endphp
                             <div class="mb-4 text-center">
                                 @if($isPdf)
-                                    <a href="{{ asset('img/eventos/'.$evento->imagem) }}" target="_blank" rel="noopener" class="btn btn-outline-primary">
+                                    <a href="{{ $evento->urlImagem() }}" target="_blank" rel="noopener" class="btn btn-outline-primary">
                                         <i class="fa fa-file-pdf-o"></i> Abrir PDF do evento
                                     </a>
                                 @else
-                                    <img src="{{ asset('img/eventos/'.$evento->imagem) }}"
+                                    <img src="{{ $evento->urlImagem() }}"
                                          alt="{{ $evento->titulo }}"
                                          class="img-fluid"
                                          style="max-width: 100%; border-radius: 8px;">

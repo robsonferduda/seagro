@@ -89,10 +89,19 @@
 .note-editor.note-frame {
     border: 1px solid #d7dee8 !important;
     border-radius: 8px;
-    overflow: hidden;
+    /* NÃO usar overflow:hidden — corta os dropdowns da toolbar (fonte, estilo, cor) */
+    overflow: visible;
 }
 .note-editor .note-toolbar {
     background: #f5f8fb !important;
     border-bottom: 1px solid #e3e8ee !important;
+    overflow: visible !important;
+    position: relative;
+    z-index: 30;
+}
+.note-editor .note-editing-area {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 </style>

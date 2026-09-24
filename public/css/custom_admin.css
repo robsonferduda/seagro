@@ -420,3 +420,56 @@
         flex: 1 1 auto;
     }
 }
+
+/* ===== Summernote x Paper Dashboard =====
+   O tema esconde .dropdown-menu com opacity/visibility e só libera
+   quando o PAI tem .show. O Summernote marca .show só no menu —
+   fonte, estilo, cor etc. ficavam invisíveis. */
+.note-editor.note-frame {
+    overflow: visible !important;
+}
+
+.note-editor .note-toolbar {
+    overflow: visible !important;
+    position: relative;
+    z-index: 30;
+}
+
+.note-editor .note-editing-area {
+    position: relative;
+    z-index: 1;
+}
+
+.note-editor .note-btn-group,
+.note-editor .btn-group,
+.note-editor .dropdown {
+    position: relative;
+}
+
+.note-editor .dropdown-menu,
+.note-editor .note-dropdown-menu {
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+}
+
+.note-editor .dropdown-menu:not(.show),
+.note-editor .note-dropdown-menu:not(.show) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.note-editor .dropdown-menu.show,
+.note-editor .note-dropdown-menu.show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+    z-index: 1060 !important;
+}
+
+.note-editor .note-editable span[style*="font-size"] {
+    line-height: 1.4;
+}

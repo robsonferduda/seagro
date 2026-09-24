@@ -286,6 +286,7 @@ $(document).ready(function () {
         height: 420,
         placeholder: 'Escreva o conteúdo da notícia...',
         dialogsInBody: true,
+        fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '28', '32', '36', '48'],
         toolbar: [
             ['style', ['style']],
             ['font', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],

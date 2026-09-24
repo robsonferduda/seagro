@@ -182,6 +182,7 @@
                         <textarea name="corpo" id="corpo" rows="12">{{ old('corpo', $noticia->corpo) }}</textarea>
                         <small class="form-text text-muted">
                             Use o botão <strong><i class="fa fa-picture-o"></i> Galeria</strong> na barra do editor para inserir imagens já enviadas.
+                            Tamanhos de fonte estão em <strong>pixels (px)</strong> — ex.: 14, 18, 24.
                         </small>
                         @error('corpo') <small class="text-danger d-block">{{ $message }}</small> @enderror
                     </div>
@@ -258,6 +259,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-pt-BR.min.js"></script>
 @include('partials.galeria_picker_script')
+@include('partials.summernote_noticia_init')
 <script>
 $(document).ready(function () {
     $('.datepicker').datetimepicker({
@@ -270,36 +272,7 @@ $(document).ready(function () {
         }
     });
 
-    var GaleriaButton = function (context) {
-        var ui = $.summernote.ui;
-        return ui.button({
-            contents: '<i class="fa fa-picture-o"></i> Galeria',
-            tooltip: 'Inserir imagem da galeria',
-            click: function () {
-                window.SeagroGaleriaPicker.open('corpo');
-            }
-        }).render();
-    };
-
-    $('#corpo').summernote({
-        lang: 'pt-BR',
-        height: 420,
-        placeholder: 'Escreva o conteúdo da notícia...',
-        dialogsInBody: true,
-        fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '28', '32', '36', '48'],
-        toolbar: [
-            ['style', ['style']],
-            ['font', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
-            ['fontsize', ['fontsize']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'hr', 'galeria']],
-            ['view', ['fullscreen', 'codeview', 'undo', 'redo']]
-        ],
-        buttons: { galeria: GaleriaButton },
-        styleTags: ['p', 'h2', 'h3', 'h4', 'blockquote']
-    });
+    window.SeagroNoticiaEditor.init('corpo');
 
     $('#img_capa').on('change', function () {
         var fileName = $(this).val().split('\\').pop();
@@ -316,9 +289,7 @@ $(document).ready(function () {
     });
 
     $('#formNoticia').on('submit', function () {
-        if ($('#corpo').next('.note-editor').length) {
-            $('#corpo').val($('#corpo').summernote('code'));
-        }
+        window.SeagroNoticiaEditor.sync('corpo');
         $('#btnSalvar').prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Salvando...');
     });
 });

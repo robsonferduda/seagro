@@ -292,8 +292,9 @@ window.SeagroNoticiaEditor = {
         }
     },
 
-    init: function (editorId) {
+    init: function (editorId, opts) {
         var self = this;
+        opts = opts || {};
         var $el = $('#' + (editorId || 'corpo'));
         if (!$el.length || typeof $.fn.summernote === 'undefined') {
             return;
@@ -323,8 +324,8 @@ window.SeagroNoticiaEditor = {
 
         $el.summernote({
             lang: 'pt-BR',
-            height: 420,
-            placeholder: 'Escreva o conteúdo da notícia...',
+            height: opts.height || 420,
+            placeholder: opts.placeholder || 'Escreva o conteúdo da notícia...',
             dialogsInBody: true,
             fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '28', '32', '36', '48'],
             fontSizeUnits: ['px'],
@@ -348,6 +349,9 @@ window.SeagroNoticiaEditor = {
                     $el.val($el.summernote('code'));
                     // Garante unidade px no estado do editor
                     try { $el.summernote('fontSizeUnit', 'px'); } catch (e) {}
+                    if (opts.codeview) {
+                        setTimeout(function () { $el.summernote('codeview.activate'); }, 0);
+                    }
                 },
                 onPaste: function (e) {
                     var clipboard = (e.originalEvent || e).clipboardData;

@@ -86,7 +86,9 @@ class PaginaController extends Controller
             return view('publicacoes/index', compact('publicacoes', 'pagina'));
         }
         
-        return view('paginas/conteudo', compact('pagina'));
+        $documentos = $pagina->documentos()->ativos()->ordenados()->get();
+
+        return view('paginas/conteudo', compact('pagina', 'documentos'));
     }
 
     public function contato()

@@ -67,6 +67,15 @@ Route::get('oportunidades','App\Http\Controllers\OportunidadeController@index');
 
 Route::get('pagina/{nome}','App\Http\Controllers\PaginaController@buscar');
 
+Route::get('pagina-admin/create','App\Http\Controllers\PaginaAdminController@create');
+Route::post('pagina-admin','App\Http\Controllers\PaginaAdminController@store');
+Route::get('pagina-admin/{id}/edit','App\Http\Controllers\PaginaAdminController@edit');
+Route::post('pagina-admin/{id}','App\Http\Controllers\PaginaAdminController@update');
+Route::post('pagina-admin/{id}/documentos','App\Http\Controllers\PaginaAdminController@storeDocumento');
+Route::post('pagina-documento/{id}','App\Http\Controllers\PaginaAdminController@updateDocumento');
+Route::post('pagina-documento/{id}/destroy','App\Http\Controllers\PaginaAdminController@destroyDocumento');
+Route::get('pagina-documento/{id}/toggle','App\Http\Controllers\PaginaAdminController@toggleDocumento');
+
 Route::get('eventos/todos','App\Http\Controllers\EventoController@index');
 Route::get('eventos/detalhes/{id}','App\Http\Controllers\EventoController@detalhes');
 Route::get('eventos/pesencial/sessao-solene-alesc','App\Http\Controllers\PaginaController@evento');

@@ -12,4 +12,9 @@ class Pagina extends Model
     protected $connection = 'mysql';
     protected $table = 'pagina';
     protected $fillable = ['id','nu_visualizacoes'];
+
+    public function documentos()
+    {
+        return $this->hasMany(PaginaDocumento::class, 'id_pagina');
+    }
 }

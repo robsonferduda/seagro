@@ -84,6 +84,10 @@
                             color:#284866!important;
                             min-height: 600px;
                         }
+                        .forum-container.pagina-documentos {
+                            min-height: 0;
+                            margin-bottom: 1.5rem;
+                        }
                         .forum-item small {
                             color: #999;
                         }
@@ -139,6 +143,31 @@
                     </style>
                     <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up">
                         {!! $pagina->text !!}
+
+                        @if(isset($documentos) && $documentos->count())
+                            <div class="ibox-content forum-container pagina-documentos">
+                                @foreach($documentos as $documento)
+                                    <div class="forum-item">
+                                        <div class="row">
+                                            <div class="col-md-10" style="text-align: left;">
+                                                <div class="forum-icon">
+                                                    <i class="fa {{ $documento->extensao() === 'pdf' ? 'fa-file-pdf-o' : 'fa-bookmark' }}"></i>
+                                                </div>
+                                                <a href="{{ $documento->urlPublica() }}" class="forum-item-title" target="_blank" rel="noopener">{{ $documento->titulo }}</a>
+                                                <div class="forum-sub-title">{{ $documento->subtitulo }}</div>
+                                            </div>
+                                            <div class="col-md-2 forum-info">
+                                                @if($documento->dt_publicacao)
+                                                    <div><small>Publicado em</small></div>
+                                                    <span class="views-number">{{ $documento->dt_publicacao->format('d/m/Y') }}</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+
                         <a href="{{ URL::previous() }}">Voltar para o Início</a>
                     </div>
                 </div>

@@ -329,7 +329,10 @@ class ConteudoController extends Controller
     {
         Session::put('url', 'paginas');
 
-        $paginas = Pagina::orderBy('created_at', 'desc')->get();
+        $paginas = Pagina::select('id', 'apelido', 'titulo', 'fl_publicacao', 'created_at', 'updated_at')
+            ->withCount('documentos')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('gercont/paginas', compact('paginas'));
     }

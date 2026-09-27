@@ -8,7 +8,7 @@
                     <h4 class="card-title"><i class="fa fa-globe"></i> Páginas</h4>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ url('pagina/create') }}" class="btn btn-info pull-right ml-3" style="margin-right: 12px;"><i class="fa fa-plus"></i> Cadastrar</a>
+                    <a href="{{ url('pagina-admin/create') }}" class="btn btn-info pull-right ml-3" style="margin-right: 12px;"><i class="fa fa-plus"></i> Cadastrar</a>
                 </div>
             </div>
         </div>
@@ -41,11 +41,20 @@
                             @foreach($paginas as $pagina)
                                 <tr>
                                     <td class="text-center">{{ date('d/m/Y', strtotime($pagina->created_at)) }}</td>
-                                    <td>{{ $pagina->titulo }}</td>
+                                    <td>
+                                        <a href="{{ url('pagina-admin/' . $pagina->id . '/edit') }}">{{ $pagina->titulo }}</a>
+                                        @if(!$pagina->fl_publicacao)
+                                            <span class="badge badge-secondary ml-1">Não publicada</span>
+                                        @endif
+                                        @if($pagina->documentos_count)
+                                            <span class="badge badge-info ml-1" title="Documentos anexados"><i class="fa fa-paperclip"></i> {{ $pagina->documentos_count }}</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $pagina->apelido }}</td>
                                     <td class="text-center">{{ date('d/m/Y', strtotime($pagina->updated_at)) }}</td>
-                                    <td>
-                                        <a title="Detalhes" href="https://www.seagro-sc.org.br/pagina/{{ $pagina->apelido }}" class="btn btn-warning btn-link btn-icon"><i class="fa fa-globe" aria-hidden="true"></i></a>
+                                    <td class="text-center" style="white-space:nowrap;">
+                                        <a title="Editar" href="{{ url('pagina-admin/' . $pagina->id . '/edit') }}" class="btn btn-primary btn-link btn-icon"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a title="Ver no site" target="_blank" href="{{ url('pagina/' . $pagina->apelido) }}" class="btn btn-warning btn-link btn-icon"><i class="fa fa-globe" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -77,4 +77,17 @@
 }
 .noticia-form .nf-actions .btn { margin: 0 !important; }
 .noticia-form .custom-file-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.noticia-form .nf-capa-box {
+    border: 2px dashed #c5d3e0;
+    border-radius: 8px;
+    padding: 0.65rem;
+    text-align: center;
+    background: var(--nf-bg);
+    transition: border-color .15s;
+}
+.noticia-form .nf-capa-box:hover { border-color: #51cbce; }
+.noticia-form .nf-capa-empty { padding: 0.55rem 0.25rem; color: var(--nf-muted); font-size: 0.78rem; }
+.noticia-form .nf-capa-empty i { font-size: 1.35rem; display: block; margin-bottom: 0.25rem; }
+.noticia-form .nf-hint { margin-top: 0.85rem; font-size: 0.78rem; color: var(--nf-muted); }
+.noticia-form .text-normal { text-transform: none; letter-spacing: 0; font-weight: 400; }
 </style>

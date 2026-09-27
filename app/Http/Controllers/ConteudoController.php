@@ -263,9 +263,23 @@ class ConteudoController extends Controller
     {
         Session::put('url', 'boletins');
 
-        $boletins = Boletim::orderBy('dt_publicacao', 'desc')->get();
+        $boletins = Boletim::select('id', 'titulo', 'subtitulo', 'texto', 'dt_publicacao', 'arquivo', 'imagem', 'audio', 'fl_publicacao', 'acessos', 'downloads')
+            ->orderBy('dt_publicacao', 'desc')
+            ->orderBy('id', 'desc')
+            ->get();
 
-        return view('gercont/boletins', compact('boletins'));
+        $resumo = [
+            'total'      => $boletins->count(),
+            'publicados' => $boletins->where('fl_publicacao', 1)->count(),
+            'acessos'    => (int) $boletins->sum('acessos'),
+            'downloads'  => (int) $boletins->sum('downloads'),
+        ];
+
+        $anos = $boletins->map(function ($boletim) {
+            return substr((string) $boletim->dt_publicacao, 0, 4);
+        })->filter()->unique()->sortDesc()->values();
+
+        return view('gercont/boletins', compact('boletins', 'resumo', 'anos'));
     }
 
     public function eventos()

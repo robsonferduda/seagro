@@ -34,7 +34,7 @@ class NoticiaAdminController extends Controller
             'titulo'     => $request->titulo,
             'subtitulo'  => $request->subtitulo,
             'dt_noticia' => implode('-', array_reverse(explode('/', $request->dt_noticia))),
-            'corpo'      => $request->corpo,
+            'corpo'      => $this->limparCorpo($request->corpo),
             'fl_ativa'   => $request->has('fl_ativa') ? 1 : 0,
             'fl_banner'  => $request->has('fl_banner') ? 1 : 0,
             'url'        => $url,
@@ -75,7 +75,7 @@ class NoticiaAdminController extends Controller
         $noticia->titulo     = $request->titulo;
         $noticia->subtitulo  = $request->subtitulo;
         $noticia->dt_noticia = implode('-', array_reverse(explode('/', $request->dt_noticia)));
-        $noticia->corpo      = $request->corpo;
+        $noticia->corpo      = $this->limparCorpo($request->corpo);
         $noticia->fl_ativa   = $request->has('fl_ativa') ? 1 : 0;
         $noticia->fl_banner  = $request->has('fl_banner') ? 1 : 0;
 
@@ -118,6 +118,26 @@ class NoticiaAdminController extends Controller
         $noticia->save();
 
         return redirect('gercont/noticias');
+    }
+
+    private function limparCorpo(?string $html): string
+    {
+        $html = (string) $html;
+
+        $padroes = [
+            '/[\x{FEFF}\x{200B}\x{200C}\x{200D}]/u' => '',
+            '/\sdata-(start|end|section-id|is-last-node|is-only-node|spread)="[^"]*"/i' => '',
+            '/\sclass="(isSelectedEnd)?"/i' => '',
+        ];
+
+        foreach ($padroes as $padrao => $substituto) {
+            $resultado = preg_replace($padrao, $substituto, $html);
+            if ($resultado !== null) {
+                $html = $resultado;
+            }
+        }
+
+        return $html;
     }
 
     private function gerarUrl(string $titulo): string

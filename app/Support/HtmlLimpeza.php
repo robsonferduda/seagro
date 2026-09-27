@@ -24,6 +24,20 @@ class HtmlLimpeza
             }
         }
 
-        return $html;
+        return self::vazio($html) ? '' : $html;
+    }
+
+    /**
+     * O Summernote salva "<p><br></p>" (e variações com span) quando o editor está vazio.
+     */
+    public static function vazio(string $html): bool
+    {
+        if (preg_match('/<(img|iframe|video|audio|table|hr|embed|object)\b/i', $html)) {
+            return false;
+        }
+
+        $texto = html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        return trim(str_replace("\xC2\xA0", ' ', $texto)) === '';
     }
 }

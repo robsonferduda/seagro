@@ -71,6 +71,7 @@ Route::get('pagina-admin/create','App\Http\Controllers\PaginaAdminController@cre
 Route::post('pagina-admin','App\Http\Controllers\PaginaAdminController@store');
 Route::get('pagina-admin/{id}/edit','App\Http\Controllers\PaginaAdminController@edit');
 Route::post('pagina-admin/{id}','App\Http\Controllers\PaginaAdminController@update');
+Route::get('pagina-admin/{id}/toggle-publicacao','App\Http\Controllers\PaginaAdminController@togglePublicacao');
 Route::post('pagina-admin/{id}/documentos','App\Http\Controllers\PaginaAdminController@storeDocumento');
 Route::post('pagina-documento/{id}','App\Http\Controllers\PaginaAdminController@updateDocumento');
 Route::post('pagina-documento/{id}/destroy','App\Http\Controllers\PaginaAdminController@destroyDocumento');

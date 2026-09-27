@@ -64,10 +64,9 @@ class PaginaController extends Controller
             return redirect()->route('home');
         }
 
-        if($pagina){
-            $pagina->nu_visualizacoes = $pagina->nu_visualizacoes + 1;
-            $pagina->save();
-        }
+        $pagina->timestamps = false;
+        $pagina->increment('nu_visualizacoes');
+        $pagina->timestamps = true;
 
         $dados_acesso = array('pagina' => $pagina->apelido);
         

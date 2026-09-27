@@ -78,6 +78,17 @@ class PaginaAdminController extends Controller
         return redirect('pagina-admin/' . $pagina->id . '/edit');
     }
 
+    public function togglePublicacao($id)
+    {
+        $pagina = Pagina::findOrFail($id);
+        $pagina->fl_publicacao = $pagina->fl_publicacao ? 0 : 1;
+        $pagina->save();
+
+        Flash::success('<i class="fa fa-check"></i> Página <strong>' . e($pagina->titulo) . '</strong> ' . ($pagina->fl_publicacao ? 'publicada' : 'ocultada do site') . '.');
+
+        return redirect('gercont/paginas');
+    }
+
     public function storeDocumento(Request $request, $id)
     {
         $pagina = Pagina::findOrFail($id);

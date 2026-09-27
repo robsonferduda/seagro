@@ -329,12 +329,24 @@ class ConteudoController extends Controller
     {
         Session::put('url', 'paginas');
 
-        $paginas = Pagina::select('id', 'apelido', 'titulo', 'fl_publicacao', 'created_at', 'updated_at')
+        $paginas = Pagina::select('id', 'apelido', 'titulo', 'fl_publicacao', 'nu_visualizacoes', 'created_at', 'updated_at')
             ->withCount('documentos')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->get();
 
-        return view('gercont/paginas', compact('paginas'));
+        $resumo = [
+            'total'      => $paginas->count(),
+            'publicadas' => $paginas->where('fl_publicacao', 1)->count(),
+            'documentos' => (int) $paginas->sum('documentos_count'),
+            'visitas'    => (int) $paginas->sum('nu_visualizacoes'),
+        ];
+
+        $layoutProprio = [
+            'estatuto-social' => null,
+            'publicacoes'     => url('gercont/publicacoes'),
+        ];
+
+        return view('gercont/paginas', compact('paginas', 'resumo', 'layoutProprio'));
     }
 
     public function videos()

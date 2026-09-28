@@ -27,8 +27,9 @@ class PublicacaoController extends Controller
             ->get();
 
         if ($pagina) {
-            $pagina->nu_visualizacoes = $pagina->nu_visualizacoes + 1;
-            $pagina->save();
+            $pagina->timestamps = false;
+            $pagina->increment('nu_visualizacoes');
+            $pagina->timestamps = true;
             Estatistica::create(['pagina' => 'publicacoes']);
         }
 
@@ -40,7 +41,14 @@ class PublicacaoController extends Controller
         Session::put('url', 'publicacoes');
         $publicacoes = Publicacao::orderBy('nu_ordem')->orderBy('titulo')->get();
 
-        return view('gercont/publicacoes', compact('publicacoes'));
+        $resumo = [
+            'total'   => $publicacoes->count(),
+            'ativas'  => $publicacoes->where('fl_ativo', 1)->count(),
+            'links'   => $publicacoes->filter(function ($p) { return !empty($p->link_externo); })->count(),
+            'visitas' => (int) Pagina::where('apelido', 'publicacoes')->value('nu_visualizacoes'),
+        ];
+
+        return view('gercont/publicacoes', compact('publicacoes', 'resumo'));
     }
 
     public function create()

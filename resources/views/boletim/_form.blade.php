@@ -38,33 +38,33 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label class="bl-file {{ $pdfAtual ? 'tem-atual' : '' }}" for="pdf">
-                        <span class="bl-file-icone pdf"><i class="fa fa-file-pdf-o"></i></span>
-                        <span class="bl-file-texto">
+                    <label class="nf-file {{ $pdfAtual ? 'tem-atual' : '' }}" for="pdf">
+                        <span class="nf-file-icone pdf"><i class="fa fa-file-pdf-o"></i></span>
+                        <span class="nf-file-texto">
                             <strong>Arquivo PDF @unless($editando)<span class="text-danger">*</span>@endunless</strong>
-                            <span class="bl-file-nome" data-padrao="{{ $editando ? 'Clique para substituir' : 'Clique para selecionar' }}">{{ $editando ? 'Clique para substituir' : 'Clique para selecionar' }}</span>
+                            <span class="nf-file-nome" data-padrao="{{ $editando ? 'Clique para substituir' : 'Clique para selecionar' }}">{{ $editando ? 'Clique para substituir' : 'Clique para selecionar' }}</span>
                             <small>PDF · até 10MB</small>
                         </span>
-                        <input type="file" name="pdf" id="pdf" class="bl-file-input" accept=".pdf,application/pdf" {{ $editando ? '' : 'required' }}>
+                        <input type="file" name="pdf" id="pdf" class="nf-file-input" accept=".pdf,application/pdf" {{ $editando ? '' : 'required' }}>
                     </label>
                     @if($pdfAtual)
-                        <a href="{{ $pdfAtual }}" target="_blank" class="bl-file-atual"><i class="fa fa-paperclip"></i> Atual: {{ $boletim->arquivo }}</a>
+                        <a href="{{ $pdfAtual }}" target="_blank" class="nf-file-atual"><i class="fa fa-paperclip"></i> Atual: {{ $boletim->arquivo }}</a>
                     @endif
                     @error('pdf') <small class="text-danger d-block">{!! $message !!}</small> @enderror
                 </div>
 
                 <div class="col-md-6">
-                    <label class="bl-file {{ $audioAtual ? 'tem-atual' : '' }}" for="audio">
-                        <span class="bl-file-icone audio"><i class="fa fa-volume-up"></i></span>
-                        <span class="bl-file-texto">
+                    <label class="nf-file {{ $audioAtual ? 'tem-atual' : '' }}" for="audio">
+                        <span class="nf-file-icone audio"><i class="fa fa-volume-up"></i></span>
+                        <span class="nf-file-texto">
                             <strong>Áudio <small class="text-muted">(opcional)</small></strong>
-                            <span class="bl-file-nome" data-padrao="{{ $audioAtual ? 'Clique para substituir' : 'Clique para selecionar' }}">{{ $audioAtual ? 'Clique para substituir' : 'Clique para selecionar' }}</span>
+                            <span class="nf-file-nome" data-padrao="{{ $audioAtual ? 'Clique para substituir' : 'Clique para selecionar' }}">{{ $audioAtual ? 'Clique para substituir' : 'Clique para selecionar' }}</span>
                             <small>MP3 ou WAV · até 20MB</small>
                         </span>
-                        <input type="file" name="audio" id="audio" class="bl-file-input" accept=".mp3,.wav,audio/*">
+                        <input type="file" name="audio" id="audio" class="nf-file-input" accept=".mp3,.wav,audio/*">
                     </label>
                     @if($audioAtual)
-                        <a href="{{ $audioAtual }}" target="_blank" class="bl-file-atual"><i class="fa fa-paperclip"></i> Atual: {{ $boletim->audio }}</a>
+                        <a href="{{ $audioAtual }}" target="_blank" class="nf-file-atual"><i class="fa fa-paperclip"></i> Atual: {{ $boletim->audio }}</a>
                     @endif
                     @error('audio') <small class="text-danger d-block">{!! $message !!}</small> @enderror
                 </div>

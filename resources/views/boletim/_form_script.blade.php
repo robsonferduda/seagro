@@ -14,9 +14,9 @@ $(document).ready(function () {
         return bytes >= 1048576 ? (bytes / 1048576).toFixed(1).replace('.', ',') + ' MB' : Math.ceil(bytes / 1024) + ' KB';
     }
 
-    $('.bl-file-input').on('change', function () {
-        var $box = $(this).closest('.bl-file');
-        var $nome = $box.find('.bl-file-nome');
+    $('.nf-file-input').on('change', function () {
+        var $box = $(this).closest('.nf-file');
+        var $nome = $box.find('.nf-file-nome');
         var arquivo = this.files && this.files[0];
         $box.toggleClass('selecionado', !!arquivo);
         $nome.text(arquivo ? arquivo.name + ' (' + tamanho(arquivo.size) + ')' : $nome.data('padrao'));

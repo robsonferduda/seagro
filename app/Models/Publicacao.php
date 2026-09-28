@@ -43,6 +43,14 @@ class Publicacao extends Model
         return asset(ltrim($this->arquivo, '/'));
     }
 
+    public function extensao()
+    {
+        $caminho = $this->link_externo ?: $this->arquivo;
+        $caminho = parse_url((string) $caminho, PHP_URL_PATH) ?: (string) $caminho;
+
+        return strtolower(pathinfo($caminho, PATHINFO_EXTENSION));
+    }
+
     public function temArquivoLocal()
     {
         if (empty($this->arquivo) || preg_match('#^https?://#i', $this->arquivo)) {

@@ -90,4 +90,39 @@
 .noticia-form .nf-capa-empty i { font-size: 1.35rem; display: block; margin-bottom: 0.25rem; }
 .noticia-form .nf-hint { margin-top: 0.85rem; font-size: 0.78rem; color: var(--nf-muted); }
 .noticia-form .text-normal { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.noticia-form .nf-file {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.8rem 0.9rem;
+    margin-bottom: 0.35rem;
+    border: 2px dashed #c5d3e0;
+    border-radius: 8px;
+    background: #f5f8fb;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+}
+.noticia-form .nf-file:hover { border-color: #51cbce; background: #f0f9fa; }
+.noticia-form .nf-file.selecionado { border-style: solid; border-color: #1aae6f; background: #effaf4; }
+.noticia-form .nf-file-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.noticia-form .nf-file-icone {
+    flex: 0 0 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    background: #eef3f8;
+    color: #336693;
+}
+.noticia-form .nf-file-icone.pdf { background: #fdecec; color: #c0392b; }
+.noticia-form .nf-file-icone.audio { background: #eef0fd; color: #5b5fc7; }
+.noticia-form .nf-file-texto { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+.noticia-form .nf-file-texto strong { font-size: 0.85rem; color: #284866; }
+.noticia-form .nf-file-nome { font-size: 0.8rem; color: #336693; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.noticia-form .nf-file-texto small { font-size: 0.72rem; color: #6b7c8f; font-weight: 400; }
+.noticia-form .nf-file-atual { display: inline-block; font-size: 0.75rem; color: #6b7c8f; margin-bottom: 0.5rem; word-break: break-all; }
 </style>

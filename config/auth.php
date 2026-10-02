@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'associado' => [
+            'driver' => 'session',
+            'provider' => 'associados',
+        ],
     ],
 
     /*
@@ -63,6 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'associados' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Associado::class,
         ],
 
         // 'users' => [
@@ -91,6 +101,13 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'associados' => [
+            'provider' => 'associados',
+            'table' => 'associado_senha_reset',
+            'expire' => 1440,
             'throttle' => 60,
         ],
     ],

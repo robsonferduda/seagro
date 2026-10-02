@@ -102,6 +102,7 @@
           </li>
           <li class="dropdown"><a href=""><span>Associado</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
+              <li><a href="{{ route('associado.area') }}">Área do Associado</a></li>
               <li><a href="{{ url('atualizacao-cadastro') }}">Atualização de Dados</a></li>
               <li class="dropdown"><a href="{{ url('pagina/associados-beneficios') }}"><span>Benefícios</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>

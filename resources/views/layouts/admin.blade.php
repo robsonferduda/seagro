@@ -38,6 +38,12 @@
                     <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="{{ (Session::has('url') and Session::get('url') == 'associados') ? 'active' : '' }}">
+                  <a href="{{ url('gercont/associados') }}">
+                    <i class="fa fa-id-card-o"></i>
+                      <p>Associados</p>
+                  </a>
+                </li>
                 <li class="{{ (Session::has('url') and Session::get('url') == 'boletins') ? 'active' : '' }}">
                   <a href="{{ url('gercont/boletins') }}">
                     <i class="fa fa-files-o"></i>

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('gercont','App\Http\Controllers\ConteudoController@index');
 Route::get('gercont/boletins','App\Http\Controllers\ConteudoController@boletins');
@@ -25,6 +25,32 @@ Route::get('gercont/oportunidades','App\Http\Controllers\OportunidadeController@
 Route::get('gercont/publicacoes','App\Http\Controllers\PublicacaoController@lista');
 Route::get('gercont/galeria','App\Http\Controllers\GaleriaController@index');
 Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
+Route::get('gercont/associados','App\Http\Controllers\AssociadoAdminController@index');
+
+Route::get('associado-admin/create','App\Http\Controllers\AssociadoAdminController@create');
+Route::post('associado-admin','App\Http\Controllers\AssociadoAdminController@store');
+Route::get('associado-admin/{id}/edit','App\Http\Controllers\AssociadoAdminController@edit');
+Route::post('associado-admin/{id}','App\Http\Controllers\AssociadoAdminController@update');
+Route::post('associado-admin/{id}/toggle-ativo','App\Http\Controllers\AssociadoAdminController@toggleAtivo');
+Route::post('associado-admin/{id}/enviar-acesso','App\Http\Controllers\AssociadoAdminController@enviarAcesso');
+Route::post('associado-admin/{id}/destroy','App\Http\Controllers\AssociadoAdminController@destroy');
+
+Route::prefix('associado')->name('associado.')->group(function () {
+    Route::get('/','App\Http\Controllers\AssociadoAreaController@index')->name('area');
+    Route::get('meus-dados','App\Http\Controllers\AssociadoAreaController@meusDados')->name('dados');
+    Route::post('meus-dados','App\Http\Controllers\AssociadoAreaController@atualizarDados')->name('dados.salvar');
+    Route::post('alterar-senha','App\Http\Controllers\AssociadoAreaController@alterarSenha')->name('senha.alterar');
+
+    Route::get('entrar','App\Http\Controllers\AssociadoAuthController@loginForm')->name('login');
+    Route::post('entrar','App\Http\Controllers\AssociadoAuthController@login')->name('login.entrar')->middleware('throttle:associado-login');
+    Route::get('cadastro','App\Http\Controllers\AssociadoAuthController@cadastroForm')->name('cadastro');
+    Route::post('cadastro','App\Http\Controllers\AssociadoAuthController@cadastro')->name('cadastro.salvar')->middleware('throttle:associado-cadastro');
+    Route::get('recuperar-senha','App\Http\Controllers\AssociadoAuthController@recuperarForm')->name('senha.recuperar');
+    Route::post('recuperar-senha','App\Http\Controllers\AssociadoAuthController@recuperar')->name('senha.enviar')->middleware('throttle:associado-senha');
+    Route::get('redefinir-senha/{token}','App\Http\Controllers\AssociadoAuthController@redefinirForm')->name('senha.redefinir');
+    Route::post('redefinir-senha','App\Http\Controllers\AssociadoAuthController@redefinir')->name('senha.redefinir.salvar')->middleware('throttle:associado-redefinir');
+    Route::post('sair','App\Http\Controllers\AssociadoAuthController@logout')->name('logout');
+});
 
 Route::get('galeria/json','App\Http\Controllers\GaleriaController@json');
 Route::resource('galeria','App\Http\Controllers\GaleriaController')->except(['show', 'index', 'edit', 'update']);

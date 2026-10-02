@@ -212,34 +212,7 @@
                     </label>
                 </div>
 
-                <div class="nf-panel nf-panel-side">
-                    <div class="nf-panel-title">Imagem de capa</div>
-                    <div class="nf-capa-box">
-                        @if($noticia->img_capa)
-                            <div id="preview-container">
-                                <img id="preview-image" src="{{ $noticia->urlCapa() }}" alt="Capa atual" class="nf-capa-preview">
-                            </div>
-                            <div id="capa-empty" class="nf-capa-empty" style="display:none;">
-                                <i class="fa fa-cloud-upload"></i>
-                                JPG/PNG · 5MB
-                            </div>
-                        @else
-                            <div id="preview-container" style="display:none;">
-                                <img id="preview-image" src="" alt="Preview" class="nf-capa-preview">
-                            </div>
-                            <div id="capa-empty" class="nf-capa-empty">
-                                <i class="fa fa-cloud-upload"></i>
-                                JPG/PNG · 5MB<br>
-                                <small>1200×630px</small>
-                            </div>
-                        @endif
-                        <div class="custom-file text-left">
-                            <input type="file" name="img_capa" class="custom-file-input" id="img_capa" accept="image/*">
-                            <label class="custom-file-label" for="img_capa">{{ $noticia->img_capa ? 'Substituir capa' : 'Selecionar capa' }}</label>
-                        </div>
-                        @error('img_capa') <small class="text-danger d-block mt-1">{{ $message }}</small> @enderror
-                    </div>
-                </div>
+                @include('noticia._capa')
 
                 <div class="nf-actions">
                     <a href="{{ url('gercont/noticias') }}" class="btn btn-default"><i class="fa fa-times"></i> Cancelar</a>
@@ -260,6 +233,7 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-pt-BR.min.js"></script>
 @include('partials.galeria_picker_script')
 @include('partials.summernote_noticia_init')
+@include('noticia._capa_script')
 <script>
 $(document).ready(function () {
     $('.datepicker').datetimepicker({
@@ -273,20 +247,6 @@ $(document).ready(function () {
     });
 
     window.SeagroNoticiaEditor.init('corpo');
-
-    $('#img_capa').on('change', function () {
-        var fileName = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').html(fileName || 'Selecionar capa');
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#preview-image').attr('src', e.target.result);
-                $('#preview-container').show();
-                $('#capa-empty').hide();
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
 
     $('#formNoticia').on('submit', function () {
         window.SeagroNoticiaEditor.sync('corpo');

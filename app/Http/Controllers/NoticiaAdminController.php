@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Noticia;
 use App\Support\HtmlLimpeza;
+use App\Support\ImagemCapa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laracasts\Flash\Flash;
@@ -44,10 +45,7 @@ class NoticiaAdminController extends Controller
         $noticia = Noticia::create($dados);
 
         if ($request->hasFile('img_capa')) {
-            $ext = $request->file('img_capa')->getClientOriginalExtension();
-            $nomeArquivo = $noticia->id . '-' . time() . '.' . $ext;
-            $request->file('img_capa')->move(public_path('img/noticias'), $nomeArquivo);
-            $noticia->img_capa = $nomeArquivo;
+            $noticia->img_capa = ImagemCapa::salvar($request->file('img_capa'), public_path('img/noticias'), $noticia->id . '-' . time());
             $noticia->save();
         }
 
@@ -88,11 +86,8 @@ class NoticiaAdminController extends Controller
                     unlink($oldPath);
                 }
             }
-            $ext = $request->file('img_capa')->getClientOriginalExtension();
             // Nome único evita cache do navegador ao substituir a capa
-            $nomeArquivo = $noticia->id . '-' . time() . '.' . $ext;
-            $request->file('img_capa')->move(public_path('img/noticias'), $nomeArquivo);
-            $noticia->img_capa = $nomeArquivo;
+            $noticia->img_capa = ImagemCapa::salvar($request->file('img_capa'), public_path('img/noticias'), $noticia->id . '-' . time());
         }
 
         $noticia->save();

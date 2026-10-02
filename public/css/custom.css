@@ -330,6 +330,44 @@
   min-height: 570px;
 }
 
+/* Carrossel da home: quadro fixo 4:3, qualquer imagem cabe sem alterar o layout */
+.home-carrossel .carousel-item{
+  min-height: 0;
+}
+.carrossel-quadro{
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #1f3548;
+}
+@supports not (aspect-ratio: 4 / 3){
+  .carrossel-quadro{ height: 0; padding-top: 75%; }
+}
+.carrossel-quadro img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.carrossel-quadro.is-contain img{
+  object-fit: contain;
+}
+.carrossel-fundo{
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  bottom: -30px;
+  left: -30px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(22px) brightness(0.7);
+}
+
 .center{ text-align: center;}
 
 ul.timeline {

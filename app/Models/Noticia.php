@@ -25,6 +25,28 @@ class Noticia extends Model
 
     protected $dates = ['dt_noticia', 'deleted_at'];
 
+    public const PROPORCAO_CAPA = 4 / 3;
+
+    /**
+     * Desvio máximo da proporção 4:3 para a capa preencher o quadro do carrossel (corte pequeno nas bordas).
+     * Acima disso ela é exibida inteira, com a própria imagem desfocada ao fundo.
+     */
+    public const TOLERANCIA_CAPA = 0.15;
+
+    public function ajusteCapa()
+    {
+        $caminho = $this->caminhoCapa();
+        $info = $caminho && file_exists($caminho) ? @getimagesize($caminho) : null;
+
+        if (!$info || !$info[1]) {
+            return 'cover';
+        }
+
+        $desvio = abs(($info[0] / $info[1]) / self::PROPORCAO_CAPA - 1);
+
+        return $desvio <= self::TOLERANCIA_CAPA ? 'cover' : 'contain';
+    }
+
     public function caminhoCapa()
     {
         if (empty($this->img_capa)) {

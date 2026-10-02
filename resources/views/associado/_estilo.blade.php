@@ -22,6 +22,12 @@
 .as-auth-lado li { display: flex; gap: 0.6rem; align-items: flex-start; margin-bottom: 0.7rem; color: rgba(255, 255, 255, 0.92); font-size: 0.92rem; }
 .as-auth-lado li i { color: #8fd3ff; font-size: 1.05rem; line-height: 1.3; }
 .as-auth-form { flex: 1 1 380px; padding: 40px 36px; }
+.as-auth.as-auth-largo { max-width: 1120px; }
+.as-auth-largo .as-auth-lado { flex: 0 1 340px; }
+.as-auth-largo .as-auth-form { flex: 1 1 540px; }
+@media (max-width: 991px) {
+    .as-auth-largo .as-auth-lado { flex: 1 1 100%; }
+}
 .as-auth-form h3 { color: #154166; font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; }
 .as-auth-form .as-sub { color: #6b7c8f; font-size: 0.9rem; margin-bottom: 1.4rem; }
 .as-form label { font-weight: 600; color: #34495e; font-size: 0.88rem; margin-bottom: 0.3rem; }

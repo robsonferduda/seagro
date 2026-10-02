@@ -3,7 +3,7 @@
 @include('associado._estilo')
 <section class="as-secao">
     <div class="container">
-        <div class="as-card as-auth">
+        <div class="as-card as-auth as-auth-largo">
             @include('associado._lado')
 
             <div class="as-auth-form">

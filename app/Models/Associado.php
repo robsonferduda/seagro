@@ -20,6 +20,19 @@ class Associado extends Authenticatable
         'password',
         'fl_ativo',
         'origem',
+        'dt_nascimento',
+        'id_sexo',
+        'id_cidade_naturalidade',
+        'cep',
+        'logradouro',
+        'numero',
+        'complemento',
+        'bairro',
+        'id_cidade',
+        'email_trabalho',
+        'telefone_residencial',
+        'telefone_celular',
+        'telefone_comercial',
     ];
 
     protected $hidden = [
@@ -30,7 +43,23 @@ class Associado extends Authenticatable
     protected $casts = [
         'fl_ativo' => 'boolean',
         'dt_ultimo_acesso' => 'datetime',
+        'dt_nascimento' => 'date',
     ];
+
+    public function sexo()
+    {
+        return $this->belongsTo(Sexo::class, 'id_sexo');
+    }
+
+    public function cidade()
+    {
+        return $this->belongsTo(Cidade::class, 'id_cidade');
+    }
+
+    public function naturalidade()
+    {
+        return $this->belongsTo(Cidade::class, 'id_cidade_naturalidade');
+    }
 
     public function setCpfAttribute($valor)
     {
@@ -45,6 +74,61 @@ class Associado extends Authenticatable
     public function setNomeAttribute($valor)
     {
         $this->attributes['nome'] = preg_replace('/\s+/', ' ', trim((string) $valor));
+    }
+
+    public function setEmailTrabalhoAttribute($valor)
+    {
+        $valor = mb_strtolower(trim((string) $valor));
+        $this->attributes['email_trabalho'] = $valor === '' ? null : $valor;
+    }
+
+    public function setCepAttribute($valor)
+    {
+        $this->attributes['cep'] = self::somenteDigitos($valor);
+    }
+
+    public function setTelefoneResidencialAttribute($valor)
+    {
+        $this->attributes['telefone_residencial'] = self::somenteDigitos($valor);
+    }
+
+    public function setTelefoneCelularAttribute($valor)
+    {
+        $this->attributes['telefone_celular'] = self::somenteDigitos($valor);
+    }
+
+    public function setTelefoneComercialAttribute($valor)
+    {
+        $this->attributes['telefone_comercial'] = self::somenteDigitos($valor);
+    }
+
+    private static function somenteDigitos($valor): ?string
+    {
+        $digitos = preg_replace('/\D/', '', (string) $valor);
+
+        return $digitos === '' ? null : $digitos;
+    }
+
+    public function cepFormatado(): string
+    {
+        $cep = (string) $this->cep;
+
+        return strlen($cep) === 8 ? substr($cep, 0, 5) . '-' . substr($cep, 5) : $cep;
+    }
+
+    public static function formatarTelefone($numero): string
+    {
+        $numero = (string) $numero;
+
+        if (strlen($numero) === 11) {
+            return '(' . substr($numero, 0, 2) . ') ' . substr($numero, 2, 5) . '-' . substr($numero, 7);
+        }
+
+        if (strlen($numero) === 10) {
+            return '(' . substr($numero, 0, 2) . ') ' . substr($numero, 2, 4) . '-' . substr($numero, 6);
+        }
+
+        return $numero;
     }
 
     public function scopeAtivos($query)

@@ -35,6 +35,14 @@
 .as-form .form-control:focus { border-color: #336693; box-shadow: 0 0 0 0.2rem rgba(51, 102, 147, 0.15); }
 .as-form .form-control[readonly] { background: #f3f6f9; color: #51657a; }
 .as-form .mb-3 small.as-ajuda { color: #8395a7; font-size: 0.78rem; }
+.as-form small.as-ajuda { color: #8395a7; font-size: 0.78rem; }
+.as-form .form-select { border-radius: 8px; padding: 0.6rem 2.25rem 0.6rem 0.8rem; border-color: #d3dce6; }
+.as-form .form-select:focus { border-color: #336693; box-shadow: 0 0 0 0.2rem rgba(51, 102, 147, 0.15); }
+.as-subtitulo {
+    color: #154166; font-size: 0.95rem; font-weight: 700;
+    margin: 1.75rem 0 0.9rem; padding-top: 1.25rem; border-top: 1px solid #e6ecf2;
+}
+.as-subtitulo i { color: #336693; margin-right: 0.3rem; }
 .as-senha { position: relative; }
 .as-senha .form-control { padding-right: 2.6rem; }
 .as-senha button {

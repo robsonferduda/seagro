@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pagina;
+use App\Support\DadosPessoais;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -39,26 +40,28 @@ class AssociadoAreaController extends Controller
 
     public function meusDados()
     {
-        $associado = Auth::guard('associado')->user();
+        $associado = Auth::guard('associado')->user()->load(['cidade.uf', 'naturalidade.uf']);
 
-        return view('associado/meus-dados', compact('associado'));
+        return view('associado/meus-dados', array_merge(compact('associado'), DadosPessoais::dadosFormulario($associado)));
     }
 
     public function atualizarDados(Request $request)
     {
         $associado = Auth::guard('associado')->user();
 
-        $request->validate([
+        DadosPessoais::normalizar($request);
+
+        $request->validate(array_merge([
             'nome' => 'required|string|min:5|max:255',
             'email' => 'required|email|max:255',
-        ], [
+        ], DadosPessoais::regras()), array_merge([
             'nome.required' => 'Informe seu nome completo.',
             'nome.min' => 'Informe seu nome completo.',
-            'email.required' => 'Informe seu e-mail.',
-            'email.email' => 'Informe um e-mail válido.',
-        ]);
+            'email.required' => 'Informe seu e-mail particular.',
+            'email.email' => 'Informe um e-mail particular válido.',
+        ], DadosPessoais::mensagens()));
 
-        $associado->update($request->only('nome', 'email'));
+        $associado->update(array_merge($request->only('nome', 'email'), DadosPessoais::dados($request)));
 
         return redirect()->route('associado.dados')->with('sucesso', 'Dados atualizados.');
     }

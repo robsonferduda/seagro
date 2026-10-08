@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="form-group">
-                        <label>E-mail <span class="text-danger">*</span></label>
+                        <label>E-mail particular <span class="text-danger">*</span></label>
                         <input type="email" class="form-control" name="email" maxlength="255" required
                                value="{{ old('email', $associado->email) }}">
                         @error('email') <small class="text-danger">{{ $message }}</small> @enderror
@@ -36,8 +36,176 @@
 
             <p class="nf-hint mb-0">
                 <i class="fa fa-info-circle"></i>
-                O associado entra na Área do Associado usando o <strong>CPF</strong> e a senha. O e-mail recebe os links de criação e recuperação de senha.
+                O associado entra na Área do Associado usando o <strong>CPF</strong> e a senha. O e-mail particular recebe os links de criação e recuperação de senha.
             </p>
+        </div>
+
+        <div class="nf-panel">
+            <div class="nf-panel-title">Dados pessoais</div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Data de nascimento</label>
+                        <input type="date" class="form-control" name="dt_nascimento" max="{{ now()->subDay()->format('Y-m-d') }}"
+                               value="{{ old('dt_nascimento', optional($associado->dt_nascimento)->format('Y-m-d')) }}">
+                        @error('dt_nascimento') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Sexo</label>
+                        <select class="form-control" name="id_sexo">
+                            <option value="">Selecione...</option>
+                            @foreach($sexos as $sexo)
+                                <option value="{{ $sexo->id }}" {{ (string) old('id_sexo', $associado->id_sexo) === (string) $sexo->id ? 'selected' : '' }}>{{ $sexo->nome }}</option>
+                            @endforeach
+                        </select>
+                        @error('id_sexo') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group mb-0">
+                        <label>UF de naturalidade</label>
+                        <select class="form-control" name="uf_naturalidade" id="uf_naturalidade" data-uf-cidade="id_cidade_naturalidade">
+                            <option value="">UF</option>
+                            @foreach($ufs as $uf)
+                                <option value="{{ $uf->sigla }}" title="{{ $uf->nome }}" {{ $ufNaturalidade === $uf->sigla ? 'selected' : '' }}>{{ $uf->sigla }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group mb-0">
+                        <label>Naturalidade (cidade)</label>
+                        <select class="form-control" name="id_cidade_naturalidade" id="id_cidade_naturalidade" {{ $ufNaturalidade ? '' : 'disabled' }}>
+                            <option value="">{{ $ufNaturalidade ? 'Selecione...' : 'Selecione a UF' }}</option>
+                            @foreach($cidadesNaturalidade as $cidade)
+                                <option value="{{ $cidade->id }}" {{ (string) old('id_cidade_naturalidade', $associado->id_cidade_naturalidade) === (string) $cidade->id ? 'selected' : '' }}>{{ $cidade->nome }}</option>
+                            @endforeach
+                        </select>
+                        @error('id_cidade_naturalidade') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nf-panel">
+            <div class="nf-panel-title">Endereço residencial</div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>CEP</label>
+                        <input type="text" class="form-control" name="cep" id="cep" inputmode="numeric" placeholder="00000-000"
+                               value="{{ old('cep', $associado->cep) }}">
+                        <small class="text-muted d-block" id="cepStatus"></small>
+                        @error('cep') <small class="text-danger d-block">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label>Endereço</label>
+                        <input type="text" class="form-control" name="logradouro" id="logradouro" maxlength="255" placeholder="Rua, avenida..."
+                               value="{{ old('logradouro', $associado->logradouro) }}">
+                        @error('logradouro') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Número</label>
+                        <input type="text" class="form-control" name="numero" id="numero" maxlength="20"
+                               value="{{ old('numero', $associado->numero) }}">
+                        @error('numero') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Complemento</label>
+                        <input type="text" class="form-control" name="complemento" maxlength="100" placeholder="Apto, bloco..."
+                               value="{{ old('complemento', $associado->complemento) }}">
+                        @error('complemento') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label>Bairro</label>
+                        <input type="text" class="form-control" name="bairro" id="bairro" maxlength="100"
+                               value="{{ old('bairro', $associado->bairro) }}">
+                        @error('bairro') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group mb-0">
+                        <label>UF</label>
+                        <select class="form-control" name="uf_residencia" id="uf_residencia" data-uf-cidade="id_cidade">
+                            <option value="">UF</option>
+                            @foreach($ufs as $uf)
+                                <option value="{{ $uf->sigla }}" title="{{ $uf->nome }}" {{ $ufResidencia === $uf->sigla ? 'selected' : '' }}>{{ $uf->sigla }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group mb-0">
+                        <label>Cidade</label>
+                        <select class="form-control" name="id_cidade" id="id_cidade" {{ $ufResidencia ? '' : 'disabled' }}>
+                            <option value="">{{ $ufResidencia ? 'Selecione...' : 'Selecione a UF' }}</option>
+                            @foreach($cidadesResidencia as $cidade)
+                                <option value="{{ $cidade->id }}" {{ (string) old('id_cidade', $associado->id_cidade) === (string) $cidade->id ? 'selected' : '' }}>{{ $cidade->nome }}</option>
+                            @endforeach
+                        </select>
+                        @error('id_cidade') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nf-panel">
+            <div class="nf-panel-title">Contato</div>
+
+            <div class="form-group">
+                <label>E-mail de trabalho</label>
+                <input type="email" class="form-control" name="email_trabalho" maxlength="255"
+                       value="{{ old('email_trabalho', $associado->email_trabalho) }}">
+                @error('email_trabalho') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group mb-0">
+                        <label>Celular</label>
+                        <input type="text" class="form-control" name="telefone_celular" data-telefone inputmode="numeric" placeholder="(00) 00000-0000"
+                               value="{{ old('telefone_celular', $associado->telefone_celular) }}">
+                        @error('telefone_celular') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-0">
+                        <label>Telefone residencial</label>
+                        <input type="text" class="form-control" name="telefone_residencial" data-telefone inputmode="numeric" placeholder="(00) 0000-0000"
+                               value="{{ old('telefone_residencial', $associado->telefone_residencial) }}">
+                        @error('telefone_residencial') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group mb-0">
+                        <label>Telefone comercial</label>
+                        <input type="text" class="form-control" name="telefone_comercial" data-telefone inputmode="numeric" placeholder="(00) 0000-0000"
+                               value="{{ old('telefone_comercial', $associado->telefone_comercial) }}">
+                        @error('telefone_comercial') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="nf-panel">

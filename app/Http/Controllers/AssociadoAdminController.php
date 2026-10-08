@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Associado;
 use App\Support\Cpf;
+use App\Support\DadosPessoais;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,20 +45,22 @@ class AssociadoAdminController extends Controller
     {
         Session::put('url', 'associados');
 
-        return view('associado_admin/create', ['associado' => new Associado(['fl_ativo' => 1])]);
+        $associado = new Associado(['fl_ativo' => 1]);
+
+        return view('associado_admin/create', array_merge(compact('associado'), DadosPessoais::dadosFormulario($associado)));
     }
 
     public function store(Request $request)
     {
         $this->validar($request);
 
-        $associado = new Associado([
+        $associado = new Associado(array_merge([
             'cpf' => $request->cpf,
             'nome' => $request->nome,
             'email' => $request->email,
             'fl_ativo' => $request->boolean('fl_ativo'),
             'origem' => Associado::ORIGEM_GERCONT,
-        ]);
+        ], DadosPessoais::dados($request)));
 
         if ($request->filled('password')) {
             $associado->password = Hash::make($request->password);
@@ -77,9 +80,9 @@ class AssociadoAdminController extends Controller
     public function edit($id)
     {
         Session::put('url', 'associados');
-        $associado = Associado::findOrFail($id);
+        $associado = Associado::with(['cidade.uf', 'naturalidade.uf'])->findOrFail($id);
 
-        return view('associado_admin/edit', compact('associado'));
+        return view('associado_admin/edit', array_merge(compact('associado'), DadosPessoais::dadosFormulario($associado)));
     }
 
     public function update(Request $request, $id)
@@ -87,12 +90,12 @@ class AssociadoAdminController extends Controller
         $associado = Associado::findOrFail($id);
         $this->validar($request, $associado);
 
-        $associado->fill([
+        $associado->fill(array_merge([
             'cpf' => $request->cpf,
             'nome' => $request->nome,
             'email' => $request->email,
             'fl_ativo' => $request->boolean('fl_ativo'),
-        ]);
+        ], DadosPessoais::dados($request)));
 
         if ($request->filled('password')) {
             $associado->password = Hash::make($request->password);
@@ -172,13 +175,14 @@ class AssociadoAdminController extends Controller
     private function validar(Request $request, Associado $associado = null): void
     {
         $request->merge(['cpf' => Cpf::limpar($request->input('cpf'))]);
+        DadosPessoais::normalizar($request);
 
         $unico = Rule::unique('associado', 'cpf');
         if ($associado) {
             $unico->ignore($associado->id);
         }
 
-        $request->validate([
+        $request->validate(array_merge([
             'cpf' => ['required', 'digits:11', function ($atributo, $valor, $falha) {
                 if (!Cpf::valido($valor)) {
                     $falha('O CPF informado não é válido.');
@@ -187,15 +191,15 @@ class AssociadoAdminController extends Controller
             'nome' => 'required|string|min:5|max:255',
             'email' => 'required|email|max:255',
             'password' => 'nullable|string|min:8|max:100',
-        ], [
+        ], DadosPessoais::regras()), array_merge([
             'cpf.required' => 'Informe o CPF.',
             'cpf.digits' => 'O CPF deve ter 11 dígitos.',
             'cpf.unique' => 'Já existe um associado com este CPF.',
             'nome.required' => 'Informe o nome completo.',
             'nome.min' => 'Informe o nome completo.',
-            'email.required' => 'Informe o e-mail.',
-            'email.email' => 'Informe um e-mail válido.',
+            'email.required' => 'Informe o e-mail particular.',
+            'email.email' => 'Informe um e-mail particular válido.',
             'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
-        ]);
+        ], DadosPessoais::mensagens()));
     }
 }

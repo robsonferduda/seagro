@@ -35,6 +35,8 @@ Route::post('associado-admin/{id}/toggle-ativo','App\Http\Controllers\AssociadoA
 Route::post('associado-admin/{id}/enviar-acesso','App\Http\Controllers\AssociadoAdminController@enviarAcesso');
 Route::post('associado-admin/{id}/destroy','App\Http\Controllers\AssociadoAdminController@destroy');
 
+Route::get('cidades/{uf}','App\Http\Controllers\CidadeController@porUf')->where('uf', '[A-Za-z]{2}');
+
 Route::prefix('associado')->name('associado.')->group(function () {
     Route::get('/','App\Http\Controllers\AssociadoAreaController@index')->name('area');
     Route::get('meus-dados','App\Http\Controllers\AssociadoAreaController@meusDados')->name('dados');

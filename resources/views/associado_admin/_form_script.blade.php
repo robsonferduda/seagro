@@ -1,3 +1,4 @@
+@include('partials.dados_pessoais_script')
 <script>
 $(document).ready(function () {
     var $cpf = $('#cpf');

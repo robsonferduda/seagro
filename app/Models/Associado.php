@@ -3,13 +3,18 @@
 namespace App\Models;
 
 use App\Support\Cpf;
+use App\Support\ImagemCapa;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;
 
 class Associado extends Authenticatable
 {
     const ORIGEM_SITE = 'site';
     const ORIGEM_GERCONT = 'gercont';
+
+    const PASTA_FOTOS = 'app/associados/fotos';
+    const FOTO_LADO_MAX = 800;
 
     protected $table = 'associado';
 
@@ -107,6 +112,47 @@ class Associado extends Authenticatable
         $digitos = preg_replace('/\D/', '', (string) $valor);
 
         return $digitos === '' ? null : $digitos;
+    }
+
+    public static function pastaFotos(): string
+    {
+        return storage_path(self::PASTA_FOTOS);
+    }
+
+    public function caminhoFoto(): ?string
+    {
+        return $this->foto ? self::pastaFotos() . '/' . $this->foto : null;
+    }
+
+    public function temFoto(): bool
+    {
+        $caminho = $this->caminhoFoto();
+
+        return $caminho !== null && is_file($caminho);
+    }
+
+    public function salvarFoto(UploadedFile $arquivo): void
+    {
+        $anterior = $this->caminhoFoto();
+
+        $this->foto = ImagemCapa::salvar($arquivo, self::pastaFotos(), $this->id . '-' . time(), self::FOTO_LADO_MAX, self::FOTO_LADO_MAX);
+        $this->save();
+
+        if ($anterior && $anterior !== $this->caminhoFoto() && is_file($anterior)) {
+            @unlink($anterior);
+        }
+    }
+
+    public function removerFoto(): void
+    {
+        if ($this->temFoto()) {
+            @unlink($this->caminhoFoto());
+        }
+
+        if ($this->foto !== null) {
+            $this->foto = null;
+            $this->save();
+        }
     }
 
     public function cepFormatado(): string

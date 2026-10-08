@@ -16,7 +16,7 @@ class ImagemCapa
      *
      * @return string nome do arquivo gravado em $pasta
      */
-    public static function salvar(UploadedFile $arquivo, string $pasta, string $nomeBase): string
+    public static function salvar(UploadedFile $arquivo, string $pasta, string $nomeBase, int $larguraMax = self::LARGURA_MAX, int $alturaMax = self::ALTURA_MAX): string
     {
         if (!is_dir($pasta)) {
             mkdir($pasta, 0775, true);
@@ -25,7 +25,7 @@ class ImagemCapa
         $extensaoOriginal = strtolower($arquivo->getClientOriginalExtension() ?: $arquivo->extension());
 
         try {
-            $nome = self::otimizar($arquivo->getRealPath(), $pasta, $nomeBase, $extensaoOriginal);
+            $nome = self::otimizar($arquivo->getRealPath(), $pasta, $nomeBase, $extensaoOriginal, $larguraMax, $alturaMax);
             if ($nome !== null) {
                 return $nome;
             }
@@ -39,7 +39,7 @@ class ImagemCapa
         return $nome;
     }
 
-    private static function otimizar(string $origem, string $pasta, string $nomeBase, string $extensaoOriginal): ?string
+    private static function otimizar(string $origem, string $pasta, string $nomeBase, string $extensaoOriginal, int $larguraMax, int $alturaMax): ?string
     {
         if (!extension_loaded('gd')) {
             return null;
@@ -80,7 +80,7 @@ class ImagemCapa
             $altura = imagesy($imagem);
         }
 
-        $escala = min(1, self::LARGURA_MAX / $largura, self::ALTURA_MAX / $altura);
+        $escala = min(1, $larguraMax / $largura, $alturaMax / $altura);
         $novaLargura = max(1, (int) round($largura * $escala));
         $novaAltura = max(1, (int) round($altura * $escala));
 

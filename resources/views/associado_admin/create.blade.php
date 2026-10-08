@@ -18,7 +18,7 @@
 
     @include('layouts.mensagens')
 
-    <form method="POST" action="{{ url('associado-admin') }}" id="formAssociado" novalidate>
+    <form method="POST" action="{{ url('associado-admin') }}" id="formAssociado" enctype="multipart/form-data" novalidate>
         @csrf
         @include('associado_admin._form')
     </form>

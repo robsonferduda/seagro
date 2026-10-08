@@ -30,6 +30,7 @@ Route::get('gercont/associados','App\Http\Controllers\AssociadoAdminController@i
 Route::get('associado-admin/create','App\Http\Controllers\AssociadoAdminController@create');
 Route::post('associado-admin','App\Http\Controllers\AssociadoAdminController@store');
 Route::get('associado-admin/{id}/edit','App\Http\Controllers\AssociadoAdminController@edit');
+Route::get('associado-admin/{id}/foto','App\Http\Controllers\AssociadoAdminController@foto');
 Route::post('associado-admin/{id}','App\Http\Controllers\AssociadoAdminController@update');
 Route::post('associado-admin/{id}/toggle-ativo','App\Http\Controllers\AssociadoAdminController@toggleAtivo');
 Route::post('associado-admin/{id}/enviar-acesso','App\Http\Controllers\AssociadoAdminController@enviarAcesso');
@@ -41,6 +42,7 @@ Route::prefix('associado')->name('associado.')->group(function () {
     Route::get('/','App\Http\Controllers\AssociadoAreaController@index')->name('area');
     Route::get('meus-dados','App\Http\Controllers\AssociadoAreaController@meusDados')->name('dados');
     Route::post('meus-dados','App\Http\Controllers\AssociadoAreaController@atualizarDados')->name('dados.salvar');
+    Route::get('foto','App\Http\Controllers\AssociadoAreaController@foto')->name('foto');
     Route::post('alterar-senha','App\Http\Controllers\AssociadoAreaController@alterarSenha')->name('senha.alterar');
 
     Route::get('entrar','App\Http\Controllers\AssociadoAuthController@loginForm')->name('login');

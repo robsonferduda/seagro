@@ -67,6 +67,7 @@ class AssociadoAdminController extends Controller
         }
 
         $associado->save();
+        DadosPessoais::aplicarFoto($request, $associado);
 
         Flash::success('<i class="fa fa-check"></i> Associado <strong>' . e($associado->nome) . '</strong> cadastrado.');
 
@@ -103,10 +104,19 @@ class AssociadoAdminController extends Controller
         }
 
         $associado->save();
+        DadosPessoais::aplicarFoto($request, $associado);
 
         Flash::success('<i class="fa fa-check"></i> Dados de <strong>' . e($associado->nome) . '</strong> atualizados.');
 
         return redirect('associado-admin/' . $associado->id . '/edit');
+    }
+
+    public function foto($id)
+    {
+        $associado = Associado::findOrFail($id);
+        abort_unless($associado->temFoto(), 404);
+
+        return response()->file($associado->caminhoFoto(), ['Cache-Control' => 'private, max-age=604800']);
     }
 
     public function toggleAtivo($id)
@@ -145,6 +155,7 @@ class AssociadoAdminController extends Controller
         $nome = $associado->nome;
 
         DB::table('associado_senha_reset')->where('email', $associado->email)->delete();
+        $associado->removerFoto();
         $associado->delete();
 
         Flash::success('<i class="fa fa-trash"></i> Associado <strong>' . e($nome) . '</strong> excluído.');

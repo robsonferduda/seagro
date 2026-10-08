@@ -22,8 +22,29 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('associado.dados') }}" class="as-form" novalidate>
+                    <form method="POST" action="{{ route('associado.dados') }}" class="as-form" enctype="multipart/form-data" novalidate>
                         @csrf
+                        @php $temFoto = $associado->temFoto(); @endphp
+                        <div class="as-foto">
+                            <div class="as-foto-moldura">
+                                <img id="fotoPreview" alt="Sua foto" class="{{ $temFoto ? '' : 'd-none' }}"
+                                     src="{{ $temFoto ? route('associado.foto', ['v' => $associado->foto]) : '' }}">
+                                <span id="fotoVazia" class="{{ $temFoto ? 'd-none' : '' }}"><i class="bi bi-person"></i></span>
+                            </div>
+                            <div class="as-foto-campos">
+                                <label for="foto">Foto</label>
+                                <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg,image/png,image/webp" data-foto-preview>
+                                <small class="as-ajuda d-block">Foto de rosto, de frente, tipo 3x4. JPG, PNG ou WEBP, até 5MB.</small>
+                                <small class="d-block text-danger" id="fotoStatus"></small>
+                                @if($temFoto)
+                                    <div class="form-check mt-2">
+                                        <input class="form-check-input" type="checkbox" name="remover_foto" id="remover_foto" value="1">
+                                        <label class="form-check-label fw-normal" for="remover_foto">Remover foto atual</label>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="row g-3">
                             <div class="col-md-8">
                                 <label for="nome">Nome completo</label>

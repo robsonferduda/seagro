@@ -38,6 +38,15 @@
 .as-form small.as-ajuda { color: #8395a7; font-size: 0.78rem; }
 .as-form .form-select { border-radius: 8px; padding: 0.6rem 2.25rem 0.6rem 0.8rem; border-color: #d3dce6; }
 .as-form .form-select:focus { border-color: #336693; box-shadow: 0 0 0 0.2rem rgba(51, 102, 147, 0.15); }
+.as-foto { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid #e6ecf2; }
+.as-foto-moldura {
+    flex: 0 0 105px; height: 140px; border-radius: 10px; overflow: hidden;
+    background: #f3f6f9; border: 1px solid #d3dce6;
+    display: flex; align-items: center; justify-content: center;
+}
+.as-foto-moldura img { width: 100%; height: 100%; object-fit: cover; }
+.as-foto-moldura span { font-size: 3.25rem; color: #b8c6d4; }
+.as-foto-campos { flex: 1 1 260px; }
 .as-subtitulo {
     color: #154166; font-size: 0.95rem; font-weight: 700;
     margin: 1.75rem 0 0.9rem; padding-top: 1.25rem; border-top: 1px solid #e6ecf2;

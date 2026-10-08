@@ -31,6 +31,58 @@ document.addEventListener('DOMContentLoaded', function () {
         mascarar(campo, formatarTelefone);
     });
 
+    var foto = document.querySelector('input[data-foto-preview]');
+    if (foto) {
+        var fotoPreview = document.getElementById('fotoPreview');
+        var fotoVazia = document.getElementById('fotoVazia');
+        var fotoStatus = document.getElementById('fotoStatus');
+        var fotoSrcOriginal = fotoPreview.getAttribute('src');
+        var caixa = foto.closest('.nf-file');
+        var nome = caixa ? caixa.querySelector('.nf-file-nome') : null;
+        var nomePadrao = nome ? nome.textContent : '';
+        var removerFoto = document.getElementById('remover_foto');
+
+        var mostrarFoto = function (src) {
+            fotoPreview.src = src || '';
+            fotoPreview.classList.toggle('d-none', !src);
+            fotoVazia.classList.toggle('d-none', !!src);
+        };
+
+        foto.addEventListener('change', function () {
+            var arquivo = foto.files && foto.files[0];
+            fotoStatus.textContent = '';
+
+            if (arquivo && arquivo.size > 5 * 1024 * 1024) {
+                fotoStatus.textContent = 'A foto pode ter no máximo 5MB.';
+                foto.value = '';
+                arquivo = null;
+            }
+
+            if (caixa) caixa.classList.toggle('selecionado', !!arquivo);
+            if (nome) nome.textContent = arquivo ? arquivo.name : nomePadrao;
+
+            if (!arquivo) {
+                mostrarFoto(removerFoto && removerFoto.checked ? '' : fotoSrcOriginal);
+                return;
+            }
+
+            if (removerFoto) removerFoto.checked = false;
+            var leitor = new FileReader();
+            leitor.onload = function (e) { mostrarFoto(e.target.result); };
+            leitor.readAsDataURL(arquivo);
+        });
+
+        if (removerFoto) {
+            removerFoto.addEventListener('change', function () {
+                if (removerFoto.checked) {
+                    foto.value = '';
+                    foto.dispatchEvent(new Event('change'));
+                }
+                mostrarFoto(removerFoto.checked ? '' : fotoSrcOriginal);
+            });
+        }
+    }
+
     function carregarCidades(ufSelect, cidadeSelect, selecionar) {
         var uf = ufSelect.value;
         cidadeSelect.innerHTML = '';

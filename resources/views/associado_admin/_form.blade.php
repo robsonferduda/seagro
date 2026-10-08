@@ -1,5 +1,6 @@
 @php
     $editando = $associado->exists;
+    $temFoto = $editando && $associado->temFoto();
 @endphp
 
 <div class="row align-items-start">
@@ -251,6 +252,34 @@
     </div>
 
     <div class="col-lg-4">
+        <div class="nf-panel nf-panel-side">
+            <div class="nf-panel-title">Foto</div>
+
+            <div class="nf-foto-moldura">
+                <img id="fotoPreview" alt="Foto do associado" class="{{ $temFoto ? '' : 'd-none' }}"
+                     src="{{ $temFoto ? url('associado-admin/' . $associado->id . '/foto?v=' . urlencode($associado->foto)) : '' }}">
+                <span id="fotoVazia" class="{{ $temFoto ? 'd-none' : '' }}"><i class="fa fa-user"></i></span>
+            </div>
+
+            <label class="nf-file mb-0" for="foto">
+                <span class="nf-file-icone"><i class="fa fa-camera"></i></span>
+                <span class="nf-file-texto">
+                    <strong>{{ $temFoto ? 'Substituir foto' : 'Enviar foto' }}</strong>
+                    <span class="nf-file-nome">Clique para selecionar</span>
+                    <small>Rosto, tipo 3x4 · JPG, PNG ou WEBP · até 5MB</small>
+                </span>
+                <input type="file" name="foto" id="foto" class="nf-file-input" accept="image/jpeg,image/png,image/webp" data-foto-preview>
+            </label>
+            <small class="text-danger d-block" id="fotoStatus"></small>
+            @error('foto') <small class="text-danger d-block">{{ $message }}</small> @enderror
+
+            @if($temFoto)
+                <label class="nf-check mt-2 mb-0">
+                    <input type="checkbox" name="remover_foto" id="remover_foto" value="1"> Remover foto atual
+                </label>
+            @endif
+        </div>
+
         <div class="nf-panel nf-panel-side">
             <div class="nf-panel-title">Acesso</div>
 

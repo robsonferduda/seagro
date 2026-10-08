@@ -58,6 +58,7 @@ class DadosPessoais
             'telefone_residencial' => 'nullable|digits_between:10,11',
             'telefone_celular' => 'nullable|digits:11',
             'telefone_comercial' => 'nullable|digits_between:10,11',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
         ];
     }
 
@@ -79,7 +80,20 @@ class DadosPessoais
             'telefone_residencial.digits_between' => 'Informe o telefone residencial com DDD.',
             'telefone_celular.digits' => 'Informe o celular com DDD e 9 dígitos.',
             'telefone_comercial.digits_between' => 'Informe o telefone comercial com DDD.',
+            'foto.uploaded' => 'Não foi possível enviar a foto. Tente uma imagem menor.',
+            'foto.image' => 'A foto deve ser uma imagem.',
+            'foto.mimes' => 'A foto deve estar em JPG, PNG ou WEBP.',
+            'foto.max' => 'A foto pode ter no máximo 5MB.',
         ];
+    }
+
+    public static function aplicarFoto(Request $request, Associado $associado): void
+    {
+        if ($request->hasFile('foto')) {
+            $associado->salvarFoto($request->file('foto'));
+        } elseif ($request->boolean('remover_foto')) {
+            $associado->removerFoto();
+        }
     }
 
     /**

@@ -124,5 +124,20 @@
 .noticia-form .nf-file-texto strong { font-size: 0.85rem; color: #284866; }
 .noticia-form .nf-file-nome { font-size: 0.8rem; color: #336693; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .noticia-form .nf-file-texto small { font-size: 0.72rem; color: #6b7c8f; font-weight: 400; }
+.noticia-form .nf-foto-moldura {
+    width: 120px;
+    height: 160px;
+    margin: 0 auto 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--nf-border);
+    background: var(--nf-bg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.noticia-form .nf-foto-moldura img { width: 100%; height: 100%; object-fit: cover; }
+.noticia-form .nf-foto-moldura span { font-size: 3.5rem; color: #c5d3e0; }
+.noticia-form .nf-check { display: flex; align-items: center; gap: 0.4rem; font-weight: 400; color: var(--nf-muted); font-size: 0.8rem; cursor: pointer; }
 .noticia-form .nf-file-atual { display: inline-block; font-size: 0.75rem; color: #6b7c8f; margin-bottom: 0.5rem; word-break: break-all; }
 </style>

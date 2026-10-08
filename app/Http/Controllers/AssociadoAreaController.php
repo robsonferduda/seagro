@@ -62,8 +62,17 @@ class AssociadoAreaController extends Controller
         ], DadosPessoais::mensagens()));
 
         $associado->update(array_merge($request->only('nome', 'email'), DadosPessoais::dados($request)));
+        DadosPessoais::aplicarFoto($request, $associado);
 
         return redirect()->route('associado.dados')->with('sucesso', 'Dados atualizados.');
+    }
+
+    public function foto()
+    {
+        $associado = Auth::guard('associado')->user();
+        abort_unless($associado->temFoto(), 404);
+
+        return response()->file($associado->caminhoFoto(), ['Cache-Control' => 'private, max-age=604800']);
     }
 
     public function alterarSenha(Request $request)

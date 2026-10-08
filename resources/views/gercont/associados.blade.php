@@ -75,7 +75,13 @@
                          data-senha="{{ $associado->temSenha() ? 1 : 0 }}"
                          data-criacao="{{ $associado->created_at ? $associado->created_at->timestamp : 0 }}"
                          data-acesso="{{ $associado->dt_ultimo_acesso ? $associado->dt_ultimo_acesso->timestamp : 0 }}">
-                        <div class="asc-avatar">{{ $iniciais }}</div>
+                        <div class="asc-avatar">
+                            @if($associado->temFoto())
+                                <img src="{{ url('associado-admin/' . $associado->id . '/foto?v=' . urlencode($associado->foto)) }}" alt="" loading="lazy">
+                            @else
+                                {{ $iniciais }}
+                            @endif
+                        </div>
 
                         <div class="asc-info">
                             <a href="{{ url('associado-admin/' . $associado->id . '/edit') }}" class="asc-nome">{{ $associado->nome }}</a>
@@ -225,7 +231,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
+.asc-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .asc-item.is-bloqueado .asc-avatar { background: #fdecec; color: #c0392b; }
 .asc-info { flex: 1 1 auto; min-width: 0; }
 .asc-nome {

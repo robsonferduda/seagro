@@ -293,11 +293,7 @@ class ConteudoController extends Controller
 
     public function menus()
     {
-        Session::put('url', 'menus');
-
-        $menus = array();
-
-        return view('gercont/menus', compact('menus'));
+        return redirect('gercont/menus');
     }
 
     public function noticias(Request $request)

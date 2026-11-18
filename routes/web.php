@@ -24,8 +24,15 @@ Route::get('gercont/eventos','App\Http\Controllers\ConteudoController@eventos');
 Route::get('gercont/oportunidades','App\Http\Controllers\OportunidadeController@lista');
 Route::get('gercont/publicacoes','App\Http\Controllers\PublicacaoController@lista');
 Route::get('gercont/galeria','App\Http\Controllers\GaleriaController@index');
-Route::get('gercont/menus','App\Http\Controllers\ConteudoController@menus');
+Route::get('gercont/menus','App\Http\Controllers\MenuAdminController@index');
 Route::get('gercont/associados','App\Http\Controllers\AssociadoAdminController@index');
+
+Route::get('menu-admin/create','App\Http\Controllers\MenuAdminController@create');
+Route::post('menu-admin','App\Http\Controllers\MenuAdminController@store');
+Route::get('menu-admin/{id}/edit','App\Http\Controllers\MenuAdminController@edit');
+Route::post('menu-admin/{id}','App\Http\Controllers\MenuAdminController@update');
+Route::get('menu-admin/{id}/toggle-ativo','App\Http\Controllers\MenuAdminController@toggleAtivo');
+Route::post('menu-admin/{id}/destroy','App\Http\Controllers\MenuAdminController@destroy');
 
 Route::get('associado-admin/create','App\Http\Controllers\AssociadoAdminController@create');
 Route::post('associado-admin','App\Http\Controllers\AssociadoAdminController@store');
